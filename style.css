@@ -54,7 +54,7 @@ img.logo {
 }
 
 form {
-    background: #78e4e6;
+    background: #2dafa1; /* Updated frame color */
     padding: 20px;
     border-radius: 10px;
     max-width: 400px;
@@ -63,12 +63,13 @@ form {
 }
 
 input, textarea {
-    width: 100%;
+    width: 90%; /* Adjusted width to fit inside the frame */
     padding: 10px;
-    margin: 5px 0;
-    border: 1px solid #2dafa1;
+    margin: 10px auto; /* Centers the boxes */
+    border: 1px solid #78e4e6; /* Light border */
     border-radius: 5px;
     font-family: 'Poppins', sans-serif;
+    display: block; /* Ensures proper centering */
 }
 
 button {
@@ -79,8 +80,10 @@ button {
     font-size: 16px;
     cursor: pointer;
     border-radius: 5px;
+    margin-top: 10px;
 }
 
 button:hover {
-    background-color: #2dafa1;
+    background-color: #146f77;
 }
+
