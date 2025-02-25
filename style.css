@@ -12,6 +12,7 @@ h1 {
     color: #146f77; /* Dark teal */
     font-size: 32px;
     font-weight: 600;
+    text-align: center;
 }
 
 h2 {
@@ -19,19 +20,20 @@ h2 {
     font-size: 24px;
     font-weight: 400;
     margin-top: 20px;
+    text-align: center;
 }
 
 p, li {
     font-size: 18px;
     color: #237778; /* Deep sea green */
-    text-align: left;
+    text-align: center;
     max-width: 700px;
     margin: 0 auto;
     line-height: 1.6;
 }
 
 ul, ol {
-    text-align: left;
+    text-align: center;
     max-width: 700px;
     margin: 0 auto;
 }
