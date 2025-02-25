@@ -75,7 +75,7 @@ input, textarea {
     border-radius: 5px;
     font-size: 16px;
     background: #fffee1; /* Match website background */
-    color: black; /* Text color */
+    color: #fffee1; /* Text color */
     display: block; /* Ensure proper centering */
 }
 
