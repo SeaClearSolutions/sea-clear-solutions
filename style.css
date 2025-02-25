@@ -64,7 +64,7 @@ form {
 
 form * {
     font-family: 'Poppins', sans-serif; /* Ensure all form elements use Poppins */
-    color: black; /* Match website text color */
+    color: #fffee1; /* Match website text color */
 }
 
 input, textarea {
