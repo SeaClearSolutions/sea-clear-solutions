@@ -54,7 +54,7 @@ img.logo {
 }
 
 form {
-    background: #2dafa1; /* Updated frame color */
+    background: #2dafa1; /* Frame color */
     padding: 20px;
     border-radius: 10px;
     max-width: 400px;
@@ -62,14 +62,26 @@ form {
     text-align: center;
 }
 
+form * {
+    font-family: 'Poppins', sans-serif; /* Ensure all form elements use Poppins */
+    color: black; /* Match website text color */
+}
+
 input, textarea {
-    width: 90%; /* Adjusted width to fit inside the frame */
+    width: 90%; /* Keep it within the frame */
     padding: 10px;
-    margin: 10px auto; /* Centers the boxes */
+    margin: 10px auto; /* Center elements */
     border: 1px solid #78e4e6; /* Light border */
     border-radius: 5px;
-    font-family: 'Poppins', sans-serif;
-    display: block; /* Ensures proper centering */
+    font-size: 16px;
+    background: #fffee1; /* Match website background */
+    color: black; /* Text color */
+    display: block; /* Ensure proper centering */
+}
+
+input::placeholder, textarea::placeholder {
+    color: #237778; /* Match site text */
+    opacity: 0.8;
 }
 
 button {
@@ -86,4 +98,5 @@ button {
 button:hover {
     background-color: #146f77;
 }
+
 
