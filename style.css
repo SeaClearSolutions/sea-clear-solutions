@@ -38,17 +38,3 @@ img {
     border-radius: 10px;
     margin: 20px 0;
 }
-Click "Commit changes."
-Step 2: Fix Your Font (TT Drugs)
-Unfortunately, TT Drugs is a paid font, so you’ll need to upload it manually if you own it. If you don’t, I can suggest a free alternative.
-If you have the TT Drugs font file (.ttf or .woff), upload it to your GitHub repo.
-Update style.css to include:
-css
-Copy
-Edit
-@font-face {
-    font-family: 'TT Drugs';
-    src: url('TTDrugs.woff2') format('woff2'),
-         url('TTDrugs.woff') format('woff'),
-         url('TTDrugs.ttf') format('truetype');
-}
