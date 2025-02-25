@@ -36,6 +36,7 @@ button:hover {
 }
 
 img {
+    border: none;
     max-width: 100%;
     height: auto;
     border-radius: 10px;
@@ -43,6 +44,7 @@ img {
 }
 
 img.logo {
+    border: none;
     display: block;
     margin: 0 auto;
     max-width: 250px;
