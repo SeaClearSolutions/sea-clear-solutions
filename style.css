@@ -38,7 +38,6 @@ button:hover {
 img {
     max-width: 100%;
     height: auto;
-    border: 3px solid #f3ea34; /* Yellow border */
     border-radius: 10px;
     margin: 20px 0;
 }
