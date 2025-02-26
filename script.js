@@ -2,6 +2,18 @@ document.addEventListener("DOMContentLoaded", () => {
     const cartItems = [];
     const cartList = document.getElementById("cart-items");
     const totalPriceElement = document.getElementById("total-price");
+    const cartSidebar = document.getElementById("cart-sidebar");
+    const openCartBtn = document.getElementById("open-cart");
+    const closeCartBtn = document.getElementById("close-cart");
+
+    // Open/Close Cart Sidebar
+    openCartBtn.addEventListener("click", () => {
+        cartSidebar.classList.add("open");
+    });
+
+    closeCartBtn.addEventListener("click", () => {
+        cartSidebar.classList.remove("open");
+    });
 
     function updateCart() {
         cartList.innerHTML = "";
@@ -11,7 +23,7 @@ document.addEventListener("DOMContentLoaded", () => {
             const li = document.createElement("li");
             li.innerHTML = `${item.name} - ${item.quantity} x ${item.price.toLocaleString()} IDR `;
 
-            // Create "Remove" button
+            // Remove button
             const removeBtn = document.createElement("button");
             removeBtn.textContent = "Remove";
             removeBtn.classList.add("remove-from-cart");
@@ -45,6 +57,7 @@ document.addEventListener("DOMContentLoaded", () => {
             }
 
             updateCart();
+            cartSidebar.classList.add("open"); // Open cart when item is added
         });
     });
 
