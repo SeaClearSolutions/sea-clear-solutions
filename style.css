@@ -1,76 +1,74 @@
-@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap');
+.home-sections {
+    display: flex;
+    flex-direction: column; /* Stack images vertically */
+    align-items: center;
+    gap: 20px;
+    padding: 40px 0;
+}
 
-body {
-    font-family: 'Poppins', sans-serif;
-    background-color: #fffee1; /* Light cream background */
+.home-item {
+    position: relative;
+    width: 350px;
+    height: 250px;
+    overflow: hidden;
+    border-radius: 10px;
+    box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.home-item img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 0.3s ease-in-out;
+}
+
+.title {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    font-size: 22px;
+    font-weight: 600;
+    color: #fffee1;
+    background: rgba(45, 175, 161, 0.8);
+    padding: 10px 20px;
+    border-radius: 8px;
+    text-align: center;
+    width: 80%;
+    transition: opacity 0.3s ease-in-out;
+}
+
+.overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(45, 175, 161, 0.9);
+    color: #fffee1;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
     text-align: center;
     padding: 20px;
-    color: black;
+    opacity: 0;
+    transition: opacity 0.3s ease-in-out;
 }
 
-h1 {
-    color: #146f77; /* Dark teal */
-    font-size: 32px;
-    font-weight: 600;
-}
-
-h2 {
-    color: #237778; /* Deep sea green */
-    font-size: 24px;
-    font-weight: 400;
-    margin-top: 20px;
-}
-
-p, li {
-    font-size: 18px;
-    color: #237778;
-    max-width: 700px;
-    margin: 0 auto;
-    line-height: 1.6;
-}
-
-ul, ol {
-    max-width: 700px;
-    margin: 0 auto;
-}
-
-img.logo {
-    display: block;
-    margin: 0 auto;
-    max-width: 250px;
-}
-
-form {
-    background: #2dafa1;
-    padding: 20px;
-    border-radius: 10px;
-    max-width: 400px;
-    margin: 20px auto;
-}
-
-form * {
-    font-family: 'Poppins', sans-serif;
-    color: #fffee1;
-}
-
-input, textarea {
-    width: 90%;
-    padding: 10px;
-    margin: 10px auto;
-    border: 1px solid #78e4e6;
-    border-radius: 5px;
+.overlay p {
     font-size: 16px;
-    background: #fffee1;
-    color: #237778;
-    display: block;
+    margin-bottom: 5px;
 }
 
-input::placeholder, textarea::placeholder {
-    color: #237778;
-    opacity: 0.8;
+.home-item:hover img {
+    transform: scale(1.1);
 }
 
-button {
-    background-color: #34b2ae;
-    color: white;
-    border: none;
+.home-item:hover .overlay {
+    opacity: 1;
+}
+
+.home-item:hover .title {
+    opacity: 0;
+}
