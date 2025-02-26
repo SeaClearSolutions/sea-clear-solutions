@@ -333,3 +333,9 @@ footer {
 .overlay {
     padding: 15px;
 }
+
+.text-container {
+    max-width: 100%; /* Adjust this based on the actual image width */
+    margin: 0 auto; /* Center the text */
+    text-align: center;
+}
