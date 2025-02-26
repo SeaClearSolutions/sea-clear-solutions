@@ -90,6 +90,7 @@ nav {
     background-color: #2dafa1;
     padding: 15px;
     display: flex;
+    justify-content: space-between; /* Ensures proper spacing */
     align-items: center;
 }
 
