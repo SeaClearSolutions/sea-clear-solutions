@@ -90,7 +90,7 @@ nav {
     background-color: #2dafa1;
     padding: 15px;
     display: flex;
-    justify-content: space-between; /* Ensures proper spacing */
+    justify-content: space-between;
     align-items: center;
 }
 
@@ -99,15 +99,16 @@ nav ul {
     margin: 0;
     padding: 0;
     display: flex;
-    width: 100%;
+    flex-grow: 1;
+    justify-content: flex-start; /* Align other items to the left */
 }
 
 nav ul li {
     margin: 0 15px;
 }
 
-.contact {
-    margin-left: auto; /* Pushes "Contact Us" to the right */
+nav ul li.contact {
+    margin-left: auto; /* Push Contact Us all the way to the right */
 }
 
 nav ul li a {
