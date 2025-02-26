@@ -1,23 +1,30 @@
 document.addEventListener("DOMContentLoaded", () => {
-    const cartButton = document.getElementById("cart");
-    const cartSidebar = document.getElementById("cartSidebar");
-    const closeCartButton = document.getElementById("closeCart");
-    const cartItemsContainer = document.getElementById("cartItems");
+    const openCartButton = document.getElementById("open-cart");
+    const closeCartButton = document.getElementById("close-cart");
+    const cartSidebar = document.getElementById("cart-sidebar");
+    const cartItemsContainer = document.getElementById("cart-items");
+    const totalPriceElement = document.getElementById("total-price");
 
     let cartItems = [];
 
     function updateCartUI() {
         cartItemsContainer.innerHTML = "";
+        let total = 0;
+
         cartItems.forEach((item, index) => {
-            const itemElement = document.createElement("div");
-            itemElement.classList.add("cart-item");
+            total += item.price;
+
+            const itemElement = document.createElement("li");
             itemElement.innerHTML = `
-                <span>${item.name} - ${item.price} IDR</span>
+                ${item.name} - ${item.price.toLocaleString()} IDR
                 <button class="remove-item" data-index="${index}">×</button>
             `;
             cartItemsContainer.appendChild(itemElement);
         });
 
+        totalPriceElement.textContent = `Total: ${total.toLocaleString()} IDR`;
+
+        // Add event listeners for remove buttons
         document.querySelectorAll(".remove-item").forEach(button => {
             button.addEventListener("click", (e) => {
                 const index = e.target.getAttribute("data-index");
@@ -28,48 +35,17 @@ document.addEventListener("DOMContentLoaded", () => {
     }
 
     function openCart() {
-        console.log("Opening cart..."); // Debugging
         cartSidebar.classList.add("open"); // Show sidebar
     }
 
     function closeCart() {
-        console.log("Closing cart..."); // Debugging
         cartSidebar.classList.remove("open"); // Hide sidebar
     }
 
     document.querySelectorAll(".add-to-cart").forEach(button => {
         button.addEventListener("click", (e) => {
-            console.log("Adding to cart..."); // Debugging
+            const productName = e.target.getAttribute("data-name");
+            const productPrice = parseInt(e.target.getAttribute("data-price"));
 
-            const productElement = e.target.closest(".product");
-            if (!productElement) {
-                console.error("Product element not found!");
-                return;
-            }
-
-            const productName = productElement.querySelector(".product-name")?.innerText;
-            const productPrice = productElement.querySelector(".product-price")?.innerText;
-
-            if (!productName || !productPrice) {
-                console.error("Product name or price not found!");
-                return;
-            }
-
-            cartItems.push({ name: productName, price: productPrice });
-            updateCartUI();
-            openCart();
-        });
-    });
-
-    if (cartButton) {
-        cartButton.addEventListener("click", openCart);
-    } else {
-        console.error("Cart button not found!");
-    }
-
-    if (closeCartButton) {
-        closeCartButton.addEventListener("click", closeCart);
-    } else {
-        console.error("Close cart button not found!");
-    }
-});
+            if (!productName || isNaN(productPrice)) {
+                console.error("Error: Pr
