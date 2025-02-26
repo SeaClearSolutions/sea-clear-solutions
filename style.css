@@ -313,3 +313,7 @@ footer {
     justify-content: center;
     text-align: center;
 }
+
+.overlay div {
+    width: 100%;
+}
