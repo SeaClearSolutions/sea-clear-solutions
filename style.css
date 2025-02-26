@@ -317,3 +317,8 @@ footer {
 .overlay div {
     width: 100%;
 }
+
+.overlay {
+    display: flex;
+    flex-wrap: wrap;
+}
