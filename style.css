@@ -149,3 +149,15 @@ nav ul li a:hover {
 .contact-page a:hover {
     text-decoration: underline;
 }
+
+footer {
+    text-align: center;
+    padding: 20px;
+    margin-top: 40px;
+}
+
+.footer-logo {
+    max-width: 200px; /* Adjust size */
+    display: block;
+    margin: 0 auto;
+}
