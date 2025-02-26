@@ -1,67 +1,73 @@
 import { useState } from "react";
-import { FaShoppingCart } from "react-icons/fa";
+import { ShoppingCart } from "lucide-react";
 
-export default function Shop() {
+export default function ShopPage() {
   const [cart, setCart] = useState([]);
   const [isCartOpen, setIsCartOpen] = useState(false);
 
   const addToCart = (product) => {
     setCart([...cart, product]);
-    setIsCartOpen(true); // Open sidebar when item is added
+    setIsCartOpen(true); // Open the sidebar when an item is added
   };
 
   const removeFromCart = (index) => {
-    const newCart = [...cart];
-    newCart.splice(index, 1);
-    setCart(newCart);
-  };
-
-  const toggleCart = () => {
-    setIsCartOpen(!isCartOpen);
+    setCart(cart.filter((_, i) => i !== index));
   };
 
   return (
-    <div className="relative">
-      {/* Cart Button */}
-      <button
-        className="fixed top-4 right-4 bg-[#237778] text-[#fffee1] p-2 rounded-full shadow-lg"
-        onClick={toggleCart}
-      >
-        <FaShoppingCart size={24} />
-      </button>
+    <div className="relative min-h-screen bg-[#fffee1]">
+      {/* Navigation Bar */}
+      <nav className="bg-[#2dafa1] p-4 flex justify-between items-center">
+        <div className="flex space-x-4">
+          <button className="border px-4 py-2 rounded-lg text-[#fffee1]">Shop</button>
+          <button className="border px-4 py-2 rounded-lg text-[#fffee1]">About Us</button>
+        </div>
+        <button
+          className="text-[#fffee1] p-2"
+          onClick={() => setIsCartOpen(!isCartOpen)}
+        >
+          <ShoppingCart size={24} />
+        </button>
+      </nav>
 
-      {/* Cart Sidebar */}
+      {/* Sidebar Cart */}
       <div
-        className={`fixed top-0 right-0 w-64 h-full bg-[#fffee1] shadow-lg p-4 transform transition-transform ${
+        className={`fixed top-0 right-0 h-full w-80 bg-[#78e4e6] shadow-lg transform transition-transform duration-300 ${
           isCartOpen ? "translate-x-0" : "translate-x-full"
         }`}
       >
-        <button
-          className="absolute top-2 right-2 bg-[#237778] text-[#fffee1] p-2 rounded"
-          onClick={toggleCart}
-        >
-          ×
-        </button>
-        <h2 className="text-lg font-semibold mb-4">Shopping Cart</h2>
-        {cart.map((item, index) => (
-          <div key={index} className="flex justify-between items-center mb-2">
-            <span>{item.name} - {item.price} IDR</span>
-            <button
-              className="bg-[#237778] text-[#fffee1] p-1 rounded"
-              onClick={() => removeFromCart(index)}
-            >
-              ×
-            </button>
-          </div>
-        ))}
+        <div className="p-4">
+          <button
+            className="mb-4 bg-[#2dafa1] text-white p-2 rounded"
+            onClick={() => setIsCartOpen(false)}
+          >
+            ×
+          </button>
+          <h2 className="text-xl font-semibold">Shopping Cart</h2>
+          {cart.length === 0 ? (
+            <p className="text-gray-600">Your cart is empty.</p>
+          ) : (
+            cart.map((item, index) => (
+              <div key={index} className="flex justify-between items-center p-2 border-b">
+                <span>{item.name} - {item.price} IDR</span>
+                <button
+                  className="bg-[#2dafa1] text-white p-1 rounded"
+                  onClick={() => removeFromCart(index)}
+                >
+                  ×
+                </button>
+              </div>
+            ))
+          )}
+        </div>
       </div>
 
-      {/* Shop Items */}
+      {/* Shop Section */}
       <div className="p-8">
-        <h1 className="text-2xl font-bold mb-4">Shop</h1>
-        <div>
+        <h1 className="text-2xl font-bold text-[#237778]">Shop</h1>
+        <div className="mt-4">
           <button
-            className="bg-[#237778] text-[#fffee1] p-2 rounded"
+            className="bg-[#2dafa1] text-white px-4 py-2 rounded"
             onClick={() => addToCart({ name: "Sea Clear - 100ml", price: 268500 })}
           >
             Add to Cart
