@@ -88,9 +88,8 @@ button:hover {
 /* Navigation Bar */
 nav {
     background-color: #2dafa1;
-    padding: 15px;
+    padding: 15px 40px; /* Adds some padding on the sides */
     display: flex;
-    justify-content: space-between; /* Ensures left & right alignment */
     align-items: center;
 }
 
@@ -99,20 +98,38 @@ nav ul {
     margin: 0;
     padding: 0;
     display: flex;
-    width: 100%; /* Ensures full width for spacing */
 }
 
 nav ul.left {
-    display: flex;
-    gap: 15px; /* Adds spacing between buttons */
+    gap: 20px; /* Spacing between Home, Shop, About Us */
 }
 
 nav ul.right {
-    margin-left: auto; /* Pushes "Contact Us" to the right */
+    margin-left: auto; /* Pushes Contact Us to the right */
+}
+
+nav ul li {
+    display: flex;
 }
 
 nav ul li a {
-    font-family: 'Poppins', sans-serif
+    font-family: 'Poppins', sans-serif;
+    color: #fffee1;
+    text-decoration: none;
+    font-size: 18px;
+    font-weight: 600;
+    padding: 10px 20px;
+    border: 2px solid #fffee1;
+    border-radius: 10px;
+    transition: 0.3s ease-in-out;
+    text-align: center;
+}
+
+nav ul li a:hover {
+    background-color: #34b2ae;
+    color: white;
+}
+
 
 
 /* Contact Page Styling */
