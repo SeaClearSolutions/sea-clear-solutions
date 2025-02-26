@@ -114,6 +114,11 @@ nav ul {
     flex-grow: 1; /* Ensures spacing works */
 }
 
+nav ul {
+    width: 100%;
+    justify-content: flex-start;
+}
+
 nav ul li {
     margin: 0 15px;
 }
