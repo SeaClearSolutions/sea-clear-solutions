@@ -1,5 +1,5 @@
 document.addEventListener("DOMContentLoaded", () => {
-    const cart = document.getElementById("cart");
+    const cartButton = document.getElementById("cart");
     const cartSidebar = document.getElementById("cartSidebar");
     const closeCartButton = document.getElementById("closeCart");
     const cartItemsContainer = document.getElementById("cartItems");
@@ -18,7 +18,6 @@ document.addEventListener("DOMContentLoaded", () => {
             cartItemsContainer.appendChild(itemElement);
         });
 
-        // Add event listeners for remove buttons
         document.querySelectorAll(".remove-item").forEach(button => {
             button.addEventListener("click", (e) => {
                 const index = e.target.getAttribute("data-index");
@@ -29,25 +28,48 @@ document.addEventListener("DOMContentLoaded", () => {
     }
 
     function openCart() {
+        console.log("Opening cart..."); // Debugging
         cartSidebar.classList.add("open"); // Show sidebar
     }
 
     function closeCart() {
+        console.log("Closing cart..."); // Debugging
         cartSidebar.classList.remove("open"); // Hide sidebar
     }
 
     document.querySelectorAll(".add-to-cart").forEach(button => {
         button.addEventListener("click", (e) => {
+            console.log("Adding to cart..."); // Debugging
+
             const productElement = e.target.closest(".product");
-            const productName = productElement.querySelector(".product-name").innerText;
-            const productPrice = productElement.querySelector(".product-price").innerText;
+            if (!productElement) {
+                console.error("Product element not found!");
+                return;
+            }
+
+            const productName = productElement.querySelector(".product-name")?.innerText;
+            const productPrice = productElement.querySelector(".product-price")?.innerText;
+
+            if (!productName || !productPrice) {
+                console.error("Product name or price not found!");
+                return;
+            }
 
             cartItems.push({ name: productName, price: productPrice });
             updateCartUI();
-            openCart(); // Automatically open sidebar
+            openCart();
         });
     });
 
-    cart.addEventListener("click", openCart);
-    closeCartButton.addEventListener("click", closeCart);
+    if (cartButton) {
+        cartButton.addEventListener("click", openCart);
+    } else {
+        console.error("Cart button not found!");
+    }
+
+    if (closeCartButton) {
+        closeCartButton.addEventListener("click", closeCart);
+    } else {
+        console.error("Close cart button not found!");
+    }
 });
