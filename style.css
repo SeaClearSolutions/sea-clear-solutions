@@ -307,3 +307,9 @@ footer {
 .overlay h2 {
     color: #fffee1; /* Creamy color */
 }
+.overlay {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+}
