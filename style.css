@@ -88,10 +88,10 @@ button:hover {
 /* Navigation Bar */
 nav {
     background-color: #2dafa1;
-    padding: 10px 40px; /* Reduced padding to make it thinner */
+    padding: 8px 40px; /* Reduced padding for thinner navbar */
     display: flex;
     align-items: center;
-    height: 50px; /* Adjust height if needed */
+    height: 45px; /* Adjusted height */
 }
 
 /* Navigation List */
@@ -100,27 +100,37 @@ nav ul {
     margin: 0;
     padding: 0;
     display: flex;
+    align-items: center;
 }
 
 /* Left side (Home, Shop, About Us) */
-nav ul.left {
+nav .left {
+    display: flex;
     gap: 20px; /* Spacing between Home, Shop, About Us */
 }
 
 /* Right side (Contact Us) */
-nav ul.right {
-    margin-left: auto; /* Pushes Contact Us to the right */
-}
-
-/* Navigation List Items */
-nav ul li {
-    display: inline-block;
+nav .right {
+    margin-left: auto; /* Pushes "Contact Us" to the far right */
 }
 
 /* Navigation Links */
 nav ul li a {
     font-family: 'Poppins', sans-serif;
-    c
+    color: #fffee1;
+    text-decoration: none;
+    font-size: 16px;
+    font-weight: 600;
+    padding: 4px 12px; /* Smaller padding inside buttons */
+    border: 1.5px solid #fffee1; /* Thinner border */
+    border-radius: 6px; /* Slightly rounded for a sleek look */
+    transition: 0.3s ease-in-out;
+}
+
+/* Hover Effect */
+nav ul li a:hover {
+    background-color: #34b2ae;
+    
 
 
 /* Contact Page Styling */
