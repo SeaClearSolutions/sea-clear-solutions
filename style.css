@@ -238,8 +238,8 @@ footer {
 
 .home-item {
     position: relative;
-    width: 350px;
-    height: 250px;
+    width: 500px; /* Increased width */
+    height: 350px; /* Increased height */
     overflow: hidden;
     border-radius: 10px;
     box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
@@ -257,14 +257,14 @@ footer {
     top: 50%;
     left: 50%;
     transform: translate(-50%, -50%);
-    font-size: 22px;
+    font-size: 26px; /* Slightly larger font */
     font-weight: 600;
     color: #fffee1;
     background: rgba(45, 175, 161, 0.8);
-    padding: 10px 20px;
+    padding: 12px 24px;
     border-radius: 8px;
     text-align: center;
-    width: 80%;
+    width: 85%;
     transition: opacity 0.3s ease-in-out;
 }
 
@@ -281,14 +281,15 @@ footer {
     justify-content: center;
     align-items: center;
     text-align: center;
-    padding: 20px;
+    padding: 30px; /* More padding for readability */
     opacity: 0;
     transition: opacity 0.3s ease-in-out;
 }
 
 .overlay p {
-    font-size: 16px;
-    margin-bottom: 5px;
+    font-size: 18px; /* Bigger text */
+    line-height: 1.6;
+    margin-bottom: 10px;
 }
 
 .home-item:hover img {
