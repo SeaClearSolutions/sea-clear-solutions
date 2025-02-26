@@ -88,16 +88,23 @@ button:hover {
 /* Navigation Bar */
 nav {
     background-color: #2dafa1;
-    padding: 10px 40px; /* Reduced padding to make it thinner */
+    height: 40px; /* Reduced height */
     display: flex;
     align-items: center;
-    height: 50px; /* Adjust height if needed */
+    padding: 5px 20px; /* Less padding to make it slimmer */
+}
+
+nav ul {
+    margin: 0;
+    padding: 0;
+    display: flex;
+    align-items: center;
 }
 
 nav ul li a {
-    padding: 6px 15px; /* Reduced button padding */
-    font-size: 16px; /* Slightly smaller text if needed */
-    border-radius: 8px; /* Adjusted for a sleeker look */
+    padding: 4px 12px; /* Even smaller button padding */
+    font-size: 16px;
+    border-radius: 6px; /* Optional: adjust button style */
 }
 
 nav ul.left {
