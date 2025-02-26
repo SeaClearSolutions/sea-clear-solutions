@@ -335,9 +335,19 @@ footer {
 }
 
 .text-container {
-    max-width: 1000px; /* Matches image width */
-    margin: 0 auto; /* Centers the text */
+    width: 1000px; /* Ensures it matches the image width */
+    max-width: 100%; /* Prevents overflow on smaller screens */
+    margin: 0 auto;
     text-align: center;
-    padding: 20px; /* Optional spacing */
+    padding: 20px;
+}
+
+p, li, ul, ol {
+    max-width: 1000px; /* Match image width */
+    text-align: center; /* Ensure alignment */
+}
+
+.about, .shop, .contact-page {
+    max-width: 1000px;
 }
 
