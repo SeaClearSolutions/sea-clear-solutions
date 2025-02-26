@@ -90,7 +90,7 @@ nav {
     background-color: #2dafa1;
     padding: 15px;
     display: flex;
-    justify-content: flex-end; /* Aligns items to the right */
+    justify-content: space-between; /* Ensures left & right alignment */
     align-items: center;
 }
 
@@ -102,30 +102,17 @@ nav ul {
     width: 100%; /* Ensures full width for spacing */
 }
 
-nav ul li {
-    margin: 0 15px;
+nav ul.left {
+    display: flex;
+    gap: 15px; /* Adds spacing between buttons */
 }
 
-nav ul li:last-child {
+nav ul.right {
     margin-left: auto; /* Pushes "Contact Us" to the right */
 }
 
 nav ul li a {
-    font-family: 'Poppins', sans-serif;
-    color: #fffee1;
-    text-decoration: none;
-    font-size: 18px;
-    font-weight: 600;
-    padding: 10px 20px;
-    border: 2px solid #fffee1;
-    border-radius: 10px;
-    transition: 0.3s ease-in-out;
-}
-
-nav ul li a:hover {
-    background-color: #34b2ae;
-    color: white;
-}
+    font-family: 'Poppins', sans-serif
 
 
 /* Contact Page Styling */
