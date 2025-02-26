@@ -98,5 +98,34 @@ button {
 button:hover {
     background-color: #146f77;
 }
+nav {
+    background-color: #2dafa1; /* Teal background */
+    padding: 10px 0;
+    text-align: center;
+}
+
+nav ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+nav ul li {
+    display: inline;
+    margin: 0 15px;
+}
+
+nav ul li a {
+    color: white;
+    text-decoration: none;
+    font-size: 18px;
+    font-weight: 600;
+    padding: 10px 15px;
+    border-radius: 5px;
+}
+
+nav ul li a:hover {
+    background-color: #237778; /* Darker teal on hover */
+}
 
 
