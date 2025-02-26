@@ -322,3 +322,7 @@ footer {
     display: flex;
     flex-wrap: wrap;
 }
+
+.overlay {
+    padding: 15px;
+}
