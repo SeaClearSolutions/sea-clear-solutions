@@ -161,3 +161,22 @@ footer {
     display: block;
     margin: 0 auto;
 }
+
+.about {
+    text-align: center;
+    max-width: 700px;
+    margin: 50px auto;
+    padding: 20px;
+    color: #237778;
+    font-size: 18px;
+    line-height: 1.6;
+}
+.about h1 {
+    color: #146f77;
+    font-size: 32px;
+    font-weight: 600;
+    margin-bottom: 20px;
+}
+.about p {
+    margin-bottom: 15px;
+}
