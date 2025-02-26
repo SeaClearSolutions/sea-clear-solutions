@@ -106,9 +106,8 @@ nav ul li {
     margin: 0 15px;
 }
 
-/* Push "Contact Us" to the right */
-nav ul li:last-child {
-    margin-left: auto;
+.contact {
+    margin-left: auto; /* Pushes "Contact Us" to the right */
 }
 
 nav ul li a {
