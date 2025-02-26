@@ -302,3 +302,8 @@ footer {
 .home-item:hover .overlay {
     opacity: 1;
 }
+.overlay p, 
+.overlay h1, 
+.overlay h2 {
+    color: #fffee1; /* Creamy color */
+}
