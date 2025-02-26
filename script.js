@@ -1,37 +1,38 @@
 document.addEventListener("DOMContentLoaded", function () {
-    let cart = [];
     const cartButton = document.getElementById("cart-button");
     const cartSidebar = document.getElementById("cart-sidebar");
+    const closeCartButton = document.getElementById("close-cart");
     const cartItemsContainer = document.getElementById("cart-items");
+    const addToCartButtons = document.querySelectorAll(".add-to-cart");
+    let cart = [];
 
-    function updateCartDisplay() {
+    function updateCart() {
         cartItemsContainer.innerHTML = "";
         cart.forEach((item, index) => {
-            let itemElement = document.createElement("div");
-            itemElement.classList.add("cart-item");
-            itemElement.innerHTML = `
-                ${item.name} - ${item.price} IDR
+            const cartItem = document.createElement("div");
+            cartItem.classList.add("cart-item");
+            cartItem.innerHTML = `
+                <span>${item.name} - ${item.price} IDR</span>
                 <button class="remove-item" data-index="${index}">×</button>
             `;
-            cartItemsContainer.appendChild(itemElement);
+            cartItemsContainer.appendChild(cartItem);
+        });
+        document.querySelectorAll(".remove-item").forEach(button => {
+            button.addEventListener("click", function () {
+                const index = this.getAttribute("data-index");
+                cart.splice(index, 1);
+                updateCart();
+            });
         });
     }
 
-    function toggleCart(open) {
-        if (open) {
-            cartSidebar.classList.add("open");
-        } else {
-            cartSidebar.classList.remove("open");
-        }
-    }
-
-    document.querySelectorAll(".add-to-cart").forEach(button => {
+    addToCartButtons.forEach(button => {
         button.addEventListener("click", function () {
-            let name = this.dataset.name;
-            let price = this.dataset.price;
-            cart.push({ name, price });
-            updateCartDisplay();
-            toggleCart(true); // Open cart when item is added
+            const productName = this.getAttribute("data-name");
+            const productPrice = this.getAttribute("data-price");
+            cart.push({ name: productName, price: productPrice });
+            updateCart();
+            cartSidebar.classList.add("open"); // Open the cart sidebar when item is added
         });
     });
 
@@ -39,11 +40,7 @@ document.addEventListener("DOMContentLoaded", function () {
         cartSidebar.classList.toggle("open");
     });
 
-    cartItemsContainer.addEventListener("click", function (event) {
-        if (event.target.classList.contains("remove-item")) {
-            let index = event.target.dataset.index;
-            cart.splice(index, 1);
-            updateCartDisplay();
-        }
+    closeCartButton.addEventListener("click", function () {
+        cartSidebar.classList.remove("open");
     });
 });
