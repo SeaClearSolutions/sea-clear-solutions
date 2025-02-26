@@ -7,9 +7,24 @@ document.addEventListener("DOMContentLoaded", () => {
         cartList.innerHTML = "";
         let total = 0;
 
-        cartItems.forEach(item => {
+        cartItems.forEach((item, index) => {
             const li = document.createElement("li");
-            li.textContent = `${item.name} - ${item.quantity} x ${item.price.toLocaleString()} IDR`;
+            li.innerHTML = `${item.name} - ${item.quantity} x ${item.price.toLocaleString()} IDR `;
+
+            // Create "Remove" button
+            const removeBtn = document.createElement("button");
+            removeBtn.textContent = "Remove";
+            removeBtn.classList.add("remove-from-cart");
+            removeBtn.addEventListener("click", () => {
+                if (item.quantity > 1) {
+                    item.quantity--;
+                } else {
+                    cartItems.splice(index, 1);
+                }
+                updateCart();
+            });
+
+            li.appendChild(removeBtn);
             cartList.appendChild(li);
             total += item.price * item.quantity;
         });
