@@ -91,6 +91,7 @@ nav {
     padding: 15px;
     display: flex;
     align-items: center;
+    justify-content: space-between; /* This helps spread items correctly */
 }
 
 nav ul {
@@ -103,6 +104,10 @@ nav ul {
 
 nav ul li {
     margin: 0 15px;
+}
+
+nav ul li:last-child {
+    margin-left: auto; /* Pushes last item (Contact Us) to the right */
 }
 
 nav ul li a {
@@ -121,6 +126,7 @@ nav ul li a:hover {
     background-color: #34b2ae;
     color: white;
 }
+
 
 /* Force "Contact Us" to the right */
 .contact {
