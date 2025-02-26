@@ -275,23 +275,24 @@ footer {
     left: 0;
     width: 100%;
     height: 100%;
-    background: rgba(45, 175, 161, 0.95);
-    color: #fffee1;
+    background: rgba(20, 111, 119, 0.95); /* Dark teal for better contrast */
+    color: #f3ea34; /* Bright yellow text */
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
     text-align: center;
-    padding: 50px; /* More space inside */
+    padding: 60px; /* More balanced spacing */
     opacity: 0;
     transition: opacity 0.3s ease-in-out;
 }
 
 .overlay p {
-    font-size: 22px; /* Bigger text */
+    font-size: 24px; /* Bigger text */
+    font-weight: 600; /* Stronger emphasis */
     line-height: 1.8;
     max-width: 80%;
-    margin-bottom: 15px;
+    margin: 0 auto; /* Centered */
 }
 
 .home-item:hover img {
