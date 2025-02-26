@@ -139,6 +139,7 @@ nav ul li a:hover {
 /* Move Contact Us to the right */
 .contact {
     margin-left: auto;
+    margin-right: 0; /* Ensures it reaches the edge */
 }
 
 
