@@ -19,65 +19,67 @@
    </nav>
     
 <!-- Cart Sidebar -->
-<div id="cart-sidebar" class="cart-sidebar" onclick="openCartSidebar()">
-    <button id="close-cart">&times;</button>
-    <h2>Shopping Cart</h2>
-    <ul id="cart-items"></ul>
-    <p id="total-price">Total: 0 IDR</p>
-    <button id="place-order">Place Order</button>
+<div id="cart-sidebar" class="cart-sidebar">
+    <div class="cart-container">
+        <button id="close-cart">&times;</button>
+        <h2>Shopping Cart</h2>
+        <ul id="cart-items"></ul>
+        <p id="total-price">Total: 0 IDR</p>
+        <button id="place-order">Place Order</button>
+    </div>
 </div>
 
-    <section class="shop">
-        <h1>Shop</h1>
-        <p>Choose the perfect size for your adventures! Each bottle of <strong>Sea Clear</strong> is reef-friendly, biodegradable, and made with natural ingredients to keep your mask fog-free.</p>
+<section class="shop">
+    <h1>Shop</h1>
+    <p>Choose the perfect size for your adventures! Each bottle of <strong>Sea Clear</strong> is reef-friendly, biodegradable, and made with natural ingredients to keep your mask fog-free.</p>
 
-        <div class="products">
-            <div class="product">
-                <img src="C.png" alt="Sea Clear 500ml">
-                <h2>Sea Clear - 500ml</h2>
-                <p>Perfect for dive shops and avid divers. More defog, less waste!</p>
-                <p class="price">IDR 1,340,000</p>
-                <button class="add-to-cart" data-name="Sea Clear - 500ml" data-price="1340000">Add to Cart</button>
-            </div>
-
-            <div class="product">
-                <img src="C.png" alt="Sea Clear 250ml">
-                <h2>Sea Clear - 250ml</h2>
-                <p>Great for frequent divers who want a long-lasting supply.</p>
-                <p class="price">IDR 670,000</p>
-                <button class="add-to-cart" data-name="Sea Clear - 250ml" data-price="670000">Add to Cart</button>
-            </div>
-
-            <div class="product">
-                <img src="C.png" alt="Sea Clear 100ml">
-                <h2>Sea Clear - 100ml</h2>
-                <p>A compact size for personal use—easy to carry on dive trips.</p>
-                <p class="price">IDR 268,500</p>
-                <button class="add-to-cart" data-name="Sea Clear - 100ml" data-price="268500">Add to Cart</button>
-            </div>
-
-            <div class="product">
-                <img src="C.png" alt="Sea Clear 60ml">
-                <h2>Sea Clear - 60ml</h2>
-                <p>Fits right into your dive bag! Ideal for regular but light use.</p>
-                <p class="price">IDR 161,000</p>
-                <button class="add-to-cart" data-name="Sea Clear - 60ml" data-price="161000">Add to Cart</button>
-            </div>
-
-            <div class="product">
-                <img src="C.png" alt="Sea Clear 20ml">
-                <h2>Sea Clear - 20ml</h2>
-                <p>Small but mighty! The perfect travel-size defog solution.</p>
-                <p class="price">IDR 53,500</p>
-                <button class="add-to-cart" data-name="Sea Clear - 20ml" data-price="53500">Add to Cart</button>
-            </div>
+    <div class="products">
+        <div class="product">
+            <img src="C.png" alt="Sea Clear 500ml">
+            <h2>Sea Clear - 500ml</h2>
+            <p>Perfect for dive shops and avid divers. More defog, less waste!</p>
+            <p class="price">IDR 1,340,000</p>
+            <button class="add-to-cart" data-name="Sea Clear - 500ml" data-price="1340000">Add to Cart</button>
         </div>
-    </section>
 
-    <footer>
-        <img src="Logo no text.png" alt="Sea Clear Logo" class="footer-logo">
-    </footer>
+        <div class="product">
+            <img src="C.png" alt="Sea Clear 250ml">
+            <h2>Sea Clear - 250ml</h2>
+            <p>Great for frequent divers who want a long-lasting supply.</p>
+            <p class="price">IDR 670,000</p>
+            <button class="add-to-cart" data-name="Sea Clear - 250ml" data-price="670000">Add to Cart</button>
+        </div>
 
-    <script src="script.js"></script>
+        <div class="product">
+            <img src="C.png" alt="Sea Clear 100ml">
+            <h2>Sea Clear - 100ml</h2>
+            <p>A compact size for personal use—easy to carry on dive trips.</p>
+            <p class="price">IDR 268,500</p>
+            <button class="add-to-cart" data-name="Sea Clear - 100ml" data-price="268500">Add to Cart</button>
+        </div>
+
+        <div class="product">
+            <img src="C.png" alt="Sea Clear 60ml">
+            <h2>Sea Clear - 60ml</h2>
+            <p>Fits right into your dive bag! Ideal for regular but light use.</p>
+            <p class="price">IDR 161,000</p>
+            <button class="add-to-cart" data-name="Sea Clear - 60ml" data-price="161000">Add to Cart</button>
+        </div>
+
+        <div class="product">
+            <img src="C.png" alt="Sea Clear 20ml">
+            <h2>Sea Clear - 20ml</h2>
+            <p>Small but mighty! The perfect travel-size defog solution.</p>
+            <p class="price">IDR 53,500</p>
+            <button class="add-to-cart" data-name="Sea Clear - 20ml" data-price="53500">Add to Cart</button>
+        </div>
+    </div>
+</section>
+
+<footer>
+    <img src="Logo no text.png" alt="Sea Clear Logo" class="footer-logo">
+</footer>
+
+<script src="script.js"></script>
 </body>
 </html>
