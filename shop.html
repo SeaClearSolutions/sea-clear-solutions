@@ -7,16 +7,16 @@
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
-   <nav>
-    <ul class="left">
-        <li><a href="index.html">Home</a></li>
-        <li><a href="shop.html">Shop</a></li>
-        <li><a href="about.html">About Us</a></li>
-    </ul>
-    <ul class="right">
-        <li><a href="contact.html">Contact Us</a></li>
-    </ul>
-   </nav>
+    <nav>
+        <ul class="left">
+            <li><a href="index.html">Home</a></li>
+            <li><a href="shop.html">Shop</a></li>
+            <li><a href="about.html">About Us</a></li>
+        </ul>
+        <ul class="right">
+            <li><a href="contact.html">Contact Us</a></li>
+        </ul>
+    </nav>
 
     <section class="shop">
         <h1>Shop</h1>
@@ -47,11 +47,30 @@
             <div class="product">
                 <img src="C.png" alt="Sea Clear 60ml">
                 <h2>Sea Clear - 60ml</h2>
-                <p>Fits right into
+                <p>Fits right into your dive bag! Ideal for regular but light use.</p>
+                <button class="add-to-cart" data-name="Sea Clear - 60ml" data-price="8">Add to Cart</button>
+            </div>
+
+            <div class="product">
+                <img src="C.png" alt="Sea Clear 20ml">
+                <h2>Sea Clear - 20ml</h2>
+                <p>Small but mighty! The perfect travel-size defog solution.</p>
+                <button class="add-to-cart" data-name="Sea Clear - 20ml" data-price="5">Add to Cart</button>
+            </div>
+        </div>
+    </section>
 
     <section class="cart">
-    <h2>Shopping Cart</h2>
-    <ul id="cart-items"></ul>
-    <p id="total-price">Total: $0.00</p>
-    <button id="place-order">Place Order</button>
-</section>
+        <h2>Shopping Cart</h2>
+        <ul id="cart-items"></ul>
+        <p id="total-price">Total: $0.00</p>
+        <button id="place-order">Place Order</button>
+    </section>
+
+    <footer>
+        <img src="Logo no text.png" alt="Sea Clear Logo" class="footer-logo">
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html>
