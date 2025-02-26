@@ -127,5 +127,39 @@ nav ul li a {
 nav ul li a:hover {
     background-color: #237778; /* Darker teal on hover */
 }
+nav {
+    background-color: #2dafa1; /* Teal background */
+    padding: 15px 0;
+    text-align: center;
+}
+
+nav ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+nav ul li {
+    display: inline-block; /* Places items next to each other */
+    margin: 0 15px; /* Adds spacing between buttons */
+}
+
+nav ul li a {
+    font-family: 'Poppins', sans-serif;
+    background-color: #fffee1; /* Light cream */
+    color: #146f77; /* Deep teal */
+    text-decoration: none; /* Removes underline */
+    font-size: 18px;
+    font-weight: 600;
+    padding: 10px 20px;
+    border: 2px solid #146f77; /* Frame color */
+    border-radius: 10px;
+    transition: 0.3s ease-in-out;
+}
+
+nav ul li a:hover {
+    background-color: #34b2ae; /* Vibrant teal on hover */
+    color: white;
+}
 
 
