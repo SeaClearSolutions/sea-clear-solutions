@@ -103,6 +103,7 @@ nav {
     padding: 15px;
     display: flex;
     justify-content: space-between; /* Pushes Contact Us to the right */
+    position: relative;
     align-items: center;
 }
 
@@ -143,9 +144,12 @@ nav ul li a:hover {
 
 /* Move Contact Us to the right */
 .contact {
-    margin-left: auto;
-    margin-right: 0; /* Ensures it reaches the edge */
+    position: absolute;
+    right: 20px; /* Adjust as needed */
+    top: 50%;
+    transform: translateY(-50%);
 }
+
 
 
 
