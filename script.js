@@ -1,79 +1,53 @@
-import { useState } from "react";
-import { ShoppingCart } from "lucide-react";
+document.addEventListener("DOMContentLoaded", () => {
+    const cart = document.getElementById("cart");
+    const cartSidebar = document.getElementById("cartSidebar");
+    const closeCartButton = document.getElementById("closeCart");
+    const cartItemsContainer = document.getElementById("cartItems");
 
-export default function ShopPage() {
-  const [cart, setCart] = useState([]);
-  const [isCartOpen, setIsCartOpen] = useState(false);
+    let cartItems = [];
 
-  const addToCart = (product) => {
-    setCart([...cart, product]);
-    setIsCartOpen(true); // Open the sidebar when an item is added
-  };
+    function updateCartUI() {
+        cartItemsContainer.innerHTML = "";
+        cartItems.forEach((item, index) => {
+            const itemElement = document.createElement("div");
+            itemElement.classList.add("cart-item");
+            itemElement.innerHTML = `
+                <span>${item.name} - ${item.price} IDR</span>
+                <button class="remove-item" data-index="${index}">×</button>
+            `;
+            cartItemsContainer.appendChild(itemElement);
+        });
 
-  const removeFromCart = (index) => {
-    setCart(cart.filter((_, i) => i !== index));
-  };
+        // Add event listeners for remove buttons
+        document.querySelectorAll(".remove-item").forEach(button => {
+            button.addEventListener("click", (e) => {
+                const index = e.target.getAttribute("data-index");
+                cartItems.splice(index, 1);
+                updateCartUI();
+            });
+        });
+    }
 
-  return (
-    <div className="relative min-h-screen bg-[#fffee1]">
-      {/* Navigation Bar */}
-      <nav className="bg-[#2dafa1] p-4 flex justify-between items-center">
-        <div className="flex space-x-4">
-          <button className="border px-4 py-2 rounded-lg text-[#fffee1]">Shop</button>
-          <button className="border px-4 py-2 rounded-lg text-[#fffee1]">About Us</button>
-        </div>
-        <button
-          className="text-[#fffee1] p-2"
-          onClick={() => setIsCartOpen(!isCartOpen)}
-        >
-          <ShoppingCart size={24} />
-        </button>
-      </nav>
+    function openCart() {
+        cartSidebar.classList.add("open"); // Show sidebar
+    }
 
-      {/* Sidebar Cart */}
-      <div
-        className={`fixed top-0 right-0 h-full w-80 bg-[#78e4e6] shadow-lg transform transition-transform duration-300 ${
-          isCartOpen ? "translate-x-0" : "translate-x-full"
-        }`}
-      >
-        <div className="p-4">
-          <button
-            className="mb-4 bg-[#2dafa1] text-white p-2 rounded"
-            onClick={() => setIsCartOpen(false)}
-          >
-            ×
-          </button>
-          <h2 className="text-xl font-semibold">Shopping Cart</h2>
-          {cart.length === 0 ? (
-            <p className="text-gray-600">Your cart is empty.</p>
-          ) : (
-            cart.map((item, index) => (
-              <div key={index} className="flex justify-between items-center p-2 border-b">
-                <span>{item.name} - {item.price} IDR</span>
-                <button
-                  className="bg-[#2dafa1] text-white p-1 rounded"
-                  onClick={() => removeFromCart(index)}
-                >
-                  ×
-                </button>
-              </div>
-            ))
-          )}
-        </div>
-      </div>
+    function closeCart() {
+        cartSidebar.classList.remove("open"); // Hide sidebar
+    }
 
-      {/* Shop Section */}
-      <div className="p-8">
-        <h1 className="text-2xl font-bold text-[#237778]">Shop</h1>
-        <div className="mt-4">
-          <button
-            className="bg-[#2dafa1] text-white px-4 py-2 rounded"
-            onClick={() => addToCart({ name: "Sea Clear - 100ml", price: 268500 })}
-          >
-            Add to Cart
-          </button>
-        </div>
-      </div>
-    </div>
-  );
-}
+    document.querySelectorAll(".add-to-cart").forEach(button => {
+        button.addEventListener("click", (e) => {
+            const productElement = e.target.closest(".product");
+            const productName = productElement.querySelector(".product-name").innerText;
+            const productPrice = productElement.querySelector(".product-price").innerText;
+
+            cartItems.push({ name: productName, price: productPrice });
+            updateCartUI();
+            openCart(); // Automatically open sidebar
+        });
+    });
+
+    cart.addEventListener("click", openCart);
+    closeCartButton.addEventListener("click", closeCart);
+});
