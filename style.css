@@ -126,3 +126,24 @@ nav ul li a:hover {
 .contact {
     margin-left: auto;
 }
+.contact-page {
+    text-align: center;
+    max-width: 600px;
+    margin: 0 auto;
+}
+
+.contact-page p {
+    font-size: 18px;
+    color: #237778;
+    margin-bottom: 15px;
+}
+
+.contact-page a {
+    color: #146f77;
+    text-decoration: none;
+    font-weight: 600;
+}
+
+.contact-page a:hover {
+    text-decoration: underline;
+}
