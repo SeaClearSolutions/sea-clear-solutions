@@ -1,44 +1,51 @@
-let cart = [];
+document.addEventListener("DOMContentLoaded", () => {
+    const cartItems = [];
+    const cartList = document.getElementById("cart-items");
+    const totalPriceElement = document.getElementById("total-price");
 
-function addToCart(productName, price) {
-    // Check if product is already in the cart
-    let existingProduct = cart.find(item => item.name === productName);
-    if (existingProduct) {
-        existingProduct.quantity++;
-    } else {
-        cart.push({ name: productName, price: price, quantity: 1 });
+    function updateCart() {
+        cartList.innerHTML = "";
+        let total = 0;
+
+        cartItems.forEach(item => {
+            const li = document.createElement("li");
+            li.textContent = `${item.name} - ${item.quantity} x ${item.price.toLocaleString()} IDR`;
+            cartList.appendChild(li);
+            total += item.price * item.quantity;
+        });
+
+        totalPriceElement.textContent = `Total: ${total.toLocaleString()} IDR`;
     }
-    updateCart();
-}
 
-function updateCart() {
-    let cartItems = document.getElementById("cart-items");
-    let cartTotal = document.getElementById("cart-total");
-    cartItems.innerHTML = "";
-    let total = 0;
+    document.querySelectorAll(".add-to-cart").forEach(button => {
+        button.addEventListener("click", (event) => {
+            const name = event.target.dataset.name;
+            const price = parseInt(event.target.dataset.price, 10);
 
-    cart.forEach(item => {
-        let listItem = document.createElement("li");
-        listItem.textContent = `${item.name} x${item.quantity} - $${(item.price * item.quantity).toFixed(2)}`;
-        cartItems.appendChild(listItem);
-        total += item.price * item.quantity;
+            const existingItem = cartItems.find(item => item.name === name);
+            if (existingItem) {
+                existingItem.quantity++;
+            } else {
+                cartItems.push({ name, price, quantity: 1 });
+            }
+
+            updateCart();
+        });
     });
 
-    cartTotal.textContent = `Total: $${total.toFixed(2)}`;
-}
+    document.getElementById("place-order").addEventListener("click", () => {
+        if (cartItems.length === 0) {
+            alert("Your cart is empty!");
+            return;
+        }
 
-function placeOrder() {
-    if (cart.length === 0) {
-        alert("Your cart is empty!");
-        return;
-    }
+        let orderText = "New Order:\n\n";
+        cartItems.forEach(item => {
+            orderText += `${item.name} - ${item.quantity} x ${item.price.toLocaleString()} IDR\n`;
+        });
 
-    let orderDetails = cart.map(item => `${item.name} x${item.quantity}`).join("\n");
-    let emailBody = `Order details:\n${orderDetails}\n\nTotal: $${cart.reduce((sum, item) => sum + item.price * item.quantity, 0).toFixed(2)}`;
-    
-    window.location.href = `mailto:your-email@example.com?subject=Sea Clear Order&body=${encodeURIComponent(emailBody)}`;
-}
+        orderText += `\nTotal: ${totalPriceElement.textContent.replace("Total: ", "")}`;
 
-document.addEventListener("DOMContentLoaded", () => {
-    document.getElementById("place-order").addEventListener("click", placeOrder);
+        window.location.href = `mailto:your@email.com?subject=Order&body=${encodeURIComponent(orderText)}`;
+    });
 });
