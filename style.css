@@ -88,13 +88,12 @@ button:hover {
 /* Navigation Bar */
 nav {
     background-color: #2dafa1;
-    padding: 8px 40px; /* Reduced padding for thinner navbar */
+    padding: 8px 40px;
     display: flex;
     align-items: center;
-    height: 45px; /* Adjusted height */
+    height: 45px;
 }
 
-/* Navigation List */
 nav ul {
     list-style: none;
     margin: 0;
@@ -103,36 +102,31 @@ nav ul {
     align-items: center;
 }
 
-/* Left side (Home, Shop, About Us) */
 nav .left {
     display: flex;
-    gap: 20px; /* Spacing between Home, Shop, About Us */
+    gap: 20px;
 }
 
-/* Right side (Contact Us) */
 nav .right {
-    margin-left: auto; /* Pushes "Contact Us" to the far right */
+    margin-left: auto;
 }
 
-/* Navigation Links */
 nav ul li a {
     font-family: 'Poppins', sans-serif;
     color: #fffee1;
     text-decoration: none;
     font-size: 16px;
     font-weight: 600;
-    padding: 4px 12px; /* Smaller padding inside buttons */
-    border: 1.5px solid #fffee1; /* Thinner border */
-    border-radius: 6px; /* Slightly rounded for a sleek look */
+    padding: 4px 12px;
+    border: 1.5px solid #fffee1;
+    border-radius: 6px;
     transition: 0.3s ease-in-out;
 }
 
-/* Hover Effect */
 nav ul li a:hover {
     background-color: #34b2ae;
     color: white;
 }
-
 
 /* Contact Page Styling */
 .contact-page {
@@ -164,7 +158,7 @@ footer {
 }
 
 .footer-logo {
-    max-width: 200px; /* Adjust size */
+    max-width: 200px;
     display: block;
     margin: 0 auto;
 }
@@ -178,12 +172,14 @@ footer {
     font-size: 18px;
     line-height: 1.6;
 }
+
 .about h1 {
     color: #146f77;
     font-size: 32px;
     font-weight: 600;
     margin-bottom: 20px;
 }
+
 .about p {
     margin-bottom: 15px;
 }
@@ -235,125 +231,10 @@ footer {
     color: #237778;
 }
 
-.home-sections {
-    display: flex;
-    flex-direction: column; /* Stack images vertically */
-    align-items: center;
-    gap: 20px;
-    padding: 40px 0;
-}
-
-.home-item {
-    position: relative;
-    width: 1000px; /* Doubled width */
-    height: 450px; /* Slightly taller */
-    overflow: hidden;
-    border-radius: 10px;
-    box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
-    margin: 20px auto; /* Center align */
-}
-
-.home-item img {
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-    transition: transform 0.3s ease-in-out;
-}
-
-.title {
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-    font-size: 32px; /* Larger title */
-    font-weight: 600;
-    color: #fffee1;
-    background: rgba(45, 175, 161, 0.8);
-    padding: 15px 30px;
-    border-radius: 10px;
-    text-align: center;
-    width: 90%;
-    transition: opacity 0.3s ease-in-out;
-}
-
-.overlay {
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    background: rgba(20, 111, 119, 0.85); /* Dark overlay for contrast */
-    color: #fffee1; /* Cream text */
-    display: flex;
-    flex-direction: column; /* Stack content vertically */
-    justify-content: center;
-    align-items: center;
-    text-align: center;
-    opacity: 0;
-    transition: opacity 0.3s ease-in-out;
-    padding: 30px;
-}
-
-.overlay div {
-    display: flex;
-    flex-direction: column; /* Stack each point below the previous one */
-    gap: 15px; /* Space between each point */
-}
-
-.overlay p {
-    font-size: 22px; /* Readable text */
-    font-weight: 400;
-    line-height: 1.6;
-}
-
-.home-item:hover .overlay {
-    opacity: 1;
-}
-.overlay p, 
-.overlay h1, 
-.overlay h2 {
-    color: #fffee1; /* Creamy color */
-}
-.overlay {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    text-align: center;
-}
-
-.overlay div {
-    width: 100%;
-}
-
-.overlay {
-    display: flex;
-    flex-wrap: wrap;
-}
-
-.overlay {
-    padding: 15px;
-}
-
-.text-container {
-    width: 1000px; /* Ensures it matches the image width */
-    max-width: 100%; /* Prevents overflow on smaller screens */
-    margin: 0 auto;
-    text-align: center;
-    padding: 20px;
-}
-
-p, li, ul, ol {
-    max-width: 1000px; /* Match image width */
-    text-align: center; /* Ensure alignment */
-}
-
-.about, .shop, .contact-page {
-    max-width: 1000px;
-}
-
+/* SHOP SIDEBAR FIX */
 .cart-sidebar {
     position: fixed;
-    right: -300px; /* Hidden initially */
+    right: -300px; /* Keep it hidden initially */
     top: 0;
     width: 300px;
     height: 100%;
@@ -362,10 +243,13 @@ p, li, ul, ol {
     transition: right 0.3s ease-in-out;
     z-index: 1000;
     padding: 15px;
+    overflow-y: auto; /* Allow scrolling */
+    display: flex;
+    flex-direction: column;
 }
 
 .cart-sidebar.open {
-    right: 0; /* Opens the sidebar */
+    right: 0; /* Show sidebar when open */
 }
 
 .cart-sidebar button {
@@ -378,11 +262,25 @@ p, li, ul, ol {
     padding: 0;
 }
 
+.cart-sidebar li {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 8px 0;
+    border-bottom: 1px solid #ddd;
+}
+
 .remove-item {
     background: red;
     color: white;
     border: none;
     cursor: pointer;
     margin-left: 10px;
+    padding: 5px;
+    border-radius: 5px;
+    font-size: 14px;
 }
 
+.remove-item:hover {
+    background: darkred;
+}
