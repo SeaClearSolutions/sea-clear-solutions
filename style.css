@@ -351,18 +351,38 @@ p, li, ul, ol {
     max-width: 1000px;
 }
 
-#cartSidebar {
+.cart-sidebar {
     position: fixed;
-    right: -300px; /* Initially hidden */
+    right: -300px; /* Hidden initially */
     top: 0;
     width: 300px;
     height: 100%;
     background: white;
     box-shadow: -2px 0 5px rgba(0, 0, 0, 0.2);
     transition: right 0.3s ease-in-out;
-    z-index: 1000; /* Make sure it's above other content */
+    z-index: 1000;
+    padding: 15px;
 }
 
-#cartSidebar.open {
+.cart-sidebar.open {
     right: 0; /* Opens the sidebar */
 }
+
+.cart-sidebar button {
+    display: block;
+    margin-top: 10px;
+}
+
+.cart-sidebar ul {
+    list-style: none;
+    padding: 0;
+}
+
+.remove-item {
+    background: red;
+    color: white;
+    border: none;
+    cursor: pointer;
+    margin-left: 10px;
+}
+
