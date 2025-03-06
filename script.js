@@ -6,11 +6,6 @@ document.addEventListener("DOMContentLoaded", () => {
     const openCartBtn = document.getElementById("open-cart");
     const closeCartBtn = document.getElementById("close-cart");
 
-    // Open cart when clicking the sidebar
-    cartSidebar.addEventListener("click", () => {
-        cartSidebar.classList.add("open");
-    });
-
     // Open cart button functionality
     openCartBtn.addEventListener("click", () => {
         cartSidebar.classList.add("open");
@@ -20,6 +15,13 @@ document.addEventListener("DOMContentLoaded", () => {
     closeCartBtn.addEventListener("click", (event) => {
         event.stopPropagation(); // Prevents sidebar from reopening when clicking close
         cartSidebar.classList.remove("open");
+    });
+
+    // Click outside the cart to close it
+    document.addEventListener("click", (event) => {
+        if (!cartSidebar.contains(event.target) && event.target !== openCartBtn) {
+            cartSidebar.classList.remove("open");
+        }
     });
 
     function updateCart() {
@@ -65,6 +67,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
             updateCart();
             cartSidebar.classList.add("open"); // Open cart when item is added
+            event.stopPropagation(); // Prevent click from closing the cart immediately
         });
     });
 
@@ -82,12 +85,5 @@ document.addEventListener("DOMContentLoaded", () => {
         orderText += `\nTotal: ${totalPriceElement.textContent.replace("Total: ", "")}`;
 
         window.location.href = `mailto:your@email.com?subject=Order&body=${encodeURIComponent(orderText)}`;
-    });
-
-    // ✅ Close cart when clicking outside the sidebar
-    document.addEventListener("click", (event) => {
-        if (cartSidebar.classList.contains("open") && !cartSidebar.contains(event.target) && !event.target.closest(".add-to-cart")) {
-            cartSidebar.classList.remove("open");
-        }
     });
 });
