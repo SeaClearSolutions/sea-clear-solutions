@@ -385,3 +385,7 @@ p, li, ul, ol {
     cursor: pointer;
     margin-left: 10px;
 }
+
+.cart-sidebar {
+    color: #fffee1; /* Cream */
+}
