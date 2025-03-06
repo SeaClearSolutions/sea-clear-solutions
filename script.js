@@ -6,15 +6,15 @@ document.addEventListener("DOMContentLoaded", () => {
     const openCartBtn = document.getElementById("open-cart");
     const closeCartBtn = document.getElementById("close-cart");
 
-    // Open cart when clicking the sidebar
+    // Open cart when clicking the sidebar itself
     cartSidebar.addEventListener("click", (event) => {
-        cartSidebar.classList.add("open");
         event.stopPropagation(); // Prevent closing when clicking inside the cart
     });
 
     // Open cart button functionality
-    openCartBtn.addEventListener("click", () => {
+    openCartBtn.addEventListener("click", (event) => {
         cartSidebar.classList.add("open");
+        event.stopPropagation(); // Prevent closing directly after opening
     });
 
     // Close cart button functionality (prevent reopening when clicking close)
@@ -73,7 +73,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
             updateCart();
             cartSidebar.classList.add("open"); // Open cart when item is added
-            event.stopPropagation(); // Prevent closing cart directly after adding item
+            event.stopPropagation(); // Prevent closing directly after adding
         });
     });
 
