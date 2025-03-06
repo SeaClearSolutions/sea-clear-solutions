@@ -6,6 +6,12 @@ document.addEventListener("DOMContentLoaded", () => {
     const openCartBtn = document.getElementById("open-cart");
     const closeCartBtn = document.getElementById("close-cart");
 
+    // Open cart when clicking the sidebar
+    cartSidebar.addEventListener("click", (event) => {
+        cartSidebar.classList.add("open");
+        event.stopPropagation(); // Prevent closing when clicking inside the cart
+    });
+
     // Open cart button functionality
     openCartBtn.addEventListener("click", () => {
         cartSidebar.classList.add("open");
@@ -13,11 +19,11 @@ document.addEventListener("DOMContentLoaded", () => {
 
     // Close cart button functionality (prevent reopening when clicking close)
     closeCartBtn.addEventListener("click", (event) => {
-        event.stopPropagation(); // Prevents sidebar from reopening when clicking close
+        event.stopPropagation(); // Prevent sidebar from reopening when clicking close
         cartSidebar.classList.remove("open");
     });
 
-    // Click outside the cart to close it
+    // Close cart when clicking outside
     document.addEventListener("click", (event) => {
         if (!cartSidebar.contains(event.target) && event.target !== openCartBtn) {
             cartSidebar.classList.remove("open");
@@ -67,7 +73,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
             updateCart();
             cartSidebar.classList.add("open"); // Open cart when item is added
-            event.stopPropagation(); // Prevent click from closing the cart immediately
+            event.stopPropagation(); // Prevent closing cart directly after adding item
         });
     });
 
