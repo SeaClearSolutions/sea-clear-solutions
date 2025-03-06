@@ -83,4 +83,11 @@ document.addEventListener("DOMContentLoaded", () => {
 
         window.location.href = `mailto:your@email.com?subject=Order&body=${encodeURIComponent(orderText)}`;
     });
+
+    // ✅ Close cart when clicking outside the sidebar
+    document.addEventListener("click", (event) => {
+        if (cartSidebar.classList.contains("open") && !cartSidebar.contains(event.target) && !event.target.closest(".add-to-cart")) {
+            cartSidebar.classList.remove("open");
+        }
+    });
 });
