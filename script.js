@@ -4,23 +4,35 @@ document.addEventListener("DOMContentLoaded", () => {
     const totalPriceElement = document.getElementById("total-price");
     const cartSidebar = document.getElementById("cart-sidebar");
     const openCartBtn = document.getElementById("open-cart");
-    const closeCartBtn = document.getElementById("close-cart");
 
     // Open cart when clicking inside the sidebar
     cartSidebar.addEventListener("click", (event) => {
-        event.stopPropagation(); // Stops closing when clicking inside
+        event.stopPropagation(); // Prevent closing when clicking inside
     });
 
     // Open cart button functionality
     openCartBtn.addEventListener("click", (event) => {
         cartSidebar.classList.add("open");
-        event.stopPropagation(); // Prevent closing directly after opening
+        event.stopPropagation(); // Prevent immediate closing
     });
 
-    // Close cart button functionality (prevent reopening when clicking close)
-    closeCartBtn.addEventListener("click", (event) => {
-        cartSidebar.classList.remove("open");
-        event.stopPropagation(); // Prevent closing triggering outside click
+    // Open cart when adding a product
+    document.querySelectorAll(".add-to-cart").forEach(button => {
+        button.addEventListener("click", (event) => {
+            const name = event.target.dataset.name;
+            const price = parseInt(event.target.dataset.price, 10);
+
+            const existingItem = cartItems.find(item => item.name === name);
+            if (existingItem) {
+                existingItem.quantity++;
+            } else {
+                cartItems.push({ name, price, quantity: 1 });
+            }
+
+            updateCart();
+            cartSidebar.classList.add("open"); // Open cart when item is added
+            event.stopPropagation(); // Prevent closing immediately
+        });
     });
 
     // CLOSE Cart when clicking outside
@@ -58,24 +70,6 @@ document.addEventListener("DOMContentLoaded", () => {
 
         totalPriceElement.textContent = `Total: ${total.toLocaleString()} IDR`;
     }
-
-    document.querySelectorAll(".add-to-cart").forEach(button => {
-        button.addEventListener("click", (event) => {
-            const name = event.target.dataset.name;
-            const price = parseInt(event.target.dataset.price, 10);
-
-            const existingItem = cartItems.find(item => item.name === name);
-            if (existingItem) {
-                existingItem.quantity++;
-            } else {
-                cartItems.push({ name, price, quantity: 1 });
-            }
-
-            updateCart();
-            cartSidebar.classList.add("open"); // Open cart when item is added
-            event.stopPropagation(); // Prevent closing immediately
-        });
-    });
 
     document.getElementById("place-order").addEventListener("click", () => {
         if (cartItems.length === 0) {
