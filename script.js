@@ -1,97 +1,79 @@
-document.addEventListener("DOMContentLoaded", () => {
-    const cartItems = [];
-    const cartList = document.getElementById("cart-items");
-    const totalPriceElement = document.getElementById("total-price");
+document.addEventListener("DOMContentLoaded", function () {
     const cartSidebar = document.getElementById("cart-sidebar");
-    const openCartBtn = document.getElementById("open-cart");
+    const closeCartBtn = document.getElementById("close-cart");
+    const addToCartButtons = document.querySelectorAll(".add-to-cart");
+    const cartItemsList = document.getElementById("cart-items");
+    const totalPriceElement = document.getElementById("total-price");
+    const placeOrderButton = document.getElementById("place-order");
 
-    function openCart() {
-        cartSidebar.classList.add("open"); // Slide cart into view
-    }
+    let cart = [];
 
-    function closeCart() {
-        cartSidebar.classList.remove("open"); // Slide cart back to side
-    }
-
-    // Open cart when clicking the cart button
-    openCartBtn.addEventListener("click", (event) => {
-        openCart();
-        event.stopPropagation(); // Prevent immediate closing
-    });
-
-    // Open cart when adding a product
-    document.querySelectorAll(".add-to-cart").forEach(button => {
-        button.addEventListener("click", (event) => {
-            const name = event.target.dataset.name;
-            const price = parseInt(event.target.dataset.price, 10);
-
-            const existingItem = cartItems.find(item => item.name === name);
-            if (existingItem) {
-                existingItem.quantity++;
-            } else {
-                cartItems.push({ name, price, quantity: 1 });
-            }
-
-            updateCart();
-            openCart();
-            event.stopPropagation(); // Prevent immediate closing
-        });
-    });
-
-    // Prevent closing when clicking inside the cart sidebar
-    cartSidebar.addEventListener("click", (event) => {
-        event.stopPropagation(); // Stops closing when clicking inside
-    });
-
-    // Close cart when clicking outside
-    document.addEventListener("click", (event) => {
-        if (!cartSidebar.contains(event.target) && event.target !== openCartBtn) {
-            closeCart();
-        }
-    });
-
+    // Function to update cart UI
     function updateCart() {
-        cartList.innerHTML = "";
+        cartItemsList.innerHTML = "";
         let total = 0;
-
-        cartItems.forEach((item, index) => {
-            const li = document.createElement("li");
-            li.innerHTML = `${item.name} - ${item.quantity} x ${item.price.toLocaleString()} IDR `;
-
-            // Remove button
-            const removeBtn = document.createElement("button");
+        cart.forEach((item, index) => {
+            let li = document.createElement("li");
+            li.textContent = `${item.name} - ${item.price.toLocaleString()} IDR x${item.quantity}`;
+            let removeBtn = document.createElement("button");
             removeBtn.textContent = "Remove";
-            removeBtn.classList.add("remove-from-cart");
-            removeBtn.addEventListener("click", () => {
-                if (item.quantity > 1) {
-                    item.quantity--;
-                } else {
-                    cartItems.splice(index, 1);
-                }
-                updateCart();
-            });
-
+            removeBtn.classList.add("remove-item");
+            removeBtn.dataset.index = index;
             li.appendChild(removeBtn);
-            cartList.appendChild(li);
+            cartItemsList.appendChild(li);
             total += item.price * item.quantity;
         });
-
         totalPriceElement.textContent = `Total: ${total.toLocaleString()} IDR`;
     }
 
-    document.getElementById("place-order").addEventListener("click", () => {
-        if (cartItems.length === 0) {
+    // Function to add item to cart
+    function addToCart(event) {
+        const button = event.target;
+        const name = button.dataset.name;
+        const price = parseInt(button.dataset.price);
+
+        const existingItem = cart.find(item => item.name === name);
+        if (existingItem) {
+            existingItem.quantity += 1;
+        } else {
+            cart.push({ name, price, quantity: 1 });
+        }
+
+        updateCart();
+        cartSidebar.classList.add("open");
+    }
+
+    // Function to remove item from cart
+    function removeFromCart(event) {
+        if (event.target.classList.contains("remove-item")) {
+            const index = event.target.dataset.index;
+            cart.splice(index, 1);
+            updateCart();
+        }
+    }
+
+    // Function to close cart
+    function closeCart() {
+        cartSidebar.classList.remove("open");
+    }
+
+    // Function to place order (send email)
+    function placeOrder() {
+        if (cart.length === 0) {
             alert("Your cart is empty!");
             return;
         }
 
-        let orderText = "New Order:\n\n";
-        cartItems.forEach(item => {
-            orderText += `${item.name} - ${item.quantity} x ${item.price.toLocaleString()} IDR\n`;
-        });
+        let orderDetails = cart.map(item => `${item.name} x${item.quantity}`).join("\n");
+        let total = cart.reduce((sum, item) => sum + item.price * item.quantity, 0);
 
-        orderText += `\nTotal: ${totalPriceElement.textContent.replace("Total: ", "")}`;
+        let mailtoLink = `mailto:your@email.com?subject=Order%20Request&body=${encodeURIComponent(`Order Details:\n${orderDetails}\n\nTotal: ${total.toLocaleString()} IDR`)}`;
+        window.location.href = mailtoLink;
+    }
 
-        window.location.href = `mailto:your@email.com?subject=Order&body=${encodeURIComponent(orderText)}`;
-    });
+    // Event listeners
+    addToCartButtons.forEach(button => button.addEventListener("click", addToCart));
+    cartItemsList.addEventListener("click", removeFromCart);
+    closeCartBtn.addEventListener("click", closeCart);
+    placeOrderButton.addEventListener("click", placeOrder);
 });
