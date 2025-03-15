@@ -43,7 +43,7 @@ document.addEventListener("DOMContentLoaded", function () {
         cartSidebar.classList.add("open");
     }
 
-    // Function to remove item from cart
+    // Function to remove item from cart (DOES NOT CLOSE CART)
     function removeFromCart(event) {
         if (event.target.classList.contains("remove-item")) {
             const index = event.target.dataset.index;
@@ -52,22 +52,23 @@ document.addEventListener("DOMContentLoaded", function () {
         }
     }
 
-    // Function to close cart when clicking outside
-    function closeCart(event) {
-        if (!cartSidebar.contains(event.target) && !event.target.classList.contains("add-to-cart")) {
-            cartSidebar.classList.remove("open");
-        }
-    }
-
-    // Function to handle explicit cart closing (using X button)
-    function closeCartButton() {
+    // Function to close cart
+    function closeCart() {
         cartSidebar.classList.remove("open");
     }
 
+    // Function to close cart when clicking outside
+    function handleOutsideClick(event) {
+        if (!cartSidebar.contains(event.target) && !event.target.classList.contains("add-to-cart")) {
+            closeCart();
+        }
+    }
+
     // Function to open cart when clicking inside
-    function openCart(event) {
+    function handleInsideClick(event) {
         if (cartSidebar.contains(event.target)) {
             cartSidebar.classList.add("open");
+            event.stopPropagation(); // Prevent closing when clicking inside
         }
     }
 
@@ -88,8 +89,8 @@ document.addEventListener("DOMContentLoaded", function () {
     // Event listeners
     addToCartButtons.forEach(button => button.addEventListener("click", addToCart));
     cartItemsList.addEventListener("click", removeFromCart);
-    closeCartBtn.addEventListener("click", closeCartButton); // Close when clicking the X button
+    closeCartBtn.addEventListener("click", closeCart); // Close when clicking the X button
     placeOrderButton.addEventListener("click", placeOrder);
-    document.addEventListener("click", closeCart); // Close when clicking outside the cart
-    cartSidebar.addEventListener("click", openCart); // Keep open when clicking inside
+    document.addEventListener("click", handleOutsideClick); // Close when clicking outside the cart
+    cartSidebar.addEventListener("click", handleInsideClick); // Keep open when clicking inside
 });
