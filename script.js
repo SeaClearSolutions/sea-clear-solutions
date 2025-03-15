@@ -5,14 +5,17 @@ document.addEventListener("DOMContentLoaded", () => {
     const cartSidebar = document.getElementById("cart-sidebar");
     const openCartBtn = document.getElementById("open-cart");
 
-    // Open cart when clicking inside the sidebar
-    cartSidebar.addEventListener("click", (event) => {
-        event.stopPropagation(); // Prevent closing when clicking inside
-    });
+    function openCart() {
+        cartSidebar.classList.add("open"); // Slide cart into view
+    }
 
-    // Open cart button functionality
+    function closeCart() {
+        cartSidebar.classList.remove("open"); // Slide cart back to side
+    }
+
+    // Open cart when clicking the cart button
     openCartBtn.addEventListener("click", (event) => {
-        cartSidebar.classList.add("open");
+        openCart();
         event.stopPropagation(); // Prevent immediate closing
     });
 
@@ -30,15 +33,20 @@ document.addEventListener("DOMContentLoaded", () => {
             }
 
             updateCart();
-            cartSidebar.classList.add("open"); // Open cart when item is added
-            event.stopPropagation(); // Prevent closing immediately
+            openCart();
+            event.stopPropagation(); // Prevent immediate closing
         });
     });
 
-    // CLOSE Cart when clicking outside
+    // Prevent closing when clicking inside the cart sidebar
+    cartSidebar.addEventListener("click", (event) => {
+        event.stopPropagation(); // Stops closing when clicking inside
+    });
+
+    // Close cart when clicking outside
     document.addEventListener("click", (event) => {
         if (!cartSidebar.contains(event.target) && event.target !== openCartBtn) {
-            cartSidebar.classList.remove("open");
+            closeCart();
         }
     });
 
