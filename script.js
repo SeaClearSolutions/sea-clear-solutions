@@ -6,7 +6,7 @@ document.addEventListener("DOMContentLoaded", function () {
     const totalPriceElement = document.getElementById("total-price");
     const placeOrderButton = document.getElementById("place-order");
 
-    let cart = [];
+    let cart = JSON.parse(localStorage.getItem("cart")) || [];
 
     // Function to update cart UI
     function updateCart() {
@@ -62,9 +62,8 @@ document.addEventListener("DOMContentLoaded", function () {
 
         totalPriceElement.textContent = `Total: ${total.toLocaleString()} IDR`;
 
-        document.querySelectorAll("button, #close-cart").forEach(button => {
-            button.style.color = "#fffee1";
-        });
+        // Save cart to localStorage
+        localStorage.setItem("cart", JSON.stringify(cart));
     }
 
     // Function to add item to cart
@@ -116,62 +115,20 @@ document.addEventListener("DOMContentLoaded", function () {
         }
     }
 
-    // Function to open cart when clicking inside
-    function handleInsideClick(event) {
-        if (cartSidebar.contains(event.target)) {
-            cartSidebar.classList.add("open");
-            event.stopPropagation();
-        }
-    }
-
     // Function to place order
-    function placeOrder() {
+    function placeOrder(event) {
+        event.preventDefault(); // Prevent default form submission
+
         if (cart.length === 0) {
             alert("Your cart is empty!");
             return;
         }
 
-        // Get form values
-        const name = document.getElementById("order-name").value.trim();
-        const address = document.getElementById("order-address").value.trim();
-        const email = document.getElementById("order-email").value.trim();
-        const phone = document.getElementById("order-phone").value.trim();
-        const province = document.getElementById("order-province").value;
-        const bankTermsChecked = document.getElementById("bank-transfer-checkbox").checked;
+        // Save cart in localStorage for checkout page
+        localStorage.setItem("cart", JSON.stringify(cart));
 
-        // Validation
-        if (!name || !address || !email || !phone || !province) {
-            alert("Please fill out all fields before placing your order.");
-            return;
-        }
-
-        if (!bankTermsChecked) {
-            alert("You must agree to the bank transfer terms before placing your order.");
-            return;
-        }
-
-        // Order details
-        let orderDetails = cart.map(item => `${item.name} x${item.quantity}`).join("\n");
-        let total = cart.reduce((sum, item) => sum + item.price * item.quantity, 0);
-
-        // Email content
-        let orderText = `Name: ${name}
-Address: ${address}
-Province: ${province}
-Email: ${email}
-Phone: ${phone}
-
-Order Details:
-${orderDetails}
-
-Total: ${total.toLocaleString()} IDR`;
-
-        // Send order via email
-        let mailtoLink = `mailto:seaclearsolutions.info@gmail.com?subject=New Order&body=${encodeURIComponent(orderText)}`;
-        window.location.href = mailtoLink;
-
-        // Show confirmation message
-        alert("Thank you for your order! Please check your email for payment details.");
+        // Redirect to checkout page
+        window.location.href = "checkout.html";
     }
 
     // Event listeners
@@ -187,7 +144,13 @@ Total: ${total.toLocaleString()} IDR`;
         event.stopPropagation();
         closeCart();
     });
-    placeOrderButton.addEventListener("click", placeOrder);
+
+    if (placeOrderButton) {
+        placeOrderButton.addEventListener("click", placeOrder);
+    }
+
     document.addEventListener("click", handleOutsideClick);
-    cartSidebar.addEventListener("click", handleInsideClick);
+
+    // Initialize cart on page load
+    updateCart();
 });
