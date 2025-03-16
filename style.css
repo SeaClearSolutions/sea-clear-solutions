@@ -386,3 +386,18 @@ p, li, ul, ol {
     cursor: pointer;
     margin-left: 10px;
 }
+
+.cart-button {
+    background-color: #fffee1; /* Cream color */
+    color: black; /* Text color for contrast */
+    border: none;
+    padding: 4px 6px;
+    font-size: 14px;
+    cursor: pointer;
+    border-radius: 4px;
+    transition: background 0.3s;
+}
+
+.cart-button:hover {
+    background-color: #e6dcc9; /* Slightly darker cream for hover effect */
+}
