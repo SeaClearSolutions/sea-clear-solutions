@@ -123,18 +123,23 @@ document.addEventListener("DOMContentLoaded", function () {
 
     // Function to place order
     function placeOrder(event) {
-        event.preventDefault(); // Prevent default form submission
-
         if (cart.length === 0) {
             alert("Your cart is empty!");
+            event.preventDefault(); // Prevents submission only if cart is empty
             return;
         }
 
         // Save cart in localStorage for checkout page
         localStorage.setItem("cart", JSON.stringify(cart));
 
-        // Redirect to checkout page
-        window.location.href = "checkout.html";
+        // Check if the form exists (for checkout.html)
+        const form = document.querySelector("#checkout-form");
+        if (form) {
+            form.submit(); // Submit the form properly
+        } else {
+            // Redirect only if no form is found (e.g., from cart page to checkout)
+            window.location.href = "checkout.html";
+        }
     }
 
     // Event listeners
