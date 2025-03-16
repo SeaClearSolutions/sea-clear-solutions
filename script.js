@@ -61,6 +61,11 @@ document.addEventListener("DOMContentLoaded", function () {
         });
 
         totalPriceElement.textContent = `Total: ${total.toLocaleString()} IDR`;
+
+        // Ensure all buttons have the correct text color (cream)
+        document.querySelectorAll("button, #close-cart").forEach(button => {
+            button.style.color = "#fffee1"; // Set button text color to cream
+        });
     }
 
     // Function to add item to cart
