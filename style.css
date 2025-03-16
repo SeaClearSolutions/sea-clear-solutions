@@ -481,3 +481,37 @@ select#order-province {
 select#order-province::-ms-expand {
     display: none;
 }
+
+/* Style for the dropdown text */
+select {
+    background-color: #fffee1; /* Cream background */
+    color: #237778; /* Dark green text */
+    border: 2px solid #237778;
+    padding: 8px;
+    font-size: 16px;
+}
+
+/* Ensure dropdown options are dark green */
+select option {
+    background-color: #fffee1; /* Cream background */
+    color: #237778 !important; /* Dark green text */
+}
+
+/* Autofilled input fields */
+input:-webkit-autofill,
+textarea:-webkit-autofill,
+select:-webkit-autofill {
+    background-color: #fffee1 !important; /* Cream background */
+    color: #237778 !important; /* Dark green text */
+    -webkit-text-fill-color: #237778 !important; /* Ensures text remains dark green */
+    box-shadow: 0 0 0px 1000px #fffee1 inset !important; /* Forces background color */
+}
+
+/* Styling for better visibility */
+input, textarea, select {
+    background-color: #fffee1; /* Cream background */
+    color: #237778; /* Dark green text */
+    border: 2px solid #237778;
+    padding: 8px;
+    font-size: 16px;
+}
