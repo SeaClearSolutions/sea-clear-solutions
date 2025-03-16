@@ -25,28 +25,28 @@ document.addEventListener("DOMContentLoaded", function () {
             let controlsDiv = document.createElement("div");
             controlsDiv.style.display = "flex";
             controlsDiv.style.alignItems = "center";
-            controlsDiv.style.gap = "8px"; // Increased spacing for better readability
+            controlsDiv.style.gap = "8px";
 
             let minusSpan = document.createElement("span");
-            minusSpan.textContent = "−"; // Minus symbol
+            minusSpan.textContent = "−";
             minusSpan.classList.add("minus-item");
             minusSpan.dataset.index = index;
-            minusSpan.style.color = "#237778"; // Darker green
-            minusSpan.style.fontSize = "22px"; // Bigger size for visibility
+            minusSpan.style.color = "#237778";
+            minusSpan.style.fontSize = "22px";
             minusSpan.style.cursor = "pointer";
 
             let quantitySpan = document.createElement("span");
             quantitySpan.textContent = `x${item.quantity}`;
             quantitySpan.style.minWidth = "25px";
             quantitySpan.style.textAlign = "center";
-            quantitySpan.style.fontSize = "18px"; // Slightly larger for balance
+            quantitySpan.style.fontSize = "18px";
 
             let plusSpan = document.createElement("span");
-            plusSpan.textContent = "+"; // Plus symbol
+            plusSpan.textContent = "+";
             plusSpan.classList.add("plus-item");
             plusSpan.dataset.index = index;
-            plusSpan.style.color = "#237778"; // Darker green
-            plusSpan.style.fontSize = "22px"; // Bigger size for visibility
+            plusSpan.style.color = "#237778";
+            plusSpan.style.fontSize = "22px";
             plusSpan.style.cursor = "pointer";
 
             controlsDiv.appendChild(minusSpan);
@@ -62,9 +62,8 @@ document.addEventListener("DOMContentLoaded", function () {
 
         totalPriceElement.textContent = `Total: ${total.toLocaleString()} IDR`;
 
-        // Ensure all buttons have the correct text color (cream)
         document.querySelectorAll("button, #close-cart").forEach(button => {
-            button.style.color = "#fffee1"; // Set button text color to cream
+            button.style.color = "#fffee1";
         });
     }
 
@@ -87,7 +86,7 @@ document.addEventListener("DOMContentLoaded", function () {
 
     // Function to increase quantity
     function increaseQuantity(event) {
-        event.stopPropagation(); // Prevent closing when clicking
+        event.stopPropagation();
         const index = event.target.dataset.index;
         cart[index].quantity += 1;
         updateCart();
@@ -95,12 +94,12 @@ document.addEventListener("DOMContentLoaded", function () {
 
     // Function to decrease quantity (removes item if it reaches zero)
     function decreaseQuantity(event) {
-        event.stopPropagation(); // Prevent closing when clicking
+        event.stopPropagation();
         const index = event.target.dataset.index;
         if (cart[index].quantity > 1) {
             cart[index].quantity -= 1;
         } else {
-            cart.splice(index, 1); // Remove item if quantity reaches 0
+            cart.splice(index, 1);
         }
         updateCart();
     }
@@ -121,22 +120,58 @@ document.addEventListener("DOMContentLoaded", function () {
     function handleInsideClick(event) {
         if (cartSidebar.contains(event.target)) {
             cartSidebar.classList.add("open");
-            event.stopPropagation(); // Prevent closing when clicking inside
+            event.stopPropagation();
         }
     }
 
-    // Function to place order (send email)
+    // Function to place order
     function placeOrder() {
         if (cart.length === 0) {
             alert("Your cart is empty!");
             return;
         }
 
+        // Get form values
+        const name = document.getElementById("order-name").value.trim();
+        const address = document.getElementById("order-address").value.trim();
+        const email = document.getElementById("order-email").value.trim();
+        const phone = document.getElementById("order-phone").value.trim();
+        const province = document.getElementById("order-province").value;
+        const bankTermsChecked = document.getElementById("bank-transfer-checkbox").checked;
+
+        // Validation
+        if (!name || !address || !email || !phone || !province) {
+            alert("Please fill out all fields before placing your order.");
+            return;
+        }
+
+        if (!bankTermsChecked) {
+            alert("You must agree to the bank transfer terms before placing your order.");
+            return;
+        }
+
+        // Order details
         let orderDetails = cart.map(item => `${item.name} x${item.quantity}`).join("\n");
         let total = cart.reduce((sum, item) => sum + item.price * item.quantity, 0);
 
-        let mailtoLink = `mailto:your@email.com?subject=Order%20Request&body=${encodeURIComponent(`Order Details:\n${orderDetails}\n\nTotal: ${total.toLocaleString()} IDR`)}`;
+        // Email content
+        let orderText = `Name: ${name}
+Address: ${address}
+Province: ${province}
+Email: ${email}
+Phone: ${phone}
+
+Order Details:
+${orderDetails}
+
+Total: ${total.toLocaleString()} IDR`;
+
+        // Send order via email
+        let mailtoLink = `mailto:seaclearsolutions.info@gmail.com?subject=New Order&body=${encodeURIComponent(orderText)}`;
         window.location.href = mailtoLink;
+
+        // Show confirmation message
+        alert("Thank you for your order! Please check your email for payment details.");
     }
 
     // Event listeners
