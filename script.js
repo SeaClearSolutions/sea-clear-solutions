@@ -14,15 +14,28 @@ document.addEventListener("DOMContentLoaded", function () {
         let total = 0;
         cart.forEach((item, index) => {
             let li = document.createElement("li");
-            li.textContent = `${item.name} - ${item.price.toLocaleString()} IDR x${item.quantity}`;
-            let removeBtn = document.createElement("button");
-            removeBtn.textContent = "Remove";
-            removeBtn.classList.add("remove-item");
-            removeBtn.dataset.index = index;
-            li.appendChild(removeBtn);
+
+            let itemText = document.createElement("span");
+            itemText.textContent = `${item.name} - ${item.price.toLocaleString()} IDR x${item.quantity}`;
+
+            let minusBtn = document.createElement("button");
+            minusBtn.textContent = "➖";
+            minusBtn.classList.add("minus-item");
+            minusBtn.dataset.index = index;
+
+            let plusBtn = document.createElement("button");
+            plusBtn.textContent = "➕";
+            plusBtn.classList.add("plus-item");
+            plusBtn.dataset.index = index;
+
+            li.appendChild(itemText);
+            li.appendChild(minusBtn);
+            li.appendChild(plusBtn);
             cartItemsList.appendChild(li);
+
             total += item.price * item.quantity;
         });
+
         totalPriceElement.textContent = `Total: ${total.toLocaleString()} IDR`;
     }
 
@@ -43,14 +56,22 @@ document.addEventListener("DOMContentLoaded", function () {
         cartSidebar.classList.add("open");
     }
 
-    // Function to remove item from cart (DOES NOT CLOSE CART)
-    function removeFromCart(event) {
-        if (event.target.classList.contains("remove-item")) {
-            const index = event.target.dataset.index;
-            cart.splice(index, 1);
-            updateCart();
-            event.stopPropagation(); // Prevent triggering outside click event
+    // Function to increase quantity
+    function increaseQuantity(event) {
+        const index = event.target.dataset.index;
+        cart[index].quantity += 1;
+        updateCart();
+    }
+
+    // Function to decrease quantity (removes item if it reaches zero)
+    function decreaseQuantity(event) {
+        const index = event.target.dataset.index;
+        if (cart[index].quantity > 1) {
+            cart[index].quantity -= 1;
+        } else {
+            cart.splice(index, 1); // Remove item if quantity reaches 0
         }
+        updateCart();
     }
 
     // Function to close cart
@@ -89,12 +110,18 @@ document.addEventListener("DOMContentLoaded", function () {
 
     // Event listeners
     addToCartButtons.forEach(button => button.addEventListener("click", addToCart));
-    cartItemsList.addEventListener("click", removeFromCart);
+    cartItemsList.addEventListener("click", function (event) {
+        if (event.target.classList.contains("plus-item")) {
+            increaseQuantity(event);
+        } else if (event.target.classList.contains("minus-item")) {
+            decreaseQuantity(event);
+        }
+    });
     closeCartBtn.addEventListener("click", function (event) {
-        event.stopPropagation(); // Prevent closing when clicking inside
+        event.stopPropagation();
         closeCart();
     });
     placeOrderButton.addEventListener("click", placeOrder);
-    document.addEventListener("click", handleOutsideClick); // Close when clicking outside the cart
-    cartSidebar.addEventListener("click", handleInsideClick); // Keep open when clicking inside
+    document.addEventListener("click", handleOutsideClick);
+    cartSidebar.addEventListener("click", handleInsideClick);
 });
