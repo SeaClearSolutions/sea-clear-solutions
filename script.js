@@ -108,17 +108,17 @@ document.addEventListener("DOMContentLoaded", function () {
         cartSidebar.classList.remove("open");
     }
 
+    // Function to toggle cart when clicking inside it
+    function toggleCart(event) {
+        event.stopPropagation(); // Prevents the cart from closing
+        cartSidebar.classList.add("open");
+    }
+
     // Function to close cart when clicking outside
     function handleOutsideClick(event) {
         if (!cartSidebar.contains(event.target) && !event.target.classList.contains("add-to-cart")) {
             closeCart();
         }
-    }
-
-    // Function to open cart when clicking inside it
-    function openCart(event) {
-        event.stopPropagation(); // Prevents closing when clicking inside
-        cartSidebar.classList.add("open");
     }
 
     // Function to place order
@@ -157,8 +157,8 @@ document.addEventListener("DOMContentLoaded", function () {
 
     document.addEventListener("click", handleOutsideClick);
 
-    // Allow clicking inside the cart to open it
-    cartSidebar.addEventListener("click", openCart);
+    // Allow clicking anywhere inside the cart to open it
+    cartSidebar.addEventListener("click", toggleCart);
 
     // Initialize cart on page load
     updateCart();
