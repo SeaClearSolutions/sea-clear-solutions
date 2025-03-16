@@ -49,6 +49,7 @@ document.addEventListener("DOMContentLoaded", function () {
             const index = event.target.dataset.index;
             cart.splice(index, 1);
             updateCart();
+            event.stopPropagation(); // Prevent triggering outside click event
         }
     }
 
@@ -89,7 +90,10 @@ document.addEventListener("DOMContentLoaded", function () {
     // Event listeners
     addToCartButtons.forEach(button => button.addEventListener("click", addToCart));
     cartItemsList.addEventListener("click", removeFromCart);
-    closeCartBtn.addEventListener("click", closeCart); // Close when clicking the X button
+    closeCartBtn.addEventListener("click", function (event) {
+        event.stopPropagation(); // Prevent closing when clicking inside
+        closeCart();
+    });
     placeOrderButton.addEventListener("click", placeOrder);
     document.addEventListener("click", handleOutsideClick); // Close when clicking outside the cart
     cartSidebar.addEventListener("click", handleInsideClick); // Keep open when clicking inside
