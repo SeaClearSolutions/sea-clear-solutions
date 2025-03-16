@@ -8,16 +8,16 @@
 </head>
 <body>
     <header>
-    <nav>
-    <ul class="left">
-        <li><a href="index.html">Home</a></li>
-        <li><a href="shop.html">Shop</a></li>
-        <li><a href="about.html">About Us</a></li>
-    </ul>
-    <ul class="right">
-        <li><a href="contact.html">Contact Us</a></li>
-    </ul>
-    </nav>
+        <nav>
+            <ul class="left">
+                <li><a href="index.html">Home</a></li>
+                <li><a href="shop.html">Shop</a></li>
+                <li><a href="about.html">About Us</a></li>
+            </ul>
+            <ul class="right">
+                <li><a href="contact.html">Contact Us</a></li>
+            </ul>
+        </nav>
     </header>
 
     <main>
@@ -67,11 +67,34 @@
         </section>
 
         <footer>
-        <img src="Logo no text.png" alt="Sea Clear Logo" class="footer-logo">
+            <img src="Logo no text.png" alt="Sea Clear Logo" class="footer-logo">
         </footer>
-        
     </main>
 
-    <script src="checkout.js"></script>
+    <script>
+        document.addEventListener("DOMContentLoaded", function () {
+            const cartSummaryList = document.getElementById("cart-summary-list");
+            const cartTotalElement = document.getElementById("cart-total");
+
+            // Retrieve cart data from localStorage
+            let cart = JSON.parse(localStorage.getItem("cart")) || [];
+
+            if (cart.length === 0) {
+                cartSummaryList.innerHTML = "<p>Your cart is empty.</p>";
+            } else {
+                let total = 0;
+                cartSummaryList.innerHTML = ""; 
+
+                cart.forEach((item) => {
+                    let li = document.createElement("li");
+                    li.textContent = `${item.name} - ${item.quantity} x ${item.price.toLocaleString()} IDR`;
+                    cartSummaryList.appendChild(li);
+                    total += item.price * item.quantity;
+                });
+
+                cartTotalElement.textContent = `Total: ${total.toLocaleString()} IDR`;
+            }
+        });
+    </script>
 </body>
 </html>
