@@ -68,7 +68,7 @@
                 <input type="hidden" name="order_details" id="order-details">
 
                 <label class="checkbox">
-                    <input type="checkbox" id="bank-transfer-checkbox" required>
+                    <input type="checkbox" id="bank-transfer-checkbox" name="bank_transfer_agreement" required>
                     I understand that my order will not be processed until payment has been made via bank transfer.
                 </label>
 
@@ -86,17 +86,18 @@
             const cartSummaryList = document.getElementById("cart-summary-list");
             const cartTotalElement = document.getElementById("cart-total");
             const orderDetailsInput = document.getElementById("order-details");
+            const checkoutForm = document.getElementById("checkout-form");
 
             // Retrieve cart data from localStorage
             let cart = JSON.parse(localStorage.getItem("cart")) || [];
+
+            let orderDetailsText = ""; // Initialize order details text
 
             if (cart.length === 0) {
                 cartSummaryList.innerHTML = "<p>Your cart is empty.</p>";
                 orderDetailsInput.value = "No items in cart.";
             } else {
                 let total = 0;
-                let orderDetailsText = "";
-
                 cartSummaryList.innerHTML = ""; 
 
                 cart.forEach((item) => {
@@ -112,6 +113,12 @@
                 orderDetailsText += `Total: ${total.toLocaleString()} IDR`;
                 orderDetailsInput.value = orderDetailsText;
             }
+
+            // Update hidden input before submitting & clear cart after order
+            checkoutForm.addEventListener("submit", function () {
+                orderDetailsInput.value = orderDetailsText;
+                localStorage.removeItem("cart"); // Clear cart after placing order
+            });
         });
     </script>
 </body>
