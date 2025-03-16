@@ -25,12 +25,18 @@ document.addEventListener("DOMContentLoaded", function () {
             let controlsDiv = document.createElement("div");
             controlsDiv.style.display = "flex";
             controlsDiv.style.alignItems = "center";
-            controlsDiv.style.gap = "10px"; // Space between buttons and number
+            controlsDiv.style.gap = "5px"; // Space between buttons and number
 
             let minusBtn = document.createElement("button");
             minusBtn.textContent = "➖";
             minusBtn.classList.add("minus-item");
             minusBtn.dataset.index = index;
+            minusBtn.style.backgroundColor = "#fffee1"; // Cream color
+            minusBtn.style.border = "none";
+            minusBtn.style.padding = "5px 8px";
+            minusBtn.style.fontSize = "14px";
+            minusBtn.style.cursor = "pointer";
+            minusBtn.style.borderRadius = "5px";
 
             let quantitySpan = document.createElement("span");
             quantitySpan.textContent = `x${item.quantity}`;
@@ -41,6 +47,12 @@ document.addEventListener("DOMContentLoaded", function () {
             plusBtn.textContent = "➕";
             plusBtn.classList.add("plus-item");
             plusBtn.dataset.index = index;
+            plusBtn.style.backgroundColor = "#fffee1"; // Cream color
+            plusBtn.style.border = "none";
+            plusBtn.style.padding = "5px 8px";
+            plusBtn.style.fontSize = "14px";
+            plusBtn.style.cursor = "pointer";
+            plusBtn.style.borderRadius = "5px";
 
             controlsDiv.appendChild(minusBtn);
             controlsDiv.appendChild(quantitySpan);
