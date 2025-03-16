@@ -14,23 +14,40 @@ document.addEventListener("DOMContentLoaded", function () {
         let total = 0;
         cart.forEach((item, index) => {
             let li = document.createElement("li");
+            li.style.display = "flex";
+            li.style.alignItems = "center";
+            li.style.justifyContent = "space-between";
+            li.style.marginBottom = "5px";
 
             let itemText = document.createElement("span");
-            itemText.textContent = `${item.name} - ${item.price.toLocaleString()} IDR x${item.quantity}`;
+            itemText.textContent = `${item.name} - ${item.price.toLocaleString()} IDR`;
+
+            let controlsDiv = document.createElement("div");
+            controlsDiv.style.display = "flex";
+            controlsDiv.style.alignItems = "center";
+            controlsDiv.style.gap = "10px"; // Space between buttons and number
 
             let minusBtn = document.createElement("button");
             minusBtn.textContent = "➖";
             minusBtn.classList.add("minus-item");
             minusBtn.dataset.index = index;
 
+            let quantitySpan = document.createElement("span");
+            quantitySpan.textContent = `x${item.quantity}`;
+            quantitySpan.style.minWidth = "20px";
+            quantitySpan.style.textAlign = "center";
+
             let plusBtn = document.createElement("button");
             plusBtn.textContent = "➕";
             plusBtn.classList.add("plus-item");
             plusBtn.dataset.index = index;
 
+            controlsDiv.appendChild(minusBtn);
+            controlsDiv.appendChild(quantitySpan);
+            controlsDiv.appendChild(plusBtn);
+
             li.appendChild(itemText);
-            li.appendChild(minusBtn);
-            li.appendChild(plusBtn);
+            li.appendChild(controlsDiv);
             cartItemsList.appendChild(li);
 
             total += item.price * item.quantity;
@@ -58,6 +75,7 @@ document.addEventListener("DOMContentLoaded", function () {
 
     // Function to increase quantity
     function increaseQuantity(event) {
+        event.stopPropagation(); // Prevent closing when clicking button
         const index = event.target.dataset.index;
         cart[index].quantity += 1;
         updateCart();
@@ -65,6 +83,7 @@ document.addEventListener("DOMContentLoaded", function () {
 
     // Function to decrease quantity (removes item if it reaches zero)
     function decreaseQuantity(event) {
+        event.stopPropagation(); // Prevent closing when clicking button
         const index = event.target.dataset.index;
         if (cart[index].quantity > 1) {
             cart[index].quantity -= 1;
