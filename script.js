@@ -25,11 +25,11 @@ document.addEventListener("DOMContentLoaded", function () {
             let controlsDiv = document.createElement("div");
             controlsDiv.style.display = "flex";
             controlsDiv.style.alignItems = "center";
-            controlsDiv.style.gap = "10px"; // Space between buttons and number
+            controlsDiv.style.gap = "5px"; // Adjust spacing for smaller buttons
 
             let minusBtn = document.createElement("button");
             minusBtn.textContent = "➖";
-            minusBtn.classList.add("minus-item");
+            minusBtn.classList.add("cart-button", "minus-item");
             minusBtn.dataset.index = index;
 
             let quantitySpan = document.createElement("span");
@@ -39,7 +39,7 @@ document.addEventListener("DOMContentLoaded", function () {
 
             let plusBtn = document.createElement("button");
             plusBtn.textContent = "➕";
-            plusBtn.classList.add("plus-item");
+            plusBtn.classList.add("cart-button", "plus-item");
             plusBtn.dataset.index = index;
 
             controlsDiv.appendChild(minusBtn);
@@ -73,23 +73,20 @@ document.addEventListener("DOMContentLoaded", function () {
         cartSidebar.classList.add("open");
     }
 
-    // Function to increase quantity
-    function increaseQuantity(event) {
-        event.stopPropagation(); // Prevent closing when clicking button
-        const index = event.target.dataset.index;
-        cart[index].quantity += 1;
-        updateCart();
-    }
+    // Function to update item quantity
+    function updateItemQuantity(event) {
+        const button = event.target;
+        const index = button.dataset.index;
 
-    // Function to decrease quantity (removes item if it reaches zero)
-    function decreaseQuantity(event) {
-        event.stopPropagation(); // Prevent closing when clicking button
-        const index = event.target.dataset.index;
-        if (cart[index].quantity > 1) {
+        if (button.classList.contains("plus-item")) {
+            cart[index].quantity += 1;
+        } else if (button.classList.contains("minus-item")) {
             cart[index].quantity -= 1;
-        } else {
-            cart.splice(index, 1); // Remove item if quantity reaches 0
+            if (cart[index].quantity === 0) {
+                cart.splice(index, 1);
+            }
         }
+
         updateCart();
     }
 
@@ -98,18 +95,12 @@ document.addEventListener("DOMContentLoaded", function () {
         cartSidebar.classList.remove("open");
     }
 
-    // Function to close cart when clicking outside
-    function handleOutsideClick(event) {
+    // Function to toggle cart when clicking inside
+    function toggleCart(event) {
         if (!cartSidebar.contains(event.target) && !event.target.classList.contains("add-to-cart")) {
             closeCart();
-        }
-    }
-
-    // Function to open cart when clicking inside
-    function handleInsideClick(event) {
-        if (cartSidebar.contains(event.target)) {
+        } else {
             cartSidebar.classList.add("open");
-            event.stopPropagation(); // Prevent closing when clicking inside
         }
     }
 
@@ -129,18 +120,8 @@ document.addEventListener("DOMContentLoaded", function () {
 
     // Event listeners
     addToCartButtons.forEach(button => button.addEventListener("click", addToCart));
-    cartItemsList.addEventListener("click", function (event) {
-        if (event.target.classList.contains("plus-item")) {
-            increaseQuantity(event);
-        } else if (event.target.classList.contains("minus-item")) {
-            decreaseQuantity(event);
-        }
-    });
-    closeCartBtn.addEventListener("click", function (event) {
-        event.stopPropagation();
-        closeCart();
-    });
+    cartItemsList.addEventListener("click", updateItemQuantity);
+    closeCartBtn.addEventListener("click", closeCart);
     placeOrderButton.addEventListener("click", placeOrder);
-    document.addEventListener("click", handleOutsideClick);
-    cartSidebar.addEventListener("click", handleInsideClick);
+    document.addEventListener("click", toggleCart);
 });
