@@ -25,27 +25,28 @@ document.addEventListener("DOMContentLoaded", function () {
             let controlsDiv = document.createElement("div");
             controlsDiv.style.display = "flex";
             controlsDiv.style.alignItems = "center";
-            controlsDiv.style.gap = "5px"; // Space between symbols and number
+            controlsDiv.style.gap = "8px"; // Increased spacing for better readability
 
             let minusSpan = document.createElement("span");
             minusSpan.textContent = "−"; // Minus symbol
             minusSpan.classList.add("minus-item");
             minusSpan.dataset.index = index;
-            minusSpan.style.color = "#34b2ae"; // Branding green
-            minusSpan.style.fontSize = "18px";
+            minusSpan.style.color = "#237778"; // Darker green
+            minusSpan.style.fontSize = "22px"; // Bigger size for visibility
             minusSpan.style.cursor = "pointer";
 
             let quantitySpan = document.createElement("span");
             quantitySpan.textContent = `x${item.quantity}`;
-            quantitySpan.style.minWidth = "20px";
+            quantitySpan.style.minWidth = "25px";
             quantitySpan.style.textAlign = "center";
+            quantitySpan.style.fontSize = "18px"; // Slightly larger for balance
 
             let plusSpan = document.createElement("span");
             plusSpan.textContent = "+"; // Plus symbol
             plusSpan.classList.add("plus-item");
             plusSpan.dataset.index = index;
-            plusSpan.style.color = "#34b2ae"; // Branding green
-            plusSpan.style.fontSize = "18px";
+            plusSpan.style.color = "#237778"; // Darker green
+            plusSpan.style.fontSize = "22px"; // Bigger size for visibility
             plusSpan.style.cursor = "pointer";
 
             controlsDiv.appendChild(minusSpan);
