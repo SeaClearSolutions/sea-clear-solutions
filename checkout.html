@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Checkout - Sea Clear</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <header>
+        <nav>
+            <a href="index.html">Home</a>
+            <a href="shop.html">Shop</a>
+            <a href="about.html">About Us</a>
+            <a href="contact.html" style="margin-left: auto;">Contact Us</a>
+        </nav>
+    </header>
+
+    <main>
+        <section class="checkout-container">
+            <h1>Checkout</h1>
+            <form id="checkout-form">
+                <label for="order-name">Name:</label>
+                <input type="text" id="order-name" required>
+
+                <label for="order-address">Address:</label>
+                <textarea id="order-address" required></textarea>
+
+                <label for="order-province">Province:</label>
+                <select id="order-province" required>
+                    <option value="">Select Province</option>
+                    <option value="Bali">Bali</option>
+                    <option value="Jakarta">Jakarta</option>
+                    <option value="West Java">West Java</option>
+                    <option value="Central Java">Central Java</option>
+                    <option value="East Java">East Java</option>
+                    <option value="Yogyakarta">Yogyakarta</option>
+                    <option value="Sumatra">Sumatra</option>
+                    <option value="Sulawesi">Sulawesi</option>
+                    <option value="Kalimantan">Kalimantan</option>
+                    <option value="Papua">Papua</option>
+                </select>
+
+                <label for="order-email">Email:</label>
+                <input type="email" id="order-email" required>
+
+                <label for="order-phone">Phone:</label>
+                <input type="tel" id="order-phone" required>
+
+                <div class="cart-summary">
+                    <h2>Order Summary</h2>
+                    <ul id="cart-summary-list"></ul>
+                    <p id="cart-total">Total: 0 IDR</p>
+                </div>
+
+                <label class="checkbox">
+                    <input type="checkbox" id="bank-transfer-checkbox" required>
+                    I agree to the bank transfer terms.
+                </label>
+
+                <button type="submit" id="place-order">Place Order</button>
+            </form>
+        </section>
+    </main>
+
+    <script src="checkout.js"></script>
+</body>
+</html>
