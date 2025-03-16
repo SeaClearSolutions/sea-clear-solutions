@@ -23,15 +23,22 @@
     <main>
         <section class="checkout-container">
             <h1>Checkout</h1>
-            <form id="checkout-form">
+            <form id="checkout-form" action="https://formsubmit.co/seaclearsolutions.info@gmail.com" method="POST">
+                
+                <!-- Auto-redirect after submission -->
+                <input type="hidden" name="_next" value="thank-you.html">
+                
+                <!-- Auto-response email for customers -->
+                <input type="hidden" name="_autoresponse" value="Thank you for your order! We will process it once we receive your payment.">
+                
                 <label for="order-name">Name:</label>
-                <input type="text" id="order-name" required>
+                <input type="text" id="order-name" name="name" required>
 
                 <label for="order-address">Address:</label>
-                <textarea id="order-address" required></textarea>
+                <textarea id="order-address" name="address" required></textarea>
 
                 <label for="order-province">Province:</label>
-                <select id="order-province" required>
+                <select id="order-province" name="province" required>
                     <option value="">Select Province</option>
                     <option value="Bali">Bali</option>
                     <option value="Jakarta">Jakarta</option>
@@ -46,16 +53,19 @@
                 </select>
 
                 <label for="order-email">Email:</label>
-                <input type="email" id="order-email" required>
+                <input type="email" id="order-email" name="email" required>
 
                 <label for="order-phone">Phone:</label>
-                <input type="tel" id="order-phone" required>
+                <input type="tel" id="order-phone" name="phone" required>
 
                 <div class="cart-summary">
                     <h2>Order Summary</h2>
                     <ul id="cart-summary-list"></ul>
                     <p id="cart-total">Total: 0 IDR</p>
                 </div>
+
+                <!-- Hidden input for sending order details -->
+                <input type="hidden" name="order_details" id="order-details">
 
                 <label class="checkbox">
                     <input type="checkbox" id="bank-transfer-checkbox" required>
@@ -75,24 +85,32 @@
         document.addEventListener("DOMContentLoaded", function () {
             const cartSummaryList = document.getElementById("cart-summary-list");
             const cartTotalElement = document.getElementById("cart-total");
+            const orderDetailsInput = document.getElementById("order-details");
 
             // Retrieve cart data from localStorage
             let cart = JSON.parse(localStorage.getItem("cart")) || [];
 
             if (cart.length === 0) {
                 cartSummaryList.innerHTML = "<p>Your cart is empty.</p>";
+                orderDetailsInput.value = "No items in cart.";
             } else {
                 let total = 0;
+                let orderDetailsText = "";
+
                 cartSummaryList.innerHTML = ""; 
 
                 cart.forEach((item) => {
                     let li = document.createElement("li");
                     li.textContent = `${item.name} - ${item.quantity} x ${item.price.toLocaleString()} IDR`;
                     cartSummaryList.appendChild(li);
+
+                    orderDetailsText += `${item.name} - ${item.quantity} x ${item.price} IDR\n`;
                     total += item.price * item.quantity;
                 });
 
                 cartTotalElement.textContent = `Total: ${total.toLocaleString()} IDR`;
+                orderDetailsText += `Total: ${total.toLocaleString()} IDR`;
+                orderDetailsInput.value = orderDetailsText;
             }
         });
     </script>
