@@ -401,3 +401,53 @@ p, li, ul, ol {
 .cart-button:hover {
     background-color: #e6dcc9; /* Slightly darker cream for hover effect */
 }
+
+.checkout-container, .thank-you-container {
+    max-width: 500px;
+    margin: 50px auto;
+    padding: 20px;
+    text-align: center;
+    background: #fffee1;
+    border-radius: 10px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+.checkout-container h2, .thank-you-container h2 {
+    color: #237778;
+}
+
+form {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+input, select, textarea, button {
+    padding: 10px;
+    font-size: 16px;
+    border-radius: 5px;
+    border: 1px solid #237778;
+}
+
+button {
+    background-color: #237778;
+    color: #fffee1;
+    cursor: pointer;
+}
+
+button:hover {
+    background-color: #146f77;
+}
+
+.home-button {
+    display: inline-block;
+    padding: 10px 20px;
+    background-color: #237778;
+    color: #fffee1;
+    text-decoration: none;
+    border-radius: 5px;
+}
+
+.home-button:hover {
+    background-color: #146f77;
+}
