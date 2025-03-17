@@ -113,7 +113,8 @@ nav .left {
 
 /* Right side (Contact Us) */
 nav .right {
-    margin-left: auto; /* Pushes "Contact Us" to the far right */
+    margin-left: auto; /* Push to the right */
+    margin-right: 20px; /* Add a margin so it doesn’t touch the edge */
 }
 
 /* Navigation Links */
