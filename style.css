@@ -589,7 +589,7 @@ nav.scrolled {
 /* Default logo size */
 .nav-logo img {
     transition: all 0.3s ease-in-out;
-    height: 100px;  /* Original size */
+    height: 110px;  /* Original size */
 }
 
 /* Smaller logo when navbar is scrolled */
