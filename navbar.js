@@ -1,6 +1,8 @@
 window.addEventListener("scroll", function() {
     let navbar = document.querySelector(".navbar");
-    let logo = document.querySelector(".nav-logo"); // Make sure this matches your logo class in HTML
+    let logo = document.querySelector(".nav-logo");
+
+    console.log("Scrolling...", window.scrollY); // Debugging
 
     if (window.scrollY > 50) { 
         navbar.classList.add("scrolled");
