@@ -563,3 +563,39 @@ input, textarea, select {
 .navbar.scrolled .logo {
     opacity: 0;
 }
+
+/* Style the navigation bar */
+.navbar {
+    position: fixed;  /* Stays at the top */
+    top: 0;
+    width: 100%;
+    height: 140px;  /* Start with a tall navbar */
+    background-color: #34b2ae;  /* Your green color */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: height 0.3s ease-in-out;
+    z-index: 1000;
+}
+
+/* Style the logo inside the navigation bar */
+.logo {
+    position: absolute;
+    top: 70px; /* Center logo in the initial navbar */
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 100px; /* Adjust as needed */
+    height: auto;
+    transition: opacity 0.3s ease-in-out, top 0.3s ease-in-out;
+}
+
+/* Style for when scrolling down */
+.scrolled .navbar {
+    height: 60px;  /* Shrinks on scroll */
+}
+
+/* Hide the logo when scrolling */
+.scrolled .logo {
+    opacity: 0;  /* Logo fades out */
+    top: 30px; /* Moves up slightly while fading */
+}
