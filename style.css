@@ -516,23 +516,22 @@ input, textarea, select {
     font-size: 16px;
 }
 
-.logo-container {
+/* Center the logo properly */
+.nav-logo, .logo-container {
     display: flex;
     justify-content: center; /* Center horizontally */
     align-items: center; /* Align vertically */
-    width: 100%;
-    margin-top: 10px;
+    flex-grow: 1; /* Allows the logo to take up available space */
 }
 
+/* Adjust the logo container */
+.logo-container {
+    width: auto; /* Auto width to fit content */
+    margin: 0 20px; /* Add spacing around the logo */
+}
+
+/* Ensure logo size is correct */
 img.logo {
     max-width: 180px; /* Adjust size */
     height: auto; /* Maintain aspect ratio */
-}
-
-.nav-logo {
-    display: flex;
-    justify-content: center; /* Center horizontally */
-    align-items: center; /* Align vertically */
-    width: 100%;
-    margin-top: 10px;
 }
