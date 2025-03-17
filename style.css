@@ -528,3 +528,38 @@ input, textarea, select {
     opacity: 0;
     transform: translateY(-10px);
 }
+
+/* Default navbar with larger height */
+.navbar {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    background-color: #2dafa1; /* Your green color */
+    height: 120px; /* Increased height */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: height 0.3s ease-in-out;
+    z-index: 1000;
+}
+
+/* Navbar shrinks when scrolling */
+.navbar.scrolled {
+    height: 60px; /* Smaller height when scrolling */
+}
+
+/* Center the logo inside the navbar */
+.logo {
+    position: absolute;
+    top: -20px; /* Adjust this to fine-tune placement */
+    left: 50%;
+    transform: translateX(-50%);
+    height: 100px; /* Adjust for your logo size */
+    transition: opacity 0.3s ease-in-out;
+}
+
+/* Hide the logo when scrolling */
+.navbar.scrolled .logo {
+    opacity: 0;
+}
