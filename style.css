@@ -114,7 +114,7 @@ nav .left {
 /* Right side (Contact Us) */
 nav .right {
     margin-left: auto; /* Push to the right */
-    margin-right: 40px; /* Add a margin so it doesn’t touch the edge */
+    margin-right: 60px; /* Add a margin so it doesn’t touch the edge */
 }
 
 /* Navigation Links */
