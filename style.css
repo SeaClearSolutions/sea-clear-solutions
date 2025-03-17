@@ -541,3 +541,28 @@ body, html {
     overflow-x: hidden; /* Prevents horizontal scrolling */
     width: 100%;
 }
+
+/* Ensure navigation bar sticks to the top */
+nav {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    z-index: 1000;
+    transition: background-color 0.3s ease-in-out;
+}
+
+/* Make navigation bar semi-transparent when scrolling */
+nav.scrolled {
+    background-color: rgba(35, 119, 120, 0.85); /* Semi-transparent dark green */
+}
+
+/* Hide logo when scrolling down */
+.logo-container {
+    transition: opacity 0.3s ease-in-out;
+}
+
+.scrolled .logo-container {
+    opacity: 0;
+    pointer-events: none;
+}
