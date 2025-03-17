@@ -515,3 +515,16 @@ input, textarea, select {
     padding: 8px;
     font-size: 16px;
 }
+
+/* Logo inside Navbar */
+.nav-logo {
+    height: 40px; /* Adjust as needed */
+    margin-right: 20px; /* Space between logo and nav buttons */
+    transition: opacity 0.3s ease-in-out, transform 0.3s ease-in-out;
+}
+
+/* When scrolling, hide the logo */
+.navbar.scrolled .nav-logo {
+    opacity: 0;
+    transform: translateY(-10px);
+}
