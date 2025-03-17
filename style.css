@@ -574,3 +574,14 @@ nav.scrolled {
 .navbar-links.active {
     display: block; /* Show menu when active */
 }
+
+/* Default navbar size */
+.navbar {
+    transition: all 0.3s ease-in-out;
+    height: 80px;  /* Original height */
+}
+
+/* Smaller navbar when scrolled */
+.navbar.scrolled {
+    height: 50px;  /* Adjust this value as needed */
+}
