@@ -5,6 +5,8 @@ document.addEventListener("DOMContentLoaded", function () {
     const cartItemsList = document.getElementById("cart-items");
     const totalPriceElement = document.getElementById("total-price");
     const placeOrderButton = document.getElementById("place-order");
+    const checkoutForm = document.getElementById("checkout-form");
+    const orderDetailsInput = document.getElementById("order-details");
 
     let cart = JSON.parse(localStorage.getItem("cart")) || [];
 
@@ -121,25 +123,48 @@ document.addEventListener("DOMContentLoaded", function () {
         }
     }
 
-    // Function to place order
-    function placeOrder(event) {
+    // Function to handle checkout page
+    function updateCheckoutPage() {
+        const cartSummaryList = document.getElementById("cart-summary-list");
+        const cartTotalElement = document.getElementById("cart-total");
+
+        let orderDetailsText = ""; // Initialize order details text
+
+        if (!cartSummaryList) return; // Stop if not on checkout page
+
         if (cart.length === 0) {
-            alert("Your cart is empty!");
-            event.preventDefault(); // Prevents submission only if cart is empty
-            return;
-        }
-
-        // Save cart in localStorage for checkout page
-        localStorage.setItem("cart", JSON.stringify(cart));
-
-        // Check if the form exists (for checkout.html)
-        const form = document.querySelector("#checkout-form");
-        if (form) {
-            form.submit(); // Submit the form properly
+            cartSummaryList.innerHTML = "<p>Your cart is empty.</p>";
+            orderDetailsInput.value = "No items in cart.";
         } else {
-            // Redirect only if no form is found (e.g., from cart page to checkout)
-            window.location.href = "checkout.html";
+            let total = 0;
+            cartSummaryList.innerHTML = ""; 
+
+            cart.forEach((item) => {
+                let li = document.createElement("li");
+                li.textContent = `${item.name} - ${item.quantity} x ${item.price.toLocaleString()} IDR`;
+                cartSummaryList.appendChild(li);
+
+                orderDetailsText += `${item.name} - ${item.quantity} x ${item.price} IDR\n`;
+                total += item.price * item.quantity;
+            });
+
+            cartTotalElement.textContent = `Total: ${total.toLocaleString()} IDR`;
+            orderDetailsText += `Total: ${total.toLocaleString()} IDR`;
+            orderDetailsInput.value = orderDetailsText;
         }
+    }
+
+    // Prevent empty orders from being submitted
+    if (checkoutForm) {
+        checkoutForm.addEventListener("submit", function (event) {
+            if (cart.length === 0) {
+                alert("Your cart is empty. Please add items before placing an order.");
+                event.preventDefault();
+                return;
+            }
+            localStorage.removeItem("cart"); // Clear cart after order
+        });
+        updateCheckoutPage();
     }
 
     // Event listeners
@@ -157,12 +182,17 @@ document.addEventListener("DOMContentLoaded", function () {
     });
 
     if (placeOrderButton) {
-        placeOrderButton.addEventListener("click", placeOrder);
+        placeOrderButton.addEventListener("click", function (event) {
+            if (cart.length === 0) {
+                alert("Your cart is empty!");
+                event.preventDefault();
+            } else {
+                window.location.href = "checkout.html";
+            }
+        });
     }
 
     document.addEventListener("click", handleOutsideClick);
-
-    // Allow clicking anywhere inside the cart to open it
     cartSidebar.addEventListener("click", toggleCart);
 
     // Initialize cart on page load
