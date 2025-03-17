@@ -585,3 +585,14 @@ nav.scrolled {
 .navbar.scrolled {
     height: 50px;  /* Adjust this value as needed */
 }
+
+/* Default logo size */
+.nav-logo img {
+    transition: all 0.3s ease-in-out;
+    height: 60px;  /* Original size */
+}
+
+/* Smaller logo when navbar is scrolled */
+.navbar.scrolled .nav-logo img {
+    height: 40px;  /* Adjust size as needed */
+}
