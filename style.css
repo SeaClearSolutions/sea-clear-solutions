@@ -515,3 +515,16 @@ input, textarea, select {
     padding: 8px;
     font-size: 16px;
 }
+
+.logo-container {
+    display: flex;
+    justify-content: center; /* Center horizontally */
+    align-items: center; /* Align vertically */
+    width: 100%;
+    margin-top: 10px;
+}
+
+img.logo {
+    max-width: 180px; /* Adjust size */
+    height: auto; /* Maintain aspect ratio */
+}
