@@ -1,11 +1,11 @@
-window.addEventListener("DOMContentLoaded", function() {
-    let nav = document.querySelector("nav");
+window.addEventListener("scroll", function() {
+    let logo = document.querySelector(".nav-logo");
 
-    window.addEventListener("scroll", function() {
-        if (window.scrollY > 50) {
-            nav.classList.add("scrolling"); // Add class when scrolling down
-        } else {
-            nav.classList.remove("scrolling"); // Remove class when at the top
-        }
-    });
+    if (window.scrollY > 50) {
+        logo.style.opacity = "0";  // Hide the logo when scrolling
+        logo.style.pointerEvents = "none";  // Prevent interaction
+    } else {
+        logo.style.opacity = "1";  // Show the logo at the top
+        logo.style.pointerEvents = "auto";
+    }
 });
