@@ -87,12 +87,15 @@ button:hover {
 
 /* Navigation Bar */
 nav {
+    width: 100vw; /* Full width of the viewport */
     background-color: #2dafa1;
-    padding: 8px 40px; /* Reduced padding for thinner navbar */
     display: flex;
+    justify-content: space-between;
     align-items: center;
-    height: 45px; /* Adjusted height */
+    padding: 10px 20px;
+    position: relative;
 }
+
 
 /* Navigation List */
 nav ul {
