@@ -528,3 +528,11 @@ img.logo {
     max-width: 180px; /* Adjust size */
     height: auto; /* Maintain aspect ratio */
 }
+
+.nav-logo {
+    display: flex;
+    justify-content: center; /* Center horizontally */
+    align-items: center; /* Align vertically */
+    width: 100%;
+    margin-top: 10px;
+}
