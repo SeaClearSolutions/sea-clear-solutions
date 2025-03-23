@@ -592,7 +592,7 @@ nav.scrolled {
 
 .nav-logo {
     position: absolute;  /* Ensures it stays in the center */
-    left: 50%;
+    left: 45%;
     transform: translateX(-50%);  /* Truly centers it */
 }
 
