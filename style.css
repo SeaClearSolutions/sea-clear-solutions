@@ -583,6 +583,7 @@ nav.scrolled {
     justify-content: space-between; /* Keep left and right sections positioned correctly */
     align-items: center;
     padding: 10px 20px;
+    pointer-events: auto !important; /* Ensures it's always clickable */
 }
 
 /* Smaller navbar when scrolled */
@@ -594,6 +595,7 @@ nav.scrolled {
     position: absolute;  /* Ensures it stays in the center */
     left: 49%;
     transform: translateX(-50%);  /* Truly centers it */
+    pointer-events: none; /* Prevents logo from blocking clicks */
 }
 
 /* Default logo size */
