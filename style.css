@@ -579,11 +579,21 @@ nav.scrolled {
 .navbar {
     transition: all 0.3s ease-in-out;
     height: 80px;  /* Original height */
+    display: flex;
+    justify-content: space-between; /* Keep left and right sections positioned correctly */
+    align-items: center;
+    padding: 10px 20px;
 }
 
 /* Smaller navbar when scrolled */
 .navbar.scrolled {
     height: 50px;  /* Adjust this value as needed */
+}
+
+.nav-logo {
+    position: absolute;  /* Ensures it stays in the center */
+    left: 50%;
+    transform: translateX(-50%);  /* Truly centers it */
 }
 
 /* Default logo size */
