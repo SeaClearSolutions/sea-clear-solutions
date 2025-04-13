@@ -15,7 +15,6 @@ window.addEventListener("DOMContentLoaded", function () {
         } else {
             navbar.classList.remove("scrolled");
             logo.style.opacity = "1";  // Show the logo at the top
-            logo.style.pointerEvents = "auto";
         }
     });
 
