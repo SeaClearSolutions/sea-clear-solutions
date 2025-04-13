@@ -4,7 +4,7 @@ body {
     font-family: 'Poppins', sans-serif;
     background-color: #fffee1; /* Light cream background */
     text-align: center;
-    padding: 20px;
+    padding: 100px 20px 20px; /* Add top padding for navbar */
     color: black;
 }
 
