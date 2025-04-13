@@ -3,6 +3,7 @@
 .index, .about, .shop, .contact, .checkout, .thank-you {
     margin-top: 100px;
     padding-top: 20px;
+    padding-bottom: 50px;
 }
 
 body {
