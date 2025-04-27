@@ -614,3 +614,13 @@ nav.scrolled {
 .navbar.scrolled .nav-logo img {
     height: 40px;  /* Adjust size as needed */
 }
+
+main.contact {
+    background-image: url('contact-background.jpg'); /* replace with your image file */
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    min-height: 100vh; /* makes sure the background covers full height */
+    padding: 2rem; /* optional: gives some breathing room */
+}
