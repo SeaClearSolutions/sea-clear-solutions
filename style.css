@@ -625,3 +625,11 @@ main.contact {
     min-height: 100vh; /* makes sure the background covers full height */
     padding: 2rem; /* optional: gives some breathing room */
 }
+
+.contact p, 
+.contact h1, 
+.contact h2, 
+.contact li, 
+.contact a {
+    color: #fffee1;
+}
