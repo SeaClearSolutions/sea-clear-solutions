@@ -685,22 +685,21 @@ main.contact {
 }
 
 .about {
-    background-image: url('diver.jpg');
+    background: url('diver.jpg') no-repeat center center fixed;
     background-size: cover;
-    background-position: center;
-    background-repeat: no-repeat;
-    background-attachment: fixed;
     min-height: 100vh;
     width: 100vw;
     margin: 0;
     padding: 0;
-    
+
     display: flex;
-    flex-direction: column; /* Stack children vertically */
-    align-items: center;     /* Center horizontally */
-    justify-content: center; /* Center vertically */
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+
     text-align: center;
     color: #fffee1;
+    box-sizing: border-box;
 }
 
 .about * {
