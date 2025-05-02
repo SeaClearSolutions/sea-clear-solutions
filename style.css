@@ -689,10 +689,14 @@ main.contact {
     background-size: cover;
     background-position: center;
     background-repeat: no-repeat;
-    background-attachment: fixed; /* optional for a parallax effect */
+    background-attachment: fixed;
     min-height: 100vh;
     width: 100%;
+    margin: 0;
     padding: 40px 20px;
-    color: #fffee1;
-    position: relative;
+    color: #fffee1; /* cream font */
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
 }
+
