@@ -684,16 +684,27 @@ main.contact {
     background-color: #146f77;
 }
 
-main.about {
-    background-image: url('diver.jpg'); /* Or another image */
+body.about {
+    background-image: url('Pectinia.jpeg'); /* or any full-width image */
     background-size: cover;
     background-position: center;
     background-repeat: no-repeat;
     background-attachment: fixed;
     color: #fffee1;
-    min-height: 100vh;
-    padding: 2rem;
+    margin: 0;
+    padding: 0;
 }
+
+main.about {
+    padding: 2rem;
+    color: #fffee1;
+}
+
+/* Optional: Style specific elements for readability */
+.about p, .about h1, .about h2, .about a {
+    color: #fffee1;
+}
+
 
 .about p,
 .about h1,
