@@ -633,3 +633,53 @@ main.contact {
 .contact a {
     color: #fffee1;
 }
+
+.contact form {
+    background: transparent;
+    padding: 0;
+    border-radius: 0;
+    box-shadow: none;
+    width: 100%;
+    max-width: 600px;
+    margin: 0 auto;
+}
+
+.contact label {
+    display: block;
+    margin-bottom: 8px;
+    font-size: 22px; /* Bigger headings */
+    color: #fffee1;
+}
+
+.contact input, 
+.contact textarea {
+    width: 100%;
+    padding: 12px;
+    margin-bottom: 20px;
+    border: 2px solid #fffee1;
+    background: transparent;
+    color: #fffee1;
+    font-size: 18px;
+    border-radius: 5px;
+}
+
+.contact input::placeholder,
+.contact textarea::placeholder {
+    color: #fffee1aa; /* Slightly transparent cream for placeholder text */
+}
+
+.contact button {
+    background-color: #237778;
+    color: #fffee1;
+    border: none;
+    padding: 12px 20px;
+    font-size: 18px;
+    border-radius: 5px;
+    width: 100%;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.contact button:hover {
+    background-color: #146f77;
+}
