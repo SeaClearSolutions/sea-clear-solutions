@@ -683,3 +683,13 @@ main.contact {
 .contact button:hover {
     background-color: #146f77;
 }
+
+.about {
+    background-image: url('diver.jpg');
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    min-height: 100vh;
+    padding: 40px 20px;
+    color: #fffee1; /* optional: makes text readable over background */
+}
