@@ -685,7 +685,7 @@ main.contact {
 }
 
 body.about {
-    background-image: ('diver.jpg'); /* or any full-width image */
+    background-image: url('diver.jpg'); /* or any full-width image */
     background-size: cover;
     background-position: center;
     background-repeat: no-repeat;
