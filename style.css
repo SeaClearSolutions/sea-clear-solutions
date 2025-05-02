@@ -696,20 +696,16 @@ body.about {
 }
 
 main.about {
+    background-image: url('diver.jpg');
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    color: #fffee1;
+    min-height: 100vh;
     padding: 2rem;
-    color: #fffee1;
-}
-
-/* Optional: Style specific elements for readability */
-.about p, .about h1, .about h2, .about a {
-    color: #fffee1;
-}
-
-
-.about p,
-.about h1,
-.about h2,
-.about li,
-.about a {
-    color: #fffee1;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    text-shadow: 1px 1px 3px #000;
 }
