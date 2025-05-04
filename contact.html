@@ -31,17 +31,16 @@
     <h1>Contact Us</h1>
 <p>Feel free to reach out to us by filling the form or via email or WhatsApp:</p>
 
-<form action="submit-form.php" method="post">
-    <label for="name">Name:</label>
-    <input type="text" id="name" name="name" required>
+<form action="https://formsubmit.co/seaclearsolutions.info@gmail.com" method="POST">
+  <input type="text" name="name" required>
+  <input type="email" name="email" required>
+  <textarea name="message" required></textarea>
 
-    <label for="email">Email:</label>
-    <input type="email" id="email" name="email" required>
+  <!-- Optional: hidden fields -->
+  <input type="hidden" name="_captcha" value="false">
+  <input type="hidden" name="_next" value="https://seaclear.com/thankyou.html">
 
-    <label for="message">Message:</label>
-    <textarea id="message" name="message" required></textarea>
-
-    <button type="submit">Send Message</button>
+  <button type="submit">Send Message</button>
 </form>
 
 <p><strong>Email:</strong> <a href="mailto:seaclearsolutions.info@gmail.com">seaclearsolutions.info@gmail.com</a></p>
