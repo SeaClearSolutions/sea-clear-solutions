@@ -835,3 +835,55 @@ main.contact {
     display: flex;
   }
 }
+
+/* Hide mobile nav and show desktop nav by default */
+.mobile-nav {
+    display: none;
+}
+#mobile-menu.hidden {
+    display: none;
+}
+
+/* Show mobile nav and hide desktop nav on small screens */
+@media (max-width: 768px) {
+    .navbar {
+        display: none;
+    }
+
+    .mobile-nav {
+        display: block;
+        background-color: #1c7b7b;
+        padding: 10px;
+        position: relative;
+    }
+
+    .hamburger {
+        font-size: 30px;
+        background: none;
+        border: none;
+        color: white;
+        cursor: pointer;
+    }
+
+    .mobile-menu {
+        display: flex;
+        flex-direction: column;
+        background-color: #1c7b7b;
+        position: absolute;
+        top: 50px;
+        left: 0;
+        width: 100%;
+        z-index: 1000;
+    }
+
+    .mobile-menu a {
+        padding: 15px;
+        text-decoration: none;
+        color: white;
+        border-bottom: 1px solid #0e5a5a;
+    }
+
+    .mobile-menu a:hover {
+        background-color: #145454;
+    }
+}
