@@ -684,3 +684,36 @@ main.contact {
     background-color: #146f77;
 }
 
+.about-team {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 2rem;
+  margin-top: 2rem;
+}
+
+.about-member {
+  max-width: 250px;
+  background-color: #ffffff;
+  border-radius: 12px;
+  box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+  padding: 1rem;
+  text-align: center;
+}
+
+.about-member img {
+  width: 100%;
+  border-radius: 8px;
+  margin-bottom: 1rem;
+}
+
+.about-member h3 {
+  font-size: 1.25rem;
+  color: #146f77;
+  margin-bottom: 0.5rem;
+}
+
+.about-member p {
+  font-size: 0.95rem;
+  color: #237778;
+}
