@@ -684,28 +684,3 @@ main.contact {
     background-color: #146f77;
 }
 
-body.about {
-    background-image: url('diver.jpg'); /* or any full-width image */
-    background-size: cover;
-    background-position: center;
-    background-repeat: no-repeat;
-    background-attachment: fixed;
-    color: #fffee1;
-    margin: 0;
-    padding: 0;
-}
-
-main.about {
-  background-image: url('diver.jpg');
-  background-size: cover;
-  background-position: center;
-  background-repeat: no-repeat;
-  background-attachment: fixed;
-  min-height: 100vh;
-  padding: 2rem;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-  color: #fffee1 !important;
-}
