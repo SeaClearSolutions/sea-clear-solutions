@@ -851,3 +851,17 @@ main.contact {
     display: none;
   }
 }
+@media (min-width: 769px) {
+  .navbar-links {
+    display: flex !important;
+    flex-direction: row;
+    position: static;
+    background: none;
+    box-shadow: none;
+    padding: 0;
+  }
+
+  .hamburger {
+    display: none !important;
+  }
+}
