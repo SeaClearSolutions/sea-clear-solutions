@@ -887,3 +887,54 @@ main.contact {
         background-color: #145454;
     }
 }
+
+/* Responsive Navigation for Mobile */
+@media (max-width: 768px) {
+    nav {
+        justify-content: space-between;
+    }
+
+    /* Hide nav links and only show hamburger */
+    .left, .right {
+        display: none;
+    }
+
+    .menu-toggle {
+        display: block;
+        position: absolute;
+        right: 20px;
+        top: 50%;
+        transform: translateY(-50%);
+        background: none;
+        border: none;
+        font-size: 28px;
+        color: #fffee1;
+        cursor: pointer;
+        z-index: 1100;
+    }
+
+    .navbar-links {
+        display: none;
+        flex-direction: column;
+        position: absolute;
+        top: 80px;
+        left: 0;
+        width: 100%;
+        background-color: #237778;
+        text-align: center;
+        z-index: 1000;
+    }
+
+    .navbar-links.active {
+        display: flex;
+    }
+
+    .navbar-links li {
+        margin: 10px 0;
+    }
+
+    .nav-logo {
+        left: 50% !important;
+        transform: translateX(-50%) !important;
+    }
+}
