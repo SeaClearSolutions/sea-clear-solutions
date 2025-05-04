@@ -102,9 +102,19 @@
 </main>
 
 <script>
-    document.getElementById('hamburger-btn').addEventListener('click', function () {
-        document.getElementById('mobile-menu').classList.toggle('hidden');
+    document.addEventListener("DOMContentLoaded", function () {
+        const menuToggle = document.querySelector(".menu-toggle");
+        const navbarLinks = document.querySelector(".navbar-links");
+
+        menuToggle.addEventListener("click", function () {
+            navbarLinks.classList.toggle("active");
+        });
+
+        window.addEventListener("scroll", function () {
+            document.querySelector(".navbar").classList.toggle("scrolled", window.scrollY > 50);
+        });
     });
-</script>    
+</script>
+  
 </body>
 </html>
