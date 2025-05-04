@@ -684,36 +684,32 @@ main.contact {
     background-color: #146f77;
 }
 
-.about-team {
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: center;
-  gap: 2rem;
-  margin-top: 2rem;
-}
-
 .about-member {
-  max-width: 250px;
-  background-color: #ffffff;
-  border-radius: 12px;
-  box-shadow: 0 4px 8px rgba(0,0,0,0.1);
-  padding: 1rem;
   text-align: center;
+  margin: 3rem auto;
+  padding: 1rem;
+  border-left: 6px solid #34b2ae; /* bright turquoise accent */
+  background-color: #fffee1; /* cream */
+  max-width: 600px;
+  border-radius: 16px;
 }
 
 .about-member img {
   width: 100%;
-  border-radius: 8px;
+  max-width: 250px;
+  border-radius: 12px;
   margin-bottom: 1rem;
+  border: 4px solid #2dafa1; /* medium teal */
 }
 
 .about-member h3 {
-  font-size: 1.25rem;
-  color: #146f77;
+  font-size: 1.5rem;
+  color: #146f77; /* deep teal */
   margin-bottom: 0.5rem;
 }
 
 .about-member p {
-  font-size: 0.95rem;
-  color: #237778;
+  font-size: 1rem;
+  color: #237778; /* dark green-teal */
+  line-height: 1.6;
 }
