@@ -722,3 +722,81 @@ main.contact {
   font-family: inherit !important;
   transition: background-color 5000s ease-in-out 0s;
 }
+
+@media (max-width: 768px) {
+  body {
+    padding: 80px 10px 20px;
+  }
+
+  nav ul {
+    flex-direction: column;
+    align-items: center;
+    gap: 10px;
+  }
+
+  .nav-logo {
+    left: 50%;
+    transform: translateX(-50%);
+  }
+
+  .navbar {
+    flex-direction: column;
+    height: auto;
+    padding: 10px;
+  }
+
+  .navbar.scrolled {
+    height: auto;
+  }
+
+  .home-item {
+    width: 95%;
+    height: auto;
+  }
+
+  .title {
+    font-size: 24px;
+    padding: 10px 20px;
+  }
+
+  .overlay p {
+    font-size: 18px;
+  }
+
+  .products {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .product {
+    width: 90%;
+  }
+
+  .about, .shop, .contact-page, .checkout-container, .thank-you-container {
+    width: 95%;
+    margin: 20px auto;
+  }
+
+  .text-container {
+    width: 95%;
+    padding: 10px;
+  }
+
+  input, textarea, select, button {
+    font-size: 16px;
+    padding: 10px;
+  }
+
+  .nav .right {
+    margin-right: 20px;
+  }
+
+  .cart-sidebar {
+    width: 100%;
+    right: -100%;
+  }
+
+  .cart-sidebar.open {
+    right: 0;
+  }
+}
