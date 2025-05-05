@@ -858,3 +858,11 @@ main.contact {
     display: none;
   }
 }
+
+.checkout {
+  background-image: url('Seriatropora.jpeg'); /* Adjust path as needed */
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  color: #fffee1; /* Ensures text is readable on top of the background */
+}
