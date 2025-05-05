@@ -422,15 +422,8 @@ p, li, ul, ol {
     color: #146f77; /* darkest green */
 }
 
-.checkout-container h2, .thank-you-container h2 {
+.thank-you-container h2 {
     color: #146f77; /* update from #237778 */
-}
-
-form {
-    display: flex;
-    flex-direction: column;
-    gap: 10px;
-    color: #146f77;
 }
 
 input, select, textarea, button {
