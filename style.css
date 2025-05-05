@@ -848,3 +848,9 @@ main.contact {
   background-repeat: no-repeat;
   color: #fffee1; /* Ensures text is readable on top of the background */
 }
+
+input, select, textarea {
+    background: transparent !important;
+    color: #146f77;
+    border: 1px solid #146f77;
+}
