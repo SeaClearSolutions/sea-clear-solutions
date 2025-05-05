@@ -416,26 +416,30 @@ p, li, ul, ol {
     margin: 50px auto;
     padding: 20px;
     text-align: center;
-    background: #fffee1;
+    background: rgba(255, 254, 225, 0.9); /* semi-transparent cream */
     border-radius: 10px;
     box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    color: #146f77; /* darkest green */
 }
 
 .checkout-container h2, .thank-you-container h2 {
-    color: #237778;
+    color: #146f77; /* update from #237778 */
 }
 
 form {
     display: flex;
     flex-direction: column;
     gap: 10px;
+    color: #146f77;
 }
 
 input, select, textarea, button {
     padding: 10px;
     font-size: 16px;
     border-radius: 5px;
-    border: 1px solid #237778;
+    border: 1px solid #146f77;
+    color: #146f77;
+    background-color: transparent; /* removes background */
 }
 
 button {
@@ -462,28 +466,24 @@ button:hover {
 }
 
 select#order-province {
-    background-color: #fffee1; /* Cream background */
-    color: #237778; /* Dark green text */
-    border: 2px solid #237778; /* Dark green border */
+    background-color: transparent;
+    color: #146f77;
+    border: 2px solid #146f77;
     padding: 8px;
     font-size: 16px;
     border-radius: 5px;
-    appearance: none; /* Hides default styling */
+    appearance: none;
     -webkit-appearance: none;
     -moz-appearance: none;
     cursor: pointer;
     width: 100%;
     display: block;
     position: relative;
-}
-
-/* Custom dropdown arrow */
-select#order-province {
-    background-image: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="%23237778"><path d="M5.516 7.548a.75.75 0 0 1 1.06-.032L10 10.845l3.424-3.329a.75.75 0 0 1 1.06.032.75.75 0 0 1-.033 1.06l-3.954 3.84a.75.75 0 0 1-1.055 0l-3.954-3.84a.75.75 0 0 1-.032-1.06z"/></svg>');
+    background-image: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="%23146f77"><path d="M5.516 7.548a.75.75 0 0 1 1.06-.032L10 10.845l3.424-3.329a.75.75 0 0 1 1.06.032.75.75 0 0 1-.033 1.06l-3.954 3.84a.75.75 0 0 1-1.055 0l-3.954-3.84a.75.75 0 0 1-.032-1.06z"/></svg>');
     background-repeat: no-repeat;
     background-position: right 10px center;
     background-size: 16px;
-    padding-right: 30px; /* Space for arrow */
+    padding-right: 30px;
 }
 
 /* Fix for Firefox */
@@ -491,38 +491,20 @@ select#order-province::-ms-expand {
     display: none;
 }
 
-/* Style for the dropdown text */
-select {
-    background-color: #fffee1; /* Cream background */
-    color: #237778; /* Dark green text */
-    border: 2px solid #237778;
-    padding: 8px;
-    font-size: 16px;
-}
-
-/* Ensure dropdown options are dark green */
+/* Ensure dropdown options are styled */
 select option {
-    background-color: #fffee1; /* Cream background */
-    color: #237778 !important; /* Dark green text */
+    background-color: #fffee1;
+    color: #146f77 !important;
 }
 
 /* Autofilled input fields */
 input:-webkit-autofill,
 textarea:-webkit-autofill,
 select:-webkit-autofill {
-    background-color: #fffee1 !important; /* Cream background */
-    color: #237778 !important; /* Dark green text */
-    -webkit-text-fill-color: #237778 !important; /* Ensures text remains dark green */
-    box-shadow: 0 0 0px 1000px #fffee1 inset !important; /* Forces background color */
-}
-
-/* Styling for better visibility */
-input, textarea, select {
-    background-color: #fffee1; /* Cream background */
-    color: #237778; /* Dark green text */
-    border: 2px solid #237778;
-    padding: 8px;
-    font-size: 16px;
+    background-color: transparent !important;
+    color: #146f77 !important;
+    -webkit-text-fill-color: #146f77 !important;
+    box-shadow: 0 0 0px 1000px rgba(255, 254, 225, 0.9) inset !important;
 }
 
 /* Center the logo properly */
