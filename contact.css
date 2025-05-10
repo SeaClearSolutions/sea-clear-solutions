@@ -60,7 +60,8 @@ form * {
 }
 
 input, textarea {
-    width: 90%;
+    width: 100%;
+    box-sizing: border-box;
     padding: 10px;
     margin: 10px auto;
     border: 1px solid #78e4e6;
