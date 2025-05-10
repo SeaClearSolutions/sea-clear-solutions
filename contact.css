@@ -1,103 +1,33 @@
 @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap');
 
-/* ===== General Styles ===== */
 body {
     font-family: 'Poppins';
     background-color: #fffee1;
     text-align: center;
     padding: 100px 20px 20px;
     color: black;
-    margin: 0;
-    overflow-x: hidden;
-    width: 100%;
 }
 
 h1, h2 {
-    color: #fffee1;
+    color: #146f77;
 }
 
-/* ===== Navbar Styles ===== */
-nav {
-    background-color: #237778;
-    color: #fffee1;
-    padding: 10px 20px;
-    position: fixed;
-    width: 100%;
-    top: 0;
-    left: 0;
-    z-index: 999;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    flex-wrap: wrap;
+p, li, ul, ol {
+    font-size: 18px;
+    color: #237778;
+    max-width: 1000px;
+    margin: 0 auto;
+    line-height: 1.6;
+    text-align: center;
 }
 
-nav .logo {
-    font-size: 24px;
-    font-weight: bold;
-    color: #fffee1;
-    text-decoration: none;
+img.logo {
+    display: block;
+    margin: 0 auto;
+    max-width: 250px;
 }
 
-nav ul {
-    list-style-type: none;
-    margin: 0;
-    padding: 0;
-    display: flex;
-}
-
-nav li {
-    margin: 0 15px;
-}
-
-nav a {
-    color: #fffee1;
-    text-decoration: none;
-    font-weight: 500;
-    transition: color 0.3s;
-}
-
-nav a:hover {
-    color: #c2d5d6;
-}
-
-/* ===== Hamburger Menu Styles ===== */
-.hamburger {
-    display: none;
-    flex-direction: column;
-    cursor: pointer;
-}
-
-.hamburger span {
-    height: 3px;
-    width: 25px;
-    background: #fffee1;
-    margin: 4px 0;
-    border-radius: 2px;
-}
-
-/* Responsive Navbar */
-@media (max-width: 768px) {
-    nav ul {
-        flex-direction: column;
-        width: 100%;
-        display: none;
-    }
-
-    nav ul.active {
-        display: flex;
-    }
-
-    .hamburger {
-        display: flex;
-    }
-
-    nav li {
-        margin: 10px 0;
-    }
-}
-
-/* ===== Contact Page Styles ===== */
+/* Contact-specific container */
 main.contact {
     background-image: url('Pectinia2.jpeg');
     background-size: cover;
@@ -111,13 +41,11 @@ main.contact {
 
 .contact-page {
     text-align: center;
-    max-width: 600px;
+    max-width: 1000px;
     margin: 0 auto;
 }
 
 .contact-page p {
-    font-size: 18px;
-    color: #237778;
     margin-bottom: 15px;
 }
 
@@ -129,15 +57,6 @@ main.contact {
 
 .contact-page a:hover {
     text-decoration: underline;
-}
-
-.contact, .contact-page {
-    margin-top: 100px;
-    padding-top: 20px;
-    padding-bottom: 50px;
-    max-width: 1000px;
-    margin-left: auto;
-    margin-right: auto;
 }
 
 .contact p, 
