@@ -310,10 +310,12 @@ main.contact {
     background-color: #fffee1aa;
     color: #237778;
     border: none;
-    padding: 12px 20px;
+    padding: 12px;
     font-size: 18px;
     border-radius: 5px;
-    width: 100% !important;
+    width: 100%;
+    box-sizing: border-box;
+    margin-bottom: 20px;
     cursor: pointer;
     transition: background-color 0.3s ease;
 }
@@ -447,4 +449,11 @@ main.contact {
   .hidden {
     display: none;
   }
+}
+    
+.contact input,
+.contact textarea,
+.contact button {
+    width: 100%;
+    box-sizing: border-box;
 }
