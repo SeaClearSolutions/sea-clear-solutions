@@ -76,21 +76,6 @@ input::placeholder, textarea::placeholder {
     opacity: 0.8;
 }
 
-button {
-    background-color: #34b2ae;
-    color: white;
-    border: none;
-    padding: 10px 20px;
-    font-size: 16px;
-    cursor: pointer;
-    border-radius: 5px;
-    margin-top: 10px;
-}
-
-button:hover {
-    background-color: #146f77;
-}
-
 /* Navigation Bar */
 nav {
     width: 100%;
