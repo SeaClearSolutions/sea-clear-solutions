@@ -1,24 +1,43 @@
 @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap');
 
+.index, .about, .shop, .contact, .checkout, .thank-you {
+    margin-top: 100px;
+    padding-top: 20px;
+    padding-bottom: 50px;
+}
+
 body {
-    font-family: 'Poppins';
-    background-color: #fffee1;
+    font-family: 'Poppins', sans-serif;
+    background-color: #fffee1; /* Light cream background */
     text-align: center;
-    padding: 100px 20px 20px;
+    padding: 100px 20px 20px; /* Add top padding for navbar */
     color: black;
 }
 
-h1, h2 {
-    color: #146f77;
+h1 {
+    color: #146f77; /* Dark teal */
+    font-size: 32px;
+    font-weight: 600;
 }
 
-p, li, ul, ol {
+h2 {
+    color: #237778; /* Deep sea green */
+    font-size: 24px;
+    font-weight: 400;
+    margin-top: 20px;
+}
+
+p, li {
     font-size: 18px;
     color: #237778;
-    max-width: 1000px;
+    max-width: 700px;
     margin: 0 auto;
     line-height: 1.6;
-    text-align: center;
+}
+
+ul, ol {
+    max-width: 700px;
+    margin: 0 auto;
 }
 
 img.logo {
@@ -27,25 +46,113 @@ img.logo {
     max-width: 250px;
 }
 
-/* Contact-specific container */
-main.contact {
-    background-image: url('Pectinia2.jpeg');
-    background-size: cover;
-    background-position: center;
-    background-repeat: no-repeat;
-    background-attachment: fixed;
-    color: #fffee1;
-    min-height: 100vh;
-    padding: 2rem;
+form {
+    background: #2dafa1;
+    padding: 20px;
+    border-radius: 10px;
+    max-width: 400px;
+    margin: 20px auto;
 }
 
+form * {
+    font-family: 'Poppins', sans-serif;
+    color: #fffee1;
+}
+
+input, textarea {
+    width: 90%;
+    padding: 10px;
+    margin: 10px auto;
+    border: 1px solid #78e4e6;
+    border-radius: 5px;
+    font-size: 16px;
+    background: #fffee1;
+    color: #237778;
+    display: block;
+}
+
+input::placeholder, textarea::placeholder {
+    color: #237778;
+    opacity: 0.8;
+}
+
+button {
+    background-color: #34b2ae;
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    font-size: 16px;
+    cursor: pointer;
+    border-radius: 5px;
+    margin-top: 10px;
+}
+
+button:hover {
+    background-color: #146f77;
+}
+
+/* Navigation Bar */
+nav {
+    width: 100%;
+    background-color: #237778;
+    display: flex;
+    justify-content: center; /* Center everything */
+    align-items: center;
+    padding: 10px 20px;
+    position: relative;
+}
+
+/* Navigation List */
+nav ul {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    align-items: center;
+}
+
+/* Left side (Home, Shop, About Us) */
+nav .left {
+    display: flex;
+    gap: 20px; /* Spacing between Home, Shop, About Us */
+}
+
+/* Right side (Contact Us) */
+nav .right {
+    margin-left: auto; /* Push to the right */
+    margin-right: 60px; /* Add a margin so it doesn’t touch the edge */
+}
+
+/* Navigation Links */
+nav ul li a {
+    font-family: 'Poppins', sans-serif;
+    color: #fffee1;
+    text-decoration: none;
+    font-size: 16px;
+    font-weight: 600;
+    padding: 4px 12px; /* Smaller padding inside buttons */
+    border: 1.5px solid #fffee1; /* Thinner border */
+    border-radius: 6px; /* Slightly rounded for a sleek look */
+    transition: 0.3s ease-in-out;
+}
+
+/* Hover Effect */
+nav ul li a:hover {
+    background-color: #34b2ae;
+    color: white;
+}
+
+
+/* Contact Page Styling */
 .contact-page {
     text-align: center;
-    max-width: 1000px;
+    max-width: 600px;
     margin: 0 auto;
 }
 
 .contact-page p {
+    font-size: 18px;
+    color: #237778;
     margin-bottom: 15px;
 }
 
@@ -59,60 +166,14 @@ main.contact {
     text-decoration: underline;
 }
 
-.contact p, 
-.contact h1, 
-.contact h2, 
-.contact li, 
-.contact a {
-    color: #fffee1;
+footer {
+    text-align: center;
+    padding: 20px;
+    margin-top: 40px;
 }
 
-.contact form {
-    background: transparent;
-    padding: 0;
-    border-radius: 0;
-    box-shadow: none;
-    width: 100%;
-    max-width: 600px;
-    margin: 0 auto;
-}
-
-.contact label {
+.footer-logo {
+    max-width: 200px; /* Adjust size */
     display: block;
-    margin-bottom: 8px;
-    font-size: 22px;
-    color: #fffee1;
-}
-
-.contact input, 
-.contact textarea {
-    width: 100%;
-    padding: 12px;
-    margin-bottom: 20px;
-    border: 2px solid #fffee1;
-    background: transparent;
-    color: #fffee1;
-    font-size: 18px;
-    border-radius: 5px;
-}
-
-.contact input::placeholder,
-.contact textarea::placeholder {
-    color: #fffee1aa;
-}
-
-.contact button {
-    background-color: #237778;
-    color: #fffee1;
-    border: none;
-    padding: 12px 20px;
-    font-size: 18px;
-    border-radius: 5px;
-    width: 100%;
-    cursor: pointer;
-    transition: background-color 0.3s ease;
-}
-
-.contact button:hover {
-    background-color: #146f77;
+    margin: 0 auto;
 }
