@@ -368,3 +368,22 @@ main.contact {
     padding: 10px;
   }
 
+    
+  .navbar.scrolled {
+    height: auto;
+  }
+
+  .home-item {
+    width: 95%;
+    height: auto;
+  }
+
+  .title {
+    font-size: 24px;
+    padding: 10px 20px;
+  }
+
+  .overlay p {
+    font-size: 18px;
+  }
+
