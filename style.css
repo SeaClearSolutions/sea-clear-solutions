@@ -868,3 +868,9 @@ input, select, textarea {
   box-shadow: none !important;
   border: none !important;
 }
+
+.checkout form > div {
+  background-color: transparent !important;
+  box-shadow: none !important;
+  border: none !important;
+}
