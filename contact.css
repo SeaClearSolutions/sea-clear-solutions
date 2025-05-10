@@ -336,3 +336,35 @@ main.contact {
 .contact button:hover {
     background-color: #146f77;
 }
+
+.contact input:-webkit-autofill,
+.contact textarea:-webkit-autofill {
+  background-color: transparent !important;
+  -webkit-box-shadow: 0 0 0px 1000px transparent inset !important;
+  -webkit-text-fill-color: #fdf6e3 !important; /* your cream color */
+  font-family: inherit !important;
+  transition: background-color 5000s ease-in-out 0s;
+}
+
+@media (max-width: 768px) {
+  body {
+    padding: 80px 10px 20px;
+  }
+
+  nav ul {
+    flex-direction: column;
+    align-items: center;
+    gap: 10px;
+  }
+
+  .nav-logo {
+    left: 50%;
+    transform: translateX(-50%);
+  }
+
+  .navbar {
+    flex-direction: column;
+    height: auto;
+    padding: 10px;
+  }
+
