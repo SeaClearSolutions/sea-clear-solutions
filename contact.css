@@ -314,7 +314,6 @@ main.contact {
     font-size: 18px;
     border-radius: 5px;
     width: 100% !important;
-    max-width: 600px;
     cursor: pointer;
     transition: background-color 0.3s ease;
 }
