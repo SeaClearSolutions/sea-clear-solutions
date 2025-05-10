@@ -405,3 +405,36 @@ main.contact {
   .nav .right {
     margin-right: 20px;
   }
+
+/* Hide hamburger on desktop */
+.menu-toggle {
+  display: none;
+}
+
+/* Hide mobile nav on desktop */
+.mobile-nav {
+  display: none;
+}
+
+/* Show mobile nav and hide desktop navbar on small screens */
+@media (max-width: 768px) {
+  .navbar {
+    display: none;
+  }
+
+  .mobile-nav {
+    display: block;
+    position: relative;
+    padding: 1rem;
+  }
+
+  .hamburger {
+    position: absolute;
+    top: 1rem;
+    right: 1rem;
+    font-size: 2rem;
+    background: none;
+    border: none;
+    cursor: pointer;
+    z-index: 1001;
+  }
