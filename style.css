@@ -853,3 +853,10 @@ input, select, textarea {
     color: #146f77;
     border: 1px solid #146f77;
 }
+
+.checkout form {
+  background-color: rgba(255, 254, 225, 0.85); /* semi-transparent cream */
+  border-radius: 10px;
+  padding: 20px;
+  box-shadow: none; /* optional: remove green box-shadow if present */
+}
