@@ -860,9 +860,3 @@ input, select, textarea {
   padding: 20px;
   box-shadow: none; /* optional: remove green box-shadow if present */
 }
-
-.checkout form > div {
-  background-color: transparent !important;
-  box-shadow: none !important;
-  padding: 0;
-}
