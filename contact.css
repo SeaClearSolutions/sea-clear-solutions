@@ -314,12 +314,13 @@ main.contact {
     font-size: 18px;
     border-radius: 5px;
     width: 100% !important;
+    max-width: 600px;
     cursor: pointer;
     transition: background-color 0.3s ease;
 }
 
 .contact button:hover {
-    background-color: #146f77;
+    background-color: #fffee1aa;
 }
 
 .contact input:-webkit-autofill,
