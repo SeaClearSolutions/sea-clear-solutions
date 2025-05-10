@@ -1,1 +1,117 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap');
+
+body {
+    font-family: 'Poppins';
+    background-color: #fffee1;
+    text-align: center;
+    padding: 100px 20px 20px;
+    color: black;
+    margin: 0;
+    overflow-x: hidden;
+    width: 100%;
+}
+
+h1, h2 {
+    color: #fffee1;
+}
+
+.contact-page {
+    text-align: center;
+    max-width: 600px;
+    margin: 0 auto;
+}
+
+.contact-page p {
+    font-size: 18px;
+    color: #237778;
+    margin-bottom: 15px;
+}
+
+.contact-page a {
+    color: #146f77;
+    text-decoration: none;
+    font-weight: 600;
+}
+
+.contact-page a:hover {
+    text-decoration: underline;
+}
+
+main.contact {
+    background-image: url('Pectinia2.jpeg');
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    color: #fffee1;
+    min-height: 100vh;
+    padding: 2rem;
+}
+
+.contact, .contact-page {
+    margin-top: 100px;
+    padding-top: 20px;
+    padding-bottom: 50px;
+    max-width: 1000px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.contact p, 
+.contact h1, 
+.contact h2, 
+.contact li, 
+.contact a {
+    color: #fffee1;
+}
+
+.contact form {
+    background: transparent;
+    padding: 0;
+    border-radius: 0;
+    box-shadow: none;
+    width: 100%;
+    max-width: 600px;
+    margin: 0 auto;
+}
+
+.contact label {
+    display: block;
+    margin-bottom: 8px;
+    font-size: 22px;
+    color: #fffee1;
+}
+
+.contact input, 
+.contact textarea {
+    width: 100%;
+    padding: 12px;
+    margin-bottom: 20px;
+    border: 2px solid #fffee1;
+    background: transparent;
+    color: #fffee1;
+    font-size: 18px;
+    border-radius: 5px;
+}
+
+.contact input::placeholder,
+.contact textarea::placeholder {
+    color: #fffee1aa;
+}
+
+.contact button {
+    background-color: #237778;
+    color: #fffee1;
+    border: none;
+    padding: 12px 20px;
+    font-size: 18px;
+    border-radius: 5px;
+    width: 100%;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.contact button:hover {
+    background-color: #146f77;
+}
 
