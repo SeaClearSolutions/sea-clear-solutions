@@ -313,7 +313,7 @@ main.contact {
     padding: 12px 20px;
     font-size: 18px;
     border-radius: 5px;
-    width: 100%;
+    width: 100% !important;
     cursor: pointer;
     transition: background-color 0.3s ease;
 }
@@ -447,21 +447,4 @@ main.contact {
   .hidden {
     display: none;
   }
-}
-
-.contact button {
-    background-color: #fffee1; /* cream background */
-    color: #237778; /* dark green text */
-    border: 2px solid #237778; /* optional: adds a subtle border */
-    padding: 12px;
-    font-size: 18px;
-    border-radius: 5px;
-    width: 100%; /* full width to match inputs */
-    cursor: pointer;
-    transition: background-color 0.3s ease, color 0.3s ease;
-}
-
-.contact button:hover {
-    background-color: #e0e0c8; /* slightly darker cream on hover */
-    color: #146f77; /* even darker green on hover */
 }
