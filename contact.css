@@ -177,3 +177,162 @@ footer {
     display: block;
     margin: 0 auto;
 }
+
+/* Center the logo properly */
+.nav-logo, .logo-container {
+    display: flex;
+    justify-content: center; /* Center horizontally */
+    align-items: center; /* Align vertically */
+    width: 100%; /* Ensure full width */
+    margin: 0 auto; /* Center in the available space */
+    position: relative;
+}
+
+/* Ensure logo size is correct */
+img.logo {
+    max-width: 180px; /* Adjust size */
+    height: auto; /* Maintain aspect ratio */
+}
+
+body, html {
+    margin: 0;
+    padding: 0;
+    overflow-x: hidden; /* Prevents horizontal scrolling */
+    width: 100%;
+}
+
+/* Ensure navigation bar sticks to the top */
+nav {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    z-index: 1000;
+    transition: background-color 0.3s ease-in-out;
+}
+
+/* Make navigation bar semi-transparent when scrolling */
+nav.scrolled {
+    background-color: rgba(35, 119, 120, 0.85); /* Semi-transparent dark green */
+}
+
+/* Hide logo when scrolling down */
+.logo-container {
+    transition: opacity 0.3s ease-in-out;
+}
+
+.scrolled .logo-container {
+    opacity: 0;
+    pointer-events: none;
+}
+
+.navbar-links {
+    display: none; /* Hide menu by default */
+}
+
+.navbar-links.active {
+    display: block; /* Show menu when active */
+}
+
+/* Default navbar size */
+.navbar {
+    transition: all 0.3s ease-in-out;
+    height: 80px;  /* Original height */
+    display: flex;
+    justify-content: space-between; /* Keep left and right sections positioned correctly */
+    align-items: center;
+    padding: 10px 20px;
+    pointer-events: auto !important; /* Ensures it's always clickable */
+}
+
+/* Smaller navbar when scrolled */
+.navbar.scrolled {
+    height: 50px;  /* Adjust this value as needed */
+}
+
+.nav-logo {
+    position: absolute;  /* Ensures it stays in the center */
+    left: 49%;
+    transform: translateX(-50%);  /* Truly centers it */
+    pointer-events: none; /* Prevents logo from blocking clicks */
+}
+
+/* Default logo size */
+.nav-logo img {
+    transition: all 0.3s ease-in-out;
+    height: 110px;  /* Original size */
+}
+
+/* Smaller logo when navbar is scrolled */
+.navbar.scrolled .nav-logo img {
+    height: 40px;  /* Adjust size as needed */
+}
+
+main.contact {
+    background-image: url('Pectinia2.jpeg'); /* replace with your image file */
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    color: #fffee1; /* ← this makes all text inside .contact cream colored */
+    min-height: 100vh; /* makes sure the background covers full height */
+    padding: 2rem; /* optional: gives some breathing room */
+}
+
+.contact p, 
+.contact h1, 
+.contact h2, 
+.contact li, 
+.contact a {
+    color: #fffee1;
+}
+
+.contact form {
+    background: transparent;
+    padding: 0;
+    border-radius: 0;
+    box-shadow: none;
+    width: 100%;
+    max-width: 600px;
+    margin: 0 auto;
+}
+
+.contact label {
+    display: block;
+    margin-bottom: 8px;
+    font-size: 22px; /* Bigger headings */
+    color: #fffee1;
+}
+
+.contact input, 
+.contact textarea {
+    width: 100%;
+    padding: 12px;
+    margin-bottom: 20px;
+    border: 2px solid #fffee1;
+    background: transparent;
+    color: #fffee1;
+    font-size: 18px;
+    border-radius: 5px;
+}
+
+.contact input::placeholder,
+.contact textarea::placeholder {
+    color: #fffee1aa; /* Slightly transparent cream for placeholder text */
+}
+
+.contact button {
+    background-color: #237778;
+    color: #fffee1;
+    border: none;
+    padding: 12px 20px;
+    font-size: 18px;
+    border-radius: 5px;
+    width: 100%;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.contact button:hover {
+    background-color: #146f77;
+}
