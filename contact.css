@@ -1,5 +1,6 @@
 @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap');
 
+/* ===== General Styles ===== */
 body {
     font-family: 'Poppins';
     background-color: #fffee1;
@@ -13,6 +14,99 @@ body {
 
 h1, h2 {
     color: #fffee1;
+}
+
+/* ===== Navbar Styles ===== */
+nav {
+    background-color: #237778;
+    color: #fffee1;
+    padding: 10px 20px;
+    position: fixed;
+    width: 100%;
+    top: 0;
+    left: 0;
+    z-index: 999;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+}
+
+nav .logo {
+    font-size: 24px;
+    font-weight: bold;
+    color: #fffee1;
+    text-decoration: none;
+}
+
+nav ul {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+    display: flex;
+}
+
+nav li {
+    margin: 0 15px;
+}
+
+nav a {
+    color: #fffee1;
+    text-decoration: none;
+    font-weight: 500;
+    transition: color 0.3s;
+}
+
+nav a:hover {
+    color: #c2d5d6;
+}
+
+/* ===== Hamburger Menu Styles ===== */
+.hamburger {
+    display: none;
+    flex-direction: column;
+    cursor: pointer;
+}
+
+.hamburger span {
+    height: 3px;
+    width: 25px;
+    background: #fffee1;
+    margin: 4px 0;
+    border-radius: 2px;
+}
+
+/* Responsive Navbar */
+@media (max-width: 768px) {
+    nav ul {
+        flex-direction: column;
+        width: 100%;
+        display: none;
+    }
+
+    nav ul.active {
+        display: flex;
+    }
+
+    .hamburger {
+        display: flex;
+    }
+
+    nav li {
+        margin: 10px 0;
+    }
+}
+
+/* ===== Contact Page Styles ===== */
+main.contact {
+    background-image: url('Pectinia2.jpeg');
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    color: #fffee1;
+    min-height: 100vh;
+    padding: 2rem;
 }
 
 .contact-page {
@@ -35,17 +129,6 @@ h1, h2 {
 
 .contact-page a:hover {
     text-decoration: underline;
-}
-
-main.contact {
-    background-image: url('Pectinia2.jpeg');
-    background-size: cover;
-    background-position: center;
-    background-repeat: no-repeat;
-    background-attachment: fixed;
-    color: #fffee1;
-    min-height: 100vh;
-    padding: 2rem;
 }
 
 .contact, .contact-page {
@@ -114,4 +197,3 @@ main.contact {
 .contact button:hover {
     background-color: #146f77;
 }
-
