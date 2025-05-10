@@ -387,3 +387,21 @@ main.contact {
     font-size: 18px;
   }
 
+.contact-page {
+    width: 95%;
+    margin: 20px auto;
+  }
+
+  .text-container {
+    width: 95%;
+    padding: 10px;
+  }
+
+  input, textarea, select, button {
+    font-size: 16px;
+    padding: 10px;
+  }
+
+  .nav .right {
+    margin-right: 20px;
+  }
