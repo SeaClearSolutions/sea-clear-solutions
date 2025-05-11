@@ -191,6 +191,17 @@ document.addEventListener("DOMContentLoaded", function () {
             }
         });
     }
+    
+    if (clearCartButton) {
+        clearCartButton.addEventListener("click", function () {
+            if (confirm("Are you sure you want to clear the cart?")) {
+                cart = [];
+                localStorage.removeItem("cart");
+                updateCart();
+                updateCheckoutPage(); // Update checkout if on that page
+            }
+        });
+    }
 
     document.addEventListener("click", handleOutsideClick);
     cartSidebar.addEventListener("click", toggleCart);
