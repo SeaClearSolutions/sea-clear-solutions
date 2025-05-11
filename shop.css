@@ -490,3 +490,20 @@ nav.scrolled {
 .navbar.scrolled .nav-logo img {
     height: 40px;  /* Adjust size as needed */
 }
+
+.cart-clear-btn {
+  background-color: #146f77;
+  color: #fffee1;
+  border: none;
+  padding: 10px 15px;
+  border-radius: 8px;
+  font-family: 'Poppins', sans-serif;
+  font-size: 14px;
+  margin-top: 10px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.cart-clear-btn:hover {
+  background-color: #237778;
+}
