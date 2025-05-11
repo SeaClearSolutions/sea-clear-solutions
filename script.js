@@ -7,6 +7,7 @@ document.addEventListener("DOMContentLoaded", function () {
     const placeOrderButton = document.getElementById("place-order");
     const checkoutForm = document.getElementById("checkout-form");
     const orderDetailsInput = document.getElementById("order-details");
+    const clearCartButton = document.getElementById("clear-cart"); // ✅ Add this line
 
     let cart = JSON.parse(localStorage.getItem("cart")) || [];
 
