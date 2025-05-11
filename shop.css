@@ -507,3 +507,24 @@ nav.scrolled {
 .cart-clear-btn:hover {
   background-color: #237778;
 }
+
+#cart-buttons {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-top: 20px;
+}
+
+#cart-buttons button {
+  padding: 8px 16px;
+  font-size: 16px;
+  background-color: #237778;
+  color: #fffee1;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+}
+
+#cart-buttons button:hover {
+  background-color: #146f77;
+}
