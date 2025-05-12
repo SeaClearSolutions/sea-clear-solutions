@@ -369,3 +369,10 @@ input, select, textarea {
   box-shadow: none !important;
   border: none !important;
 }
+
+.cart-summary {
+  background: transparent;
+  border: none;
+  box-shadow: none;
+  padding: 0;
+}
