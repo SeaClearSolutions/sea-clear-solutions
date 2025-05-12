@@ -1,1 +1,876 @@
+ @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap');
 
+.index, .about, .shop, .contact, .checkout, .thank-you {
+    margin-top: 100px;
+    padding-top: 20px;
+    padding-bottom: 50px;
+}
+
+body {
+    font-family: 'Poppins', sans-serif;
+    background-color: #fffee1; /* Light cream background */
+    text-align: center;
+    padding: 100px 20px 20px; /* Add top padding for navbar */
+    color: black;
+}
+
+h1 {
+    color: #146f77; /* Dark teal */
+    font-size: 32px;
+    font-weight: 600;
+}
+
+h2 {
+    color: #237778; /* Deep sea green */
+    font-size: 24px;
+    font-weight: 400;
+    margin-top: 20px;
+}
+
+p, li {
+    font-size: 18px;
+    color: #237778;
+    max-width: 700px;
+    margin: 0 auto;
+    line-height: 1.6;
+}
+
+ul, ol {
+    max-width: 700px;
+    margin: 0 auto;
+}
+
+img.logo {
+    display: block;
+    margin: 0 auto;
+    max-width: 250px;
+}
+
+form {
+    background: #2dafa1;
+    padding: 20px;
+    border-radius: 10px;
+    max-width: 400px;
+    margin: 20px auto;
+}
+
+form * {
+    font-family: 'Poppins', sans-serif;
+    color: #fffee1;
+}
+
+input, textarea {
+    width: 90%;
+    padding: 10px;
+    margin: 10px auto;
+    border: 1px solid #78e4e6;
+    border-radius: 5px;
+    font-size: 16px;
+    background: #fffee1;
+    color: #237778;
+    display: block;
+}
+
+input::placeholder, textarea::placeholder {
+    color: #237778;
+    opacity: 0.8;
+}
+
+button {
+    background-color: #34b2ae;
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    font-size: 16px;
+    cursor: pointer;
+    border-radius: 5px;
+    margin-top: 10px;
+}
+
+button:hover {
+    background-color: #146f77;
+}
+
+/* Navigation Bar */
+nav {
+    width: 100%;
+    background-color: #237778;
+    display: flex;
+    justify-content: center; /* Center everything */
+    align-items: center;
+    padding: 10px 20px;
+    position: relative;
+}
+
+/* Navigation List */
+nav ul {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    align-items: center;
+}
+
+/* Left side (Home, Shop, About Us) */
+nav .left {
+    display: flex;
+    gap: 20px; /* Spacing between Home, Shop, About Us */
+}
+
+/* Right side (Contact Us) */
+nav .right {
+    margin-left: auto; /* Push to the right */
+    margin-right: 60px; /* Add a margin so it doesn’t touch the edge */
+}
+
+/* Navigation Links */
+nav ul li a {
+    font-family: 'Poppins', sans-serif;
+    color: #fffee1;
+    text-decoration: none;
+    font-size: 16px;
+    font-weight: 600;
+    padding: 4px 12px; /* Smaller padding inside buttons */
+    border: 1.5px solid #fffee1; /* Thinner border */
+    border-radius: 6px; /* Slightly rounded for a sleek look */
+    transition: 0.3s ease-in-out;
+}
+
+/* Hover Effect */
+nav ul li a:hover {
+    background-color: #34b2ae;
+    color: white;
+}
+
+
+/* Contact Page Styling */
+.contact-page {
+    text-align: center;
+    max-width: 600px;
+    margin: 0 auto;
+}
+
+.contact-page p {
+    font-size: 18px;
+    color: #237778;
+    margin-bottom: 15px;
+}
+
+.contact-page a {
+    color: #146f77;
+    text-decoration: none;
+    font-weight: 600;
+}
+
+.contact-page a:hover {
+    text-decoration: underline;
+}
+
+footer {
+    text-align: center;
+    padding: 20px;
+    margin-top: 40px;
+}
+
+.footer-logo {
+    max-width: 200px; /* Adjust size */
+    display: block;
+    margin: 0 auto;
+}
+
+.about {
+    text-align: center;
+    max-width: 700px;
+    margin: 50px auto;
+    padding: 20px;
+    color: #237778;
+    font-size: 18px;
+    line-height: 1.6;
+}
+.about h1 {
+    color: #146f77;
+    font-size: 32px;
+    font-weight: 600;
+    margin-bottom: 20px;
+}
+.about p {
+    margin-bottom: 15px;
+}
+
+.shop {
+    text-align: center;
+    max-width: 900px;
+    margin: 50px auto;
+    padding: 20px;
+    color: #237778;
+}
+
+.shop h1 {
+    color: #146f77;
+    font-size: 32px;
+    font-weight: 600;
+    margin-bottom: 20px;
+}
+
+.products {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 20px;
+}
+
+.product {
+    background: #fffee1;
+    padding: 15px;
+    border-radius: 10px;
+    width: 250px;
+    text-align: center;
+    box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.product img {
+    max-width: 100%;
+    border-radius: 10px;
+}
+
+.product h2 {
+    color: #146f77;
+    font-size: 20px;
+    margin-top: 10px;
+}
+
+.product p {
+    font-size: 16px;
+    color: #237778;
+}
+
+.home-sections {
+    display: flex;
+    flex-direction: column; /* Stack images vertically */
+    align-items: center;
+    gap: 20px;
+    padding: 40px 0;
+}
+
+.home-item {
+    position: relative;
+    width: 1000px; /* Doubled width */
+    height: 450px; /* Slightly taller */
+    overflow: hidden;
+    border-radius: 10px;
+    box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
+    margin: 20px auto; /* Center align */
+}
+
+.home-item img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 0.3s ease-in-out;
+}
+
+.title {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    font-size: 32px; /* Larger title */
+    font-weight: 600;
+    color: #fffee1;
+    background: rgba(45, 175, 161, 0.8);
+    padding: 15px 30px;
+    border-radius: 10px;
+    text-align: center;
+    width: 90%;
+    transition: opacity 0.3s ease-in-out;
+}
+
+.overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(20, 111, 119, 0.85); /* Dark overlay for contrast */
+    color: #fffee1; /* Cream text */
+    display: flex;
+    flex-direction: column; /* Stack content vertically */
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    opacity: 0;
+    transition: opacity 0.3s ease-in-out;
+    padding: 30px;
+}
+
+.overlay div {
+    display: flex;
+    flex-direction: column; /* Stack each point below the previous one */
+    gap: 15px; /* Space between each point */
+}
+
+.overlay p {
+    font-size: 22px; /* Readable text */
+    font-weight: 400;
+    line-height: 1.6;
+}
+
+.home-item:hover .overlay {
+    opacity: 1;
+}
+.overlay p, 
+.overlay h1, 
+.overlay h2 {
+    color: #fffee1; /* Creamy color */
+}
+.overlay {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+}
+
+.overlay div {
+    width: 100%;
+}
+
+.overlay {
+    display: flex;
+    flex-wrap: wrap;
+}
+
+.overlay {
+    padding: 15px;
+}
+
+.text-container {
+    width: 1000px; /* Ensures it matches the image width */
+    max-width: 100%; /* Prevents overflow on smaller screens */
+    margin: 0 auto;
+    text-align: center;
+    padding: 20px;
+}
+
+p, li, ul, ol {
+    max-width: 1000px; /* Match image width */
+    text-align: center; /* Ensure alignment */
+}
+
+.about, .shop, .contact-page {
+    max-width: 1000px;
+}
+
+.cart-sidebar {
+    position: fixed;
+    right: -300px; /* Hidden initially */
+    top: 0;
+    width: 300px;
+    height: 100%;
+    background: #fffee1; /* Cream background */
+    box-shadow: -2px 0 5px rgba(0, 0, 0, 0.2);
+    transition: right 0.3s ease-in-out;
+    z-index: 1000;
+    padding: 15px;
+    color: #237778;
+}
+
+.cart-sidebar.open {
+    right: 0; /* Opens the sidebar */
+}
+
+.cart-sidebar button {
+    display: block;
+    margin-top: 10px;
+}
+
+.cart-sidebar ul {
+    list-style: none;
+    padding: 0;
+}
+
+.remove-item {
+    background: red;
+    color: white;
+    border: none;
+    cursor: pointer;
+    margin-left: 10px;
+}
+
+.cart-button {
+    background-color: #fffee1; /* Cream color */
+    color: black; /* Text color for contrast */
+    border: none;
+    padding: 4px 6px;
+    font-size: 14px;
+    cursor: pointer;
+    border-radius: 4px;
+    transition: background 0.3s;
+}
+
+.cart-button:hover {
+    background-color: #e6dcc9; /* Slightly darker cream for hover effect */
+}
+
+.checkout-container, .thank-you-container {
+    max-width: 500px;
+    margin: 50px auto;
+    padding: 20px;
+    text-align: center;
+    background: rgba(255, 254, 225, 0.9); /* semi-transparent cream */
+    border-radius: 10px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    color: #146f77; /* darkest green */
+}
+
+.thank-you-container h2 {
+    color: #146f77; /* update from #237778 */
+}
+
+input, select, textarea, button {
+    padding: 10px;
+    font-size: 16px;
+    border-radius: 5px;
+    border: 1px solid #146f77;
+    color: #146f77;
+    background-color: transparent; /* removes background */
+}
+
+button {
+    background-color: #237778;
+    color: #fffee1;
+    cursor: pointer;
+}
+
+button:hover {
+    background-color: #146f77;
+}
+
+.home-button {
+    display: inline-block;
+    padding: 10px 20px;
+    background-color: #237778;
+    color: #fffee1;
+    text-decoration: none;
+    border-radius: 5px;
+}
+
+.home-button:hover {
+    background-color: #146f77;
+}
+
+select#order-province {
+    background-color: transparent;
+    color: #146f77;
+    border: 2px solid #146f77;
+    padding: 8px;
+    font-size: 16px;
+    border-radius: 5px;
+    appearance: none;
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    cursor: pointer;
+    width: 100%;
+    display: block;
+    position: relative;
+    background-image: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="%23146f77"><path d="M5.516 7.548a.75.75 0 0 1 1.06-.032L10 10.845l3.424-3.329a.75.75 0 0 1 1.06.032.75.75 0 0 1-.033 1.06l-3.954 3.84a.75.75 0 0 1-1.055 0l-3.954-3.84a.75.75 0 0 1-.032-1.06z"/></svg>');
+    background-repeat: no-repeat;
+    background-position: right 10px center;
+    background-size: 16px;
+    padding-right: 30px;
+}
+
+/* Fix for Firefox */
+select#order-province::-ms-expand {
+    display: none;
+}
+
+/* Ensure dropdown options are styled */
+select option {
+    background-color: #fffee1;
+    color: #146f77 !important;
+}
+
+/* Autofilled input fields */
+input:-webkit-autofill,
+textarea:-webkit-autofill,
+select:-webkit-autofill {
+    background-color: transparent !important;
+    color: #146f77 !important;
+    -webkit-text-fill-color: #146f77 !important;
+    box-shadow: 0 0 0px 1000px rgba(255, 254, 225, 0.9) inset !important;
+}
+
+/* Center the logo properly */
+.nav-logo, .logo-container {
+    display: flex;
+    justify-content: center; /* Center horizontally */
+    align-items: center; /* Align vertically */
+    width: 100%; /* Ensure full width */
+    margin: 0 auto; /* Center in the available space */
+    position: relative;
+}
+
+/* Ensure logo size is correct */
+img.logo {
+    max-width: 180px; /* Adjust size */
+    height: auto; /* Maintain aspect ratio */
+}
+
+body, html {
+    margin: 0;
+    padding: 0;
+    overflow-x: hidden; /* Prevents horizontal scrolling */
+    width: 100%;
+}
+
+/* Ensure navigation bar sticks to the top */
+nav {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    z-index: 1000;
+    transition: background-color 0.3s ease-in-out;
+}
+
+/* Make navigation bar semi-transparent when scrolling */
+nav.scrolled {
+    background-color: rgba(35, 119, 120, 0.85); /* Semi-transparent dark green */
+}
+
+/* Hide logo when scrolling down */
+.logo-container {
+    transition: opacity 0.3s ease-in-out;
+}
+
+.scrolled .logo-container {
+    opacity: 0;
+    pointer-events: none;
+}
+
+.navbar-links {
+    display: none; /* Hide menu by default */
+}
+
+.navbar-links.active {
+    display: block; /* Show menu when active */
+}
+
+/* Default navbar size */
+.navbar {
+    transition: all 0.3s ease-in-out;
+    height: 80px;  /* Original height */
+    display: flex;
+    justify-content: space-between; /* Keep left and right sections positioned correctly */
+    align-items: center;
+    padding: 10px 20px;
+    pointer-events: auto !important; /* Ensures it's always clickable */
+}
+
+/* Smaller navbar when scrolled */
+.navbar.scrolled {
+    height: 50px;  /* Adjust this value as needed */
+}
+
+.nav-logo {
+    position: absolute;  /* Ensures it stays in the center */
+    left: 49%;
+    transform: translateX(-50%);  /* Truly centers it */
+    pointer-events: none; /* Prevents logo from blocking clicks */
+}
+
+/* Default logo size */
+.nav-logo img {
+    transition: all 0.3s ease-in-out;
+    height: 110px;  /* Original size */
+}
+
+/* Smaller logo when navbar is scrolled */
+.navbar.scrolled .nav-logo img {
+    height: 40px;  /* Adjust size as needed */
+}
+
+main.contact {
+    background-image: url('Pectinia2.jpeg'); /* replace with your image file */
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    color: #fffee1; /* ← this makes all text inside .contact cream colored */
+    min-height: 100vh; /* makes sure the background covers full height */
+    padding: 2rem; /* optional: gives some breathing room */
+}
+
+.contact p, 
+.contact h1, 
+.contact h2, 
+.contact li, 
+.contact a {
+    color: #fffee1;
+}
+
+.contact form {
+    background: transparent;
+    padding: 0;
+    border-radius: 0;
+    box-shadow: none;
+    width: 100%;
+    max-width: 600px;
+    margin: 0 auto;
+}
+
+.contact label {
+    display: block;
+    margin-bottom: 8px;
+    font-size: 22px; /* Bigger headings */
+    color: #fffee1;
+}
+
+.contact input, 
+.contact textarea {
+    width: 100%;
+    padding: 12px;
+    margin-bottom: 20px;
+    border: 2px solid #fffee1;
+    background: transparent;
+    color: #fffee1;
+    font-size: 18px;
+    border-radius: 5px;
+}
+
+.contact input::placeholder,
+.contact textarea::placeholder {
+    color: #fffee1aa; /* Slightly transparent cream for placeholder text */
+}
+
+.contact button {
+    background-color: #237778;
+    color: #fffee1;
+    border: none;
+    padding: 12px 20px;
+    font-size: 18px;
+    border-radius: 5px;
+    width: 100%;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.contact button:hover {
+    background-color: #146f77;
+}
+
+.about-member {
+  text-align: center;
+  margin: 3rem auto;
+  padding: 1rem;
+  border-left: 6px solid #34b2ae; /* bright turquoise accent */
+  background-color: #fffee1; /* cream */
+  max-width: 600px;
+  border-radius: 16px;
+}
+
+.about-member img {
+  width: 100%;
+  max-width: 250px;
+  border-radius: 12px;
+  margin-bottom: 1rem;
+  border: 4px solid #2dafa1; /* medium teal */
+}
+
+.about-member h3 {
+  font-size: 1.5rem;
+  color: #146f77; /* deep teal */
+  margin-bottom: 0.5rem;
+}
+
+.about-member p {
+  font-size: 1rem;
+  color: #237778; /* dark green-teal */
+  line-height: 1.6;
+}
+
+.contact input:-webkit-autofill,
+.contact textarea:-webkit-autofill {
+  background-color: transparent !important;
+  -webkit-box-shadow: 0 0 0px 1000px transparent inset !important;
+  -webkit-text-fill-color: #fdf6e3 !important; /* your cream color */
+  font-family: inherit !important;
+  transition: background-color 5000s ease-in-out 0s;
+}
+
+@media (max-width: 768px) {
+  body {
+    padding: 80px 10px 20px;
+  }
+
+  nav ul {
+    flex-direction: column;
+    align-items: center;
+    gap: 10px;
+  }
+
+  .nav-logo {
+    left: 50%;
+    transform: translateX(-50%);
+  }
+
+  .navbar {
+    flex-direction: column;
+    height: auto;
+    padding: 10px;
+  }
+
+  .navbar.scrolled {
+    height: auto;
+  }
+
+  .home-item {
+    width: 95%;
+    height: auto;
+  }
+
+  .title {
+    font-size: 24px;
+    padding: 10px 20px;
+  }
+
+  .overlay p {
+    font-size: 18px;
+  }
+
+  .products {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .product {
+    width: 90%;
+  }
+
+  .about, .shop, .contact-page, .checkout-container, .thank-you-container {
+    width: 95%;
+    margin: 20px auto;
+  }
+
+  .text-container {
+    width: 95%;
+    padding: 10px;
+  }
+
+  input, textarea, select, button {
+    font-size: 16px;
+    padding: 10px;
+  }
+
+  .nav .right {
+    margin-right: 20px;
+  }
+
+  .cart-sidebar {
+    width: 100%;
+    right: -100%;
+  }
+
+  .cart-sidebar.open {
+    right: 0;
+  }
+}
+
+/* Hide hamburger on desktop */
+.menu-toggle {
+  display: none;
+}
+
+/* Hide mobile nav on desktop */
+.mobile-nav {
+  display: none;
+}
+
+/* Show mobile nav and hide desktop navbar on small screens */
+@media (max-width: 768px) {
+  .navbar {
+    display: none;
+  }
+
+  .mobile-nav {
+    display: block;
+    position: relative;
+    padding: 1rem;
+  }
+
+  .hamburger {
+    position: absolute;
+    top: 1rem;
+    right: 1rem;
+    font-size: 2rem;
+    background: none;
+    border: none;
+    cursor: pointer;
+    z-index: 1001;
+  }
+
+  .mobile-menu {
+    display: flex;
+    flex-direction: column;
+    background-color: #2b8a7e; /* match your theme */
+    position: absolute;
+    top: 60px;
+    right: 1rem;
+    width: 200px;
+    padding: 1rem;
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+    z-index: 1000;
+  }
+
+  .mobile-menu a {
+    color: white;
+    text-decoration: none;
+    padding: 0.5rem 0;
+    font-size: 1.2rem;
+  }
+
+  .hidden {
+    display: none;
+  }
+}
+
+.checkout {
+  background-image: url('Leptoseris.jpeg'); /* Adjust path as needed */
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  color: #fffee1; /* Ensures text is readable on top of the background */
+}
+
+input, select, textarea {
+    background: transparent !important;
+    color: #146f77;
+    border: 1px solid #146f77;
+}
+
+input, select, textarea {
+    background: transparent !important;
+    color: #146f77;
+    border: 1px solid #146f77;
+}
+
+.checkout form {
+  background-color: rgba(255, 254, 225, 0.85); /* semi-transparent cream */
+  border-radius: 10px;
+  padding: 20px;
+  box-shadow: none; /* optional: remove green box-shadow if present */
+}
+
+.checkout form .inner-box,
+.checkout form .form-row,
+.checkout form fieldset {
+  background: transparent !important;
+  box-shadow: none !important;
+  border: none !important;
+}
+
+.checkout form > div {
+  background-color: transparent !important;
+  box-shadow: none !important;
+  border: none !important;
+}
