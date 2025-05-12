@@ -14,6 +14,19 @@ body {
     color: black;
 }
 
+form {
+    background: #fffee1aa;
+    padding: 20px;
+    border-radius: 10px;
+    max-width: 400px;
+    margin: 20px auto;
+}
+
+form * {
+    font-family: 'Poppins', sans-serif;
+    color: #fffee1;
+}
+
 h1 {
     color: #146f77; /* Dark teal */
     font-size: 32px;
@@ -53,7 +66,7 @@ input, textarea {
     border: 1px solid #78e4e6;
     border-radius: 5px;
     font-size: 16px;
-    background: #fffee1;
+    background: #fffee1aa;
     color: #237778;
     display: block;
 }
