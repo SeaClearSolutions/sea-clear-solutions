@@ -24,11 +24,11 @@ form {
 
 form * {
     font-family: 'Poppins', sans-serif;
-    color: #fffee1;
+    color: #237778;
 }
 
 h1 {
-    color: #146f77; /* Dark teal */
+    color: #237778; /* Dark teal */
     font-size: 32px;
     font-weight: 600;
 }
@@ -162,7 +162,7 @@ footer {
     background: rgba(255, 254, 225, 0.9); /* semi-transparent cream */
     border-radius: 10px;
     box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-    color: #146f77; /* darkest green */
+    color: #237778; /* darkest green */
 }
 
 input, select, textarea, button {
@@ -170,7 +170,7 @@ input, select, textarea, button {
     font-size: 16px;
     border-radius: 5px;
     border: 1px solid #146f77;
-    color: #146f77;
+    color: #237778;
     background-color: transparent; /* removes background */
 }
 
@@ -334,7 +334,7 @@ nav.scrolled {
   background-size: cover;
   background-position: center;
   background-repeat: no-repeat;
-  color: #fffee1; /* Ensures text is readable on top of the background */
+  color: #237778; /* Ensures text is readable on top of the background */
 }
 
 input, select, textarea {
