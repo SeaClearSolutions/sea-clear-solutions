@@ -376,3 +376,18 @@ input, select, textarea {
   box-shadow: none;
   padding: 0;
 }
+
+.checkout input,
+.checkout textarea,
+.checkout select {
+  width: 100%;
+  padding: 10px;
+  margin-bottom: 15px;
+  border: 2px solid #237778;
+  border-radius: 5px;
+  background-color: #fffee1;
+  font-family: 'Poppins', sans-serif;
+  font-size: 16px;
+  color: #237778;
+  box-sizing: border-box;
+}
