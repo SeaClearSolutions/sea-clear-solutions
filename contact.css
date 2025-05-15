@@ -347,3 +347,11 @@ main.contact {
     width: 100%;
     box-sizing: border-box;
 }
+
+.contact-form-container {
+  background-color: rgba(35, 119, 120, 0.7); /* #237778 with 70% opacity */
+  padding: 2rem;
+  border-radius: 1rem;
+  max-width: 500px;
+  margin: 0 auto;
+}
