@@ -61,3 +61,13 @@ form * {
 
 input, tex
 
+main.wholesale {
+    background-image: url('Sarcophyton.jpeg'); /* replace with your image file */
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    color: #fffee1; /* ← this makes all text inside .contact cream colored */
+    min-height: 100vh; /* makes sure the background covers full height */
+    padding: 2rem; /* optional: gives some breathing room */
+}
