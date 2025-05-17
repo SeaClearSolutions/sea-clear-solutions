@@ -304,7 +304,7 @@ main.contact {
 
 .contact input::placeholder,
 .contact textarea::placeholder {
-    color: #fffee1aa; /* Slightly transparent cream for placeholder text */
+    color: #237778aa;
 }
 
 .contact button {
