@@ -1,73 +1,97 @@
-@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap');
-
-.index, .about, .shop, .wholesale, .checkout, .thank-you {
-    margin-top: 100px;
-    padding-top: 20px;
-    padding-bottom: 50px;
-}
-
-body {
-    font-family: 'Poppins', sans-serif;
-    background-color: #fffee1;
-    text-align: center;
-    padding: 100px 20px 20px;
-    color: black;
-}
-
-h1 {
-    color: #146f77;
-    font-size: 32px;
-    font-weight: 600;
-}
-
-h2 {
-    color: #237778;
-    font-size: 24px;
-    font-weight: 400;
-    margin-top: 20px;
-}
-
-p, li {
-    font-size: 18px;
-    color: #237778;
-    max-width: 700px;
-    margin: 0 auto;
-    line-height: 1.6;
-}
-
-ul, ol {
-    max-width: 700px;
-    margin: 0 auto;
-}
-
-img.logo {
-    display: block;
-    margin: 0 auto;
-    max-width: 250px;
-}
-
-form {
-    background: #fffee1aa;
-    padding: 20px;
-    border-radius: 10px;
-    max-width: 400px;
-    margin: 20px auto;
-}
-
-form * {
-    font-family: 'Poppins', sans-serif;
-    color: #fffee1;
-}
-
-input, tex
-
+/* WHOLESALE Page Styling (based on Contact Page Styling) */
 main.wholesale {
-    background-image: url('Sarcophyton.jpeg'); /* replace with your image file */
+    background-image: url('Pectinia2.jpeg'); /* replace with your image file */
     background-size: cover;
     background-position: center;
     background-repeat: no-repeat;
     background-attachment: fixed;
-    color: #fffee1; /* ← this makes all text inside .contact cream colored */
-    min-height: 100vh; /* makes sure the background covers full height */
-    padding: 2rem; /* optional: gives some breathing room */
+    color: #fffee1;
+    min-height: 100vh;
+    padding: 2rem;
+}
+
+.wholesale p, 
+.wholesale h1, 
+.wholesale h2, 
+.wholesale li, 
+.wholesale a {
+    color: #fffee1;
+}
+
+.wholesale form {
+    background: transparent;
+    padding: 0;
+    border-radius: 0;
+    box-shadow: none;
+    width: 100%;
+    max-width: 600px;
+    margin: 0 auto;
+}
+
+.wholesale label {
+    display: block;
+    margin-bottom: 8px;
+    font-size: 22px;
+    color: #fffee1;
+}
+
+.wholesale input, 
+.wholesale textarea {
+    width: 100%;
+    padding: 12px;
+    margin-bottom: 20px;
+    border: 2px solid #fffee1;
+    background: transparent;
+    color: #fffee1;
+    font-size: 18px;
+    border-radius: 5px;
+}
+
+.wholesale input::placeholder,
+.wholesale textarea::placeholder {
+    color: #fffee1aa;
+}
+
+.wholesale button {
+    background-color: #fffee1aa;
+    color: #237778;
+    border: none;
+    padding: 12px;
+    font-size: 18px;
+    border-radius: 5px;
+    width: 100%;
+    box-sizing: border-box;
+    display: block;
+    margin: 0 auto 20px auto;
+    max-width: 600px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.wholesale button:hover {
+    background-color: #fffee1;
+}
+
+.wholesale input:-webkit-autofill,
+.wholesale textarea:-webkit-autofill {
+    background-color: transparent !important;
+    -webkit-box-shadow: 0 0 0px 1000px transparent inset !important;
+    -webkit-text-fill-color: #fdf6e3 !important;
+    font-family: inherit !important;
+    transition: background-color 5000s ease-in-out 0s;
+}
+
+.wholesale input,
+.wholesale textarea,
+.wholesale button {
+    width: 100%;
+    box-sizing: border-box;
+}
+
+.wholesale-form-container {
+    background-color: rgba(35, 119, 120, 0.7); /* #237778 with 70% opacity */
+    padding: 2rem;
+    border-radius: 1rem;
+    max-width: 500px;
+    margin: 0 auto;
 }
