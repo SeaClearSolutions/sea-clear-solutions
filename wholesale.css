@@ -1,6 +1,6 @@
 @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap');
 
-.index, .about, .shop, .contact, .checkout, .thank-you {
+.wholesale {
     margin-top: 100px;
     padding-top: 20px;
     padding-bottom: 50px;
@@ -103,7 +103,7 @@ nav .left {
     gap: 20px; /* Spacing between Home, Shop, About Us */
 }
 
-/* Right side (Contact Us) */
+/* Right side (wholesale Us) */
 nav .right {
     margin-left: auto; /* Push to the right */
     margin-right: 60px; /* Add a margin so it doesn’t touch the edge */
@@ -129,26 +129,26 @@ nav ul li a:hover {
 }
 
 
-/* Contact Page Styling */
-.contact-page {
+/* wholesale Page Styling */
+.wholesale-page {
     text-align: center;
     max-width: 600px;
     margin: 0 auto;
 }
 
-.contact-page p {
+.wholesale-page p {
     font-size: 18px;
     color: #237778;
     margin-bottom: 15px;
 }
 
-.contact-page a {
+.wholesale-page a {
     color: #237778;
     text-decoration: none;
     font-weight: 600;
 }
 
-.contact-page a:hover {
+.wholesale-page a:hover {
     text-decoration: underline;
 }
 
@@ -254,26 +254,26 @@ nav.scrolled {
     height: 40px;  /* Adjust size as needed */
 }
 
-main.contact {
+main.wholesale {
     background-image: url('Acropora1.jpeg'); /* replace with your image file */
     background-size: cover;
     background-position: center;
     background-repeat: no-repeat;
     background-attachment: fixed;
-    color: #237778; /* ← this makes all text inside .contact cream colored */
+    color: #237778; /* ← this makes all text inside .wholesale cream colored */
     min-height: 100vh; /* makes sure the background covers full height */
     padding: 2rem; /* optional: gives some breathing room */
 }
 
-.contact p, 
-.contact h1, 
-.contact h2, 
-.contact li, 
-.contact a {
+.wholesale p, 
+.wholesale h1, 
+.wholesale h2, 
+.wholesale li, 
+.wholesale a {
     color: #237778;
 }
 
-.contact form {
+.wholesale form {
     background: transparent;
     padding: 0;
     border-radius: 0;
@@ -283,15 +283,15 @@ main.contact {
     margin: 0 auto;
 }
 
-.contact label {
+.wholesale label {
     display: block;
     margin-bottom: 8px;
     font-size: 22px; /* Bigger headings */
     color: #237778;
 }
 
-.contact input, 
-.contact textarea {
+.wholesale input, 
+.wholesale textarea {
     width: 100%;
     padding: 12px;
     margin-bottom: 20px;
@@ -302,12 +302,12 @@ main.contact {
     border-radius: 5px;
 }
 
-.contact input::placeholder,
-.contact textarea::placeholder {
+.wholesale input::placeholder,
+.wholesale textarea::placeholder {
     color: #237778aa;
 }
 
-.contact button {
+.wholesale button {
     background-color: #fffee1aa;
     color: #237778;
     border: none;
@@ -323,12 +323,12 @@ main.contact {
     transition: background-color 0.3s ease;
 }
 
-.contact button:hover {
+.wholesale button:hover {
     background-color: #fffee1;
 }
 
-.contact input:-webkit-autofill,
-.contact textarea:-webkit-autofill {
+.wholesale input:-webkit-autofill,
+.wholesale textarea:-webkit-autofill {
   background-color: transparent !important;
   -webkit-box-shadow: 0 0 0px 1000px transparent inset !important;
   -webkit-text-fill-color: #fdf6e3 !important; /* your cream color */
@@ -341,14 +341,14 @@ main.contact {
   }
 }
     
-.contact input,
-.contact textarea,
-.contact button {
+.wholesale input,
+.wholesale textarea,
+.wholesale button {
     width: 100%;
     box-sizing: border-box;
 }
 
-.contact-form-container {
+.wholesale-form-container {
   background-color: #fffee1aa;
   padding: 2rem;
   border-radius: 1rem;
