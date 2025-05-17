@@ -1,7 +1,6 @@
 @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap');
 
 .wholesale {
-    margin-top: 100px;
     padding-top: 20px;
     padding-bottom: 50px;
 }
@@ -354,4 +353,8 @@ main.wholesale {
   border-radius: 1rem;
   max-width: 500px;
   margin: 0 auto;
+}
+
+main.wholesale {
+    padding-top: 120px; /* Enough to push content below navbar */
 }
