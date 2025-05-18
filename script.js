@@ -10,6 +10,7 @@ document.addEventListener("DOMContentLoaded", function () {
     const clearCartButton = document.getElementById("clear-cart"); // ✅ Add this line
 
     let cart = JSON.parse(localStorage.getItem("cart")) || [];
+    let orderDetailsText = "";
 
     // Function to update cart UI
     function updateCart() {
@@ -163,6 +164,7 @@ document.addEventListener("DOMContentLoaded", function () {
                 event.preventDefault();
                 return;
             }
+            orderDetailsInput.value = orderDetailsText;
             localStorage.removeItem("cart"); // Clear cart after order
         });
         updateCheckoutPage();
