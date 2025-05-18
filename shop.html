@@ -32,14 +32,18 @@
 <main class="shop">   
 <!-- Cart Sidebar -->
 <div id="cart-sidebar" class="cart-sidebar">
-    <div class="cart-container">
-        <button id="close-cart">&times;</button>
-        <h2>Shopping Cart</h2>
-        <ul id="cart-items"></ul>
-        <p id="total-price">Total: 0 IDR</p>
-        <button id="place-order">Place Order</button>
-        <button id="clear-cart" class="cart-clear-btn">Clear All</button>
+  <div class="cart-container">
+    <button id="close-cart">&times;</button>
+    <h2>Shopping Cart</h2>
+    <ul id="cart-items"></ul>
+    <p id="total-price">Total: 0 IDR</p>
+
+    <!-- Wrap the two buttons inside this flex container -->
+    <div id="cart-buttons">
+      <button id="place-order">Place Order</button>
+      <button id="clear-cart" class="cart-clear-btn">Clear All</button>
     </div>
+  </div>
 </div>
 
 <section class="shop">
