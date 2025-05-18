@@ -102,78 +102,63 @@
     </main>
 
     <script>
-        document.addEventListener("DOMContentLoaded", function () {
-            const cartSummaryList = document.getElementById("cart-summary-list");
-            const cartTotalElement = document.getElementById("cart-total");
-            const orderDetailsInput = document.getElementById("order-details");
-            const checkoutForm = document.getElementById("checkout-form");
+document.addEventListener("DOMContentLoaded", function () {
+    const cartSummaryList = document.getElementById("cart-summary-list");
+    const cartTotalElement = document.getElementById("cart-total");
+    const orderDetailsInput = document.getElementById("order-details");
+    const checkoutForm = document.getElementById("checkout-form");
+    const discountInput = document.getElementById("discount");
 
-            // Retrieve cart data from localStorage
-            let cart = JSON.parse(localStorage.getItem("cart")) || [];
+    const discountCodes = {
+        "SAVE10": 0.10,
+        "SAVE20": 0.20
+    };
 
-            let orderDetailsText = ""; // Initialize order details text
+    let cart = JSON.parse(localStorage.getItem("cart")) || [];
+    let orderDetailsText = "";
+    let total = 0; // <-- moved here so it's globally accessible
+    let originalTotal = 0;
 
-            if (cart.length === 0) {
-                cartSummaryList.innerHTML = "<p>Your cart is empty.</p>";
-                orderDetailsInput.value = "No items in cart.";
-            } else {
-                let total = 0;
-                cartSummaryList.innerHTML = ""; 
+    if (cart.length === 0) {
+        cartSummaryList.innerHTML = "<p>Your cart is empty.</p>";
+        orderDetailsInput.value = "No items in cart.";
+    } else {
+        cartSummaryList.innerHTML = "";
+        cart.forEach((item) => {
+            let li = document.createElement("li");
+            li.textContent = `${item.name} - ${item.quantity} x ${item.price.toLocaleString()} IDR`;
+            cartSummaryList.appendChild(li);
 
-                cart.forEach((item) => {
-                    let li = document.createElement("li");
-                    li.textContent = `${item.name} - ${item.quantity} x ${item.price.toLocaleString()} IDR`;
-                    cartSummaryList.appendChild(li);
-
-                    orderDetailsText += `${item.name} - ${item.quantity} x ${item.price} IDR\n`;
-                    total += item.price * item.quantity;
-                });
-
-                cartTotalElement.textContent = `Total: ${total.toLocaleString()} IDR`;
-                            let discountInput = document.getElementById("discount");
-
-            // Define your discount codes here
-            const discountCodes = {
-                "SAVE10": 0.10, // 10% off
-                "SAVE20": 0.20  // 20% off
-            };
-
-            let originalTotal = total; // store original total for discount calculation
-
-            // Apply discount when user types in discount field
-            discountInput.addEventListener("input", function () {
-                const code = discountInput.value.trim().toUpperCase();
-                const discount = discountCodes[code] || 0;
-
-                const discountedTotal = Math.round(originalTotal * (1 - discount));
-                cartTotalElement.textContent = `Total: ${discountedTotal.toLocaleString()} IDR`;
-
-                // Update the hidden order details to reflect discount
-                let discountText = orderDetailsText;
-                if (discount > 0) {
-                    discountText += `\nDiscount Code: ${code}\nDiscounted Total: ${discountedTotal.toLocaleString()} IDR`;
-                }
-                orderDetailsInput.value = discountText;
-            });
-
-            // Update hidden input before submitting & clear cart after order
-            checkoutForm.addEventListener("submit", function () {
-                orderDetailsInput.value = orderDetailsInput.value; // keep current discounted order details
-                localStorage.removeItem("cart"); // Clear cart after placing order
-            });
-
-                orderDetailsText += `Total: ${total.toLocaleString()} IDR`;
-                orderDetailsInput.value = orderDetailsText;
-            }
-
-            // Update hidden input before submitting & clear cart after order
-            checkoutForm.addEventListener("submit", function () {
-                orderDetailsInput.value = orderDetailsText;
-                localStorage.removeItem("cart"); // Clear cart after placing order
-
-                }, 1000);
-            });
+            orderDetailsText += `${item.name} - ${item.quantity} x ${item.price} IDR\n`;
+            total += item.price * item.quantity;
         });
+
+        originalTotal = total;
+        cartTotalElement.textContent = `Total: ${total.toLocaleString()} IDR`;
+        orderDetailsText += `Total: ${total.toLocaleString()} IDR`;
+        orderDetailsInput.value = orderDetailsText;
+    }
+
+    // Apply discount
+    discountInput.addEventListener("input", function () {
+        const code = discountInput.value.trim().toUpperCase();
+        const discount = discountCodes[code] || 0;
+
+        const discountedTotal = Math.round(originalTotal * (1 - discount));
+        cartTotalElement.textContent = `Total: ${discountedTotal.toLocaleString()} IDR`;
+
+        let discountText = orderDetailsText;
+        if (discount > 0) {
+            discountText += `\nDiscount Code: ${code}\nDiscounted Total: ${discountedTotal.toLocaleString()} IDR`;
+        }
+        orderDetailsInput.value = discountText;
+    });
+
+    checkoutForm.addEventListener("submit", function () {
+        orderDetailsInput.value = orderDetailsInput.value;
+        localStorage.removeItem("cart");
+    });
+});
     </script>
 </body>
 </html>
