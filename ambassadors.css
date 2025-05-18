@@ -471,3 +471,11 @@ main.contact {
 .contact button:hover {
     background-color: #146f77;
 }
+
+img.uniform-size {
+    width: 300px;        /* Or whatever size works for your layout */
+    height: 300px;
+    object-fit: cover;
+    border-radius: 10px; /* Optional: rounded corners */
+    box-shadow: 0 4px 8px rgba(0,0,0,0.1); /* Optional: subtle shadow */
+}
