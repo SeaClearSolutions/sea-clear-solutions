@@ -130,6 +130,38 @@
                 });
 
                 cartTotalElement.textContent = `Total: ${total.toLocaleString()} IDR`;
+                            let discountInput = document.getElementById("discount");
+
+            // Define your discount codes here
+            const discountCodes = {
+                "SAVE10": 0.10, // 10% off
+                "SAVE20": 0.20  // 20% off
+            };
+
+            let originalTotal = total; // store original total for discount calculation
+
+            // Apply discount when user types in discount field
+            discountInput.addEventListener("input", function () {
+                const code = discountInput.value.trim().toUpperCase();
+                const discount = discountCodes[code] || 0;
+
+                const discountedTotal = Math.round(originalTotal * (1 - discount));
+                cartTotalElement.textContent = `Total: ${discountedTotal.toLocaleString()} IDR`;
+
+                // Update the hidden order details to reflect discount
+                let discountText = orderDetailsText;
+                if (discount > 0) {
+                    discountText += `\nDiscount Code: ${code}\nDiscounted Total: ${discountedTotal.toLocaleString()} IDR`;
+                }
+                orderDetailsInput.value = discountText;
+            });
+
+            // Update hidden input before submitting & clear cart after order
+            checkoutForm.addEventListener("submit", function () {
+                orderDetailsInput.value = orderDetailsInput.value; // keep current discounted order details
+                localStorage.removeItem("cart"); // Clear cart after placing order
+            });
+
                 orderDetailsText += `Total: ${total.toLocaleString()} IDR`;
                 orderDetailsInput.value = orderDetailsText;
             }
