@@ -491,41 +491,23 @@ nav.scrolled {
     height: 40px;  /* Adjust size as needed */
 }
 
+/* General button styles inside #cart-buttons */
+#cart-buttons button,
 .cart-clear-btn {
-  background-color: #146f77;
-  color: #fffee1;
-  border: none;
-  padding: 10px 15px;
-  border-radius: 8px;
-  font-family: 'Poppins', sans-serif;
-  font-size: 14px;
-  margin-top: 10px;
-  cursor: pointer;
-  transition: background-color 0.3s ease;
-}
-
-.cart-clear-btn:hover {
-  background-color: #237778;
-}
-
-#cart-buttons {
-  display: flex;
-  justify-content: flex-start;
-  gap: 10px; /* space between the buttons */
-  align-items: center;
-  margin-top: 20px;
-}
-
-#cart-buttons button {
-  padding: 8px 16px;
+  padding: 10px 16px;
   font-size: 16px;
   background-color: #237778;
   color: #fffee1;
   border: none;
   border-radius: 8px;
+  font-family: 'Poppins', sans-serif;
   cursor: pointer;
+  transition: background-color 0.3s ease;
+  height: 45px; /* Optional: force exact height */
 }
 
-#cart-buttons button:hover {
+/* Hover effect for both buttons */
+#cart-buttons button:hover,
+.cart-clear-btn:hover {
   background-color: #146f77;
 }
