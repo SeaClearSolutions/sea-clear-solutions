@@ -362,3 +362,7 @@ footer {
     background-size: 100% 100%;
     padding: 2rem;
 }
+
+footer, footer p, footer h1, footer h2, footer h3, footer li, footer a {
+    color: #fffee1 !important;
+}
