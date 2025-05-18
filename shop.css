@@ -510,7 +510,8 @@ nav.scrolled {
 
 #cart-buttons {
   display: flex;
-  justify-content: space-between;
+  justify-content: flex-start;
+  gap: 10px; /* space between the buttons */
   align-items: center;
   margin-top: 20px;
 }
