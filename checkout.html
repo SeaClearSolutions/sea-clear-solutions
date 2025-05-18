@@ -136,9 +136,6 @@
                 orderDetailsInput.value = orderDetailsText;
                 localStorage.removeItem("cart"); // Clear cart after placing order
 
-                // Fallback redirect if FormSubmit fails
-                setTimeout(function () {
-                    window.location.href = "thank-you.html"; // Adjust if necessary
                 }, 1000);
             });
         });
