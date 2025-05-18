@@ -332,7 +332,7 @@ main.wholesale {
 .wholesale textarea:-webkit-autofill {
   background-color: transparent !important;
   -webkit-box-shadow: 0 0 0px 1000px transparent inset !important;
-  -webkit-text-fill-color: #fdf6e3 !important; /* your cream color */
+  -webkit-text-fill-color: #237778 !important; /* your cream color */
   font-family: inherit !important;
   transition: background-color 5000s ease-in-out 0s;
 }
