@@ -154,6 +154,7 @@ nav ul li a:hover {
 
 footer {
     text-align: center;
+    color: #fffee1; 
     padding: 20px;
     margin-top: 40px;
 }
@@ -359,6 +360,5 @@ main.wholesale {
 footer {
     background: linear-gradient(to top, rgba(0,0,0,0.6), rgba(0,0,0,0)) no-repeat;
     background-size: 100% 100%;
-    color: #fffee1; !important;
     padding: 2rem;
 }
