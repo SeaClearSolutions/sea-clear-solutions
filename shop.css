@@ -511,3 +511,10 @@ nav.scrolled {
 .cart-clear-btn:hover {
   background-color: #146f77;
 }
+
+#cart-buttons {
+  display: flex;
+  justify-content: flex-start;
+  gap: 10px;
+  margin-top: 20px;
+}
