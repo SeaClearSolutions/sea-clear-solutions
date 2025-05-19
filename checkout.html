@@ -111,7 +111,7 @@ document.addEventListener("DOMContentLoaded", function () {
     const discountInput = document.getElementById("discount");
 
     const discountCodes = {
-        "DDivers": 0.50
+        "DDIVERS": 0.50
     };
 
     let cart = JSON.parse(localStorage.getItem("cart")) || [];
@@ -146,6 +146,7 @@ applyDiscountButton.addEventListener("click", function () {
     const code = discountInput.value.trim().toUpperCase();
     const discount = discountCodes[code] || 0;
 
+    console.log("Entered code:", code, "Discount found:", discount);
     const discountedTotal = Math.round(originalTotal * (1 - discount));
     cartTotalElement.textContent = `Total: ${discountedTotal.toLocaleString()} IDR`;
 
