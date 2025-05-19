@@ -143,18 +143,28 @@ document.addEventListener("DOMContentLoaded", function () {
 const applyDiscountButton = document.getElementById("apply-discount");
 
 applyDiscountButton.addEventListener("click", function () {
-        const code = discountInput.value.trim().toUpperCase();
-        const discount = discountCodes[code] || 0;
+    const code = discountInput.value.trim().toUpperCase();
+    const discount = discountCodes[code] || 0;
 
-        const discountedTotal = Math.round(originalTotal * (1 - discount));
-        cartTotalElement.textContent = `Total: ${discountedTotal.toLocaleString()} IDR`;
+    const discountedTotal = Math.round(originalTotal * (1 - discount));
+    cartTotalElement.textContent = `Total: ${discountedTotal.toLocaleString()} IDR`;
 
-        let discountText = orderDetailsText;
-        if (discount > 0) {
-            discountText += `\nDiscount Code: ${code}\nDiscounted Total: ${discountedTotal.toLocaleString()} IDR`;
-        }
-        orderDetailsInput.value = discountText;
+    // Rebuild order summary including discount
+    let newOrderDetails = "";
+    cart.forEach((item) => {
+        newOrderDetails += `${item.name} - ${item.quantity} x ${item.price.toLocaleString()} IDR\n`;
     });
+
+    if (discount > 0) {
+        newOrderDetails += `Discount Code: ${code}\n`;
+        newOrderDetails += `Discounted Total: ${discountedTotal.toLocaleString()} IDR`;
+    } else {
+        newOrderDetails += `Total: ${originalTotal.toLocaleString()} IDR`;
+    }
+
+    orderDetailsInput.value = newOrderDetails;
+});
+
 
     checkoutForm.addEventListener("submit", function () {
         orderDetailsInput.value = orderDetailsInput.value;
