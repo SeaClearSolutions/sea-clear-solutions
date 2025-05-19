@@ -140,7 +140,9 @@ document.addEventListener("DOMContentLoaded", function () {
     }
 
     // Apply discount
-    discountInput.addEventListener("input", function () {
+const applyDiscountButton = document.getElementById("apply-discount");
+
+applyDiscountButton.addEventListener("click", function () {
         const code = discountInput.value.trim().toUpperCase();
         const discount = discountCodes[code] || 0;
 
