@@ -519,8 +519,8 @@ nav.scrolled {
   margin-top: 20px;
 }
 
-.wholesale-note {
-font-family: Poppins, sans-serif; 
-font-size: 1.1em; 
-color: #237778;
+.wholesale-note a,
+.wholesale-note a:visited {
+  color: #237778;
+  text-decoration: underline; /* optional, for clarity */
 }
