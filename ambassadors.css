@@ -483,7 +483,7 @@ img.uniform-size {
 img.michael {
   object-fit: cover;
   object-position: top;
-  object-position: 50% 35%;
+  object-position: 50% 10%;
 }
 
 button {
