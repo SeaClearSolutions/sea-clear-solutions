@@ -392,3 +392,13 @@ input, select, textarea {
   color: #237778;
   box-sizing: border-box;
 }
+
+footer {
+    background: linear-gradient(to top, rgba(0,0,0,0.6), rgba(0,0,0,0)) no-repeat;
+    background-size: 100% 100%;
+    padding: 2rem;
+}
+
+footer, footer p, footer h1, footer h2, footer h3, footer li, footer a {
+    color: #fffee1 !important;
+}
