@@ -530,3 +530,16 @@ nav.scrolled {
   gap: 1rem;
 }
 
+.product .add-to-cart {
+  margin-top: auto;
+  align-self: center;
+  background-color: #237778;
+  color: #fffee1;
+  border: none;
+  padding: 10px 16px;
+  font-size: 16px;
+  border-radius: 6px;
+  cursor: pointer;
+  font-family: 'Poppins', sans-serif;
+  transition: background-color 0.3s ease;
+}
