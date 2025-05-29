@@ -530,7 +530,7 @@ nav.scrolled {
   gap: 1rem;
 }
 
-.product-card {
+.product {
   height: 100%; /* or a fixed height like 100% of the grid cell */
   display: flex;
   flex-direction: column;
@@ -542,6 +542,6 @@ nav.scrolled {
   font-family: 'Poppins', sans-serif;
 }
 
-.product-card button {
+.product button {
   margin-top: auto;
 }
