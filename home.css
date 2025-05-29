@@ -355,3 +355,7 @@ nav.scrolled {
 .navbar.scrolled .nav-logo img {
     height: 40px;  /* Adjust size as needed */
 }
+
+body {
+  padding-top: 100px; /* try 80-100px depending on your actual navbar height */
+}
