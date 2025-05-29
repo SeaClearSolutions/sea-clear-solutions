@@ -538,10 +538,30 @@ nav.scrolled {
   flex: 1;
   display: flex;
   flex-direction: column;
-  justify-content: space-between; /* Pushes button to the bottom */
-  height: 100%; /* Make all cards same height */
+  justify-content: space-between;
+  height: 100%;
 }
 
 .product-card button {
-  margin-top: auto; /* Forces the button to the bottom */
+  margin-top: auto;
+}
+.product-grid {
+  display: flex;
+  gap: 1rem;
+}
+
+.product-card {
+  background: #fffee1;
+  padding: 1rem;
+  border-radius: 10px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  height: 100%;
+}
+
+.product-card button {
+  margin-top: auto;
 }
