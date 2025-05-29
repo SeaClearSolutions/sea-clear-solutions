@@ -500,3 +500,7 @@ button {
 button:hover {
     background-color: #146f77;
 }
+
+.ambassadors-member {
+  margin-bottom: 2rem; /* Adjust as needed */
+}
