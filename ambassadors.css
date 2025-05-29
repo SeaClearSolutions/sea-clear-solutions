@@ -473,8 +473,8 @@ main.contact {
 }
 
 img.uniform-size {
-    width: 300px;        /* Or whatever size works for your layout */
-    height: 300px;
+    width: 400px;        /* Or whatever size works for your layout */
+    height: 400px;
     object-fit: cover;
     border-radius: 10px; /* Optional: rounded corners */
     box-shadow: 0 4px 8px rgba(0,0,0,0.1); /* Optional: subtle shadow */
