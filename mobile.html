@@ -1,0 +1,31 @@
+<nav class="navbar">
+  <div class="nav-left">
+    <a href="/cart" class="cart-icon">🛒</a>
+  </div>
+  
+  <div class="nav-logo">
+    <img src="logo.png" alt="Logo" class="logo">
+  </div>
+
+  <div class="nav-right">
+    <button class="hamburger">&#9776;</button> <!-- Hamburger icon -->
+  </div>
+
+  <ul class="nav-links">
+    <li><a href="/home">Home</a></li>
+    <li><a href="/shop">Shop</a></li>
+    <li><a href="/ambassadors">Ambassadors</a></li>
+    <li><a href="/contact">Contact</a></li>
+  </ul>
+</nav>
+
+<script>
+  document.addEventListener('DOMContentLoaded', function () {
+    const hamburger = document.querySelector('.hamburger');
+    const navLinks = document.querySelector('.nav-links');
+
+    hamburger.addEventListener('click', function () {
+      navLinks.classList.toggle('active');
+    });
+  });
+</script>
