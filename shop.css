@@ -530,18 +530,3 @@ nav.scrolled {
   gap: 1rem;
 }
 
-.product {
-  height: 100%; /* or a fixed height like 100% of the grid cell */
-  display: flex;
-  flex-direction: column;
-  justify-content: space-between;
-  background-color: #fffee1;
-  padding: 5px;
-  border-radius: 10px;
-  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
-  font-family: 'Poppins', sans-serif;
-}
-
-.product button {
-  margin-top: auto;
-}
