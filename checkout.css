@@ -404,46 +404,46 @@ footer, footer p, footer h1, footer h2, footer h3, footer li, footer a {
 }
 
 /* wholesale Page Styling */
-.footer-box {
+.checkout-page {
     text-align: center;
     max-width: 600px;
     margin: 0 auto;
 }
 
-.footer-box p {
+.checkout-page p {
     font-size: 18px;
     color: #237778;
     margin-bottom: 15px;
 }
 
-.footer-box a {
+.checkout-page a {
     color: #237778;
     text-decoration: none;
     font-weight: 600;
 }
 
-.footer-box a:hover {
+.checkout-page a:hover {
     text-decoration: underline;
 }
 /* wholesale Page Styling */
-.footer-box {
+.checkout-page {
     text-align: center;
     max-width: 600px;
     margin: 0 auto;
 }
 
-.footer-box p {
+.checkout-page p {
     font-size: 18px;
     color: #237778;
     margin-bottom: 15px;
 }
 
-.footer-box a {
+.checkout-page a {
     color: #237778;
     text-decoration: none;
     font-weight: 600;
 }
 
-.footer-box a:hover {
+.checkout-page a:hover {
     text-decoration: underline;
 }
