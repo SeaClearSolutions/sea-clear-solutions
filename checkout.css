@@ -409,12 +409,14 @@ footer {
 }
 
 .footer-box {
-    max-width: 700px;
+    width: 90%;
+    max-width: 1200px; /* Prevent it from getting too wide on big screens */
     margin: 0 auto;
     padding: 2rem;
     background: linear-gradient(to top, rgba(0,0,0,0.7), rgba(0,0,0,0));
     border-radius: 10px;
     text-align: center;
+    box-sizing: border-box;
 }
 
 .footer-box p,
