@@ -482,7 +482,7 @@ img.uniform-size {
 
 img.michael {
   object-fit: cover;
-  object-position: center;
+  object-position: right;
   object-position: 60% 10%;
 }
 
