@@ -392,38 +392,3 @@ input, select, textarea {
   color: #237778;
   box-sizing: border-box;
 }
-
-footer {
-    background: linear-gradient(to top, rgba(0,0,0,0.6), rgba(0,0,0,0)) no-repeat;
-    background-size: 100% 100%;
-    padding: 2rem;
-}
-
-footer, footer p, footer h1, footer h2, footer h3, footer li, footer a {
-    color: #fffee1 !important;
-}
-
-footer {
-    background-color: transparent; /* Remove full-width background */
-    padding: 2rem 0;
-}
-
-.footer-box {
-    width: 90%;
-    max-width: 1200px; /* Prevent it from getting too wide on big screens */
-    margin: 0 auto;
-    padding: 2rem;
-    background: linear-gradient(to top, rgba(0,0,0,0.7), rgba(0,0,0,0));
-    border-radius: 10px;
-    text-align: center;
-    box-sizing: border-box;
-}
-
-.footer-box p,
-.footer-box h1,
-.footer-box h2,
-.footer-box h3,
-.footer-box li,
-.footer-box a {
-    color: #fffee1 !important;
-}
