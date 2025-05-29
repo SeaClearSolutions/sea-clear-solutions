@@ -1,6 +1,12 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
+    <script>
+  // Redirect to mobile.html only if screen is narrow and not already on mobile version
+  if (window.innerWidth <= 768 && !location.pathname.includes("mobile.html")) {
+    window.location.href = "mobile.html";
+  }
+</script>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>About - Sea Clear</title>
