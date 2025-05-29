@@ -139,7 +139,7 @@ nav ul li a {
 /* Hover Effect */
 nav ul li a:hover {
     background-color: #34b2ae;
-    color: white;
+    color: #fffee1;
 }
 
 footer {
@@ -488,7 +488,7 @@ img.michael {
 
 button {
     background-color: #34b2ae;
-    color: white;
+    color: #fffee1;
     border: none;
     padding: 10px 20px;
     font-size: 16px;
