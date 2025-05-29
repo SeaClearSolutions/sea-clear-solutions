@@ -402,3 +402,26 @@ footer {
 footer, footer p, footer h1, footer h2, footer h3, footer li, footer a {
     color: #fffee1 !important;
 }
+
+footer {
+    background-color: transparent; /* Remove full-width background */
+    padding: 2rem 0;
+}
+
+.footer-box {
+    max-width: 700px;
+    margin: 0 auto;
+    padding: 2rem;
+    background: linear-gradient(to top, rgba(0,0,0,0.7), rgba(0,0,0,0));
+    border-radius: 10px;
+    text-align: center;
+}
+
+.footer-box p,
+.footer-box h1,
+.footer-box h2,
+.footer-box h3,
+.footer-box li,
+.footer-box a {
+    color: #fffee1 !important;
+}
