@@ -635,40 +635,52 @@ main.contact {
   cursor: pointer;
 }
 
+/* Small screens */
 @media (max-width: 768px) {
+  .hamburger {
+    display: block;
+    position: absolute;
+    top: 20px;
+    left: 20px;
+    z-index: 999;
+  }
+
   .nav-links {
-    flex-direction: column;
-    align-items: flex-start;
-    background-color: #146f77;
+    display: none;
     position: absolute;
     top: 60px;
     left: 0;
+    background-color: #146f77;
     width: 100%;
-    padding: 1rem;
-    display: none;
+    flex-direction: column;
+    align-items: center;
     gap: 1rem;
-    z-index: 10;
+    padding: 1rem 0;
   }
 
   .nav-links.active {
     display: flex;
   }
 
-  .nav-links li {
-    width: 100%;
+  .nav-links ul {
+    flex-direction: column;
+    align-items: center;
   }
 
-  .nav-links li a {
-    color: #fffee1;
-    text-decoration: none;
-    font-size: 1.2rem;
-    padding: 0.5rem 0;
-    display: block;
-    width: 100%;
-  }
-
-  /* Optional: hide logo or move it */
   .nav-logo {
-    display: none; /* Or adjust layout */
+    position: absolute;
+    top: 10px;
+    left: 50%;
+    transform: translateX(-50%);
+  }
+
+  .navbar ul {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .navbar ul li {
+    margin: 10px 0;
   }
 }
