@@ -68,13 +68,13 @@
     </footer>
     </main>
 
-    <script>
+   <script>
   function toggleMenu() {
-    document.querySelectorAll('.nav-links').forEach(linkList => {
-      linkList.classList.toggle('active');
-    });
+    const navLinks = document.querySelector('.nav-links');
+    navLinks.classList.toggle('active');
   }
 </script>
+
 
 </body>
 </html>
