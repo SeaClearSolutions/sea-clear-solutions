@@ -628,6 +628,10 @@ main.contact {
   transition: background-color 5000s ease-in-out 0s;
 }
 
+.hamburger {
+  display: none;
+}
+
 /* Responsive styles for mobile */
 @media screen and (max-width: 768px) {
   nav.navbar {
