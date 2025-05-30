@@ -1,12 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <script>
-  // Redirect to mobile.html only if screen is narrow and not already on mobile version
-  if (window.innerWidth <= 768 && !location.pathname.includes("mobile.html")) {
-    window.location.href = "mobile.html";
-  }
-</script>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>About - Sea Clear</title>
@@ -17,6 +11,8 @@
 
 <body>
   <nav class="navbar">
+    <div class="hamburger" onclick="toggleMenu()">☰</div>
+      
     <ul class="left">
        <li><a href="home.html">Home</a></li>
        <li><a href="shop.html">Shop</a></li>
@@ -66,5 +62,14 @@
 <p>Made in Bali by a reputable manufacturer committed to ethical and safe production.</p>
     </footer>
     </main>
+
+    <script>
+  function toggleMenu() {
+    document.querySelectorAll('.nav-links').forEach(linkList => {
+      linkList.classList.toggle('active');
+    });
+  }
+</script>
+
 </body>
 </html>
