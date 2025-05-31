@@ -647,43 +647,47 @@ main.contact {
   }
 
   .nav-links {
-  display: none;
-  position: absolute;
-  top: 60px;
-  left: 0;
-  background-color: #146f77;
-  width: 100%;
-  flex-direction: column;
-  align-items: flex-start; /* align items to the left */
-  gap: 1rem;
-  padding: 1rem;
+    display: none;
+    position: absolute;
+    top: 60px;
+    left: 0;
+    background-color: #146f77;
+    width: 100%;
+    flex-direction: column;
+    align-items: flex-start; /* align items to the left */
+    gap: 1rem;
+    padding: 1rem;
   }
 
   .nav-links.active {
-  display: flex;
+    display: flex;
   }
 
   .nav-links ul {
-  flex-direction: column;
-  align-items: flex-start; /* align items to the left */
-  width: 100%;
-  padding-left: 0;
-  margin: 0;
+    flex-direction: column;
+    align-items: flex-start; /* align items to the left */
+    width: 100%;
+    padding-left: 0;
+    margin: 0;
   }
 
   .navbar ul {
-  display: flex;
-  flex-direction: column;
-  align-items: flex-start; /* left-align list items */
-  padding-left: 0;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start; /* left-align list items */
+    padding-left: 0;
   }
 
-.navbar ul li {
-  margin: 10px 20px;
-  width: 100%;
-}
+  .navbar ul li {
+    margin: 10px 20px;
+    width: 100%;
+  }
 
-.navbar ul li:last-child {
-  align-self: flex-start; /* makes sure "Contact Us" aligns left */
-}
+  .navbar ul li:last-child {
+    align-self: flex-start; /* makes sure "Contact Us" aligns left */
+  }
+
+  .navbar ul li:last-child {
+    margin-left: auto;
+ }
 }
