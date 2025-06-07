@@ -644,6 +644,9 @@ main.contact {
     left: 20px;
     z-index: 999;
     color: #fffee1;
+    background: none;
+    border: none;
+    font-size: 24px;
   }
 
   .nav-links {
@@ -651,11 +654,10 @@ main.contact {
     position: absolute;
     top: 60px;
     left: 0;
-    background-color: #146f77;
+    background-color: #2dafa1; /* lighter green only */
     width: 100%;
     flex-direction: column;
-    align-items: flex-start; /* align items to the left */
-    gap: 1rem;
+    align-items: flex-start;
     padding: 1rem;
   }
 
@@ -663,31 +665,33 @@ main.contact {
     display: flex;
   }
 
-  .nav-links ul {
-    flex-direction: column;
-    align-items: flex-start; /* align items to the left */
-    width: 100%;
-    padding-left: 0;
-    margin: 0;
-  }
-
+  .nav-links ul,
   .navbar ul {
-    display: flex;
-    flex-direction: column;
-    align-items: flex-start; /* left-align list items */
-    padding-left: 0;
-  }
-
-  .navbar ul li {
-    margin: 10px 20px;
+    list-style: none;
+    margin: 0;
+    padding: 0;
     width: 100%;
   }
 
-  .navbar ul li:last-child {
-    align-self: flex-start; /* makes sure "Contact Us" aligns left */
+  .nav-links li,
+  .navbar li {
+    padding: 0.75rem 1rem;
+    width: 100%;
+    color: #fffee1;
+    font-family: 'Poppins', sans-serif;
+    font-size: 1.2rem;
+    font-weight: 500;
+    border-bottom: 1px solid rgba(255, 254, 225, 0.2);
   }
 
-  .navbar ul li:last-child {
-    margin-left: auto;
- }
+  .nav-links li:last-child {
+    border-bottom: none;
+  }
+
+  .nav-links a {
+    text-decoration: none;
+    color: #fffee1;
+    width: 100%;
+    display: block;
+  }
 }
