@@ -679,17 +679,63 @@ main.contact {
   color: #34b2ae; /* Subtle hover color */
 }
 
-/* Show hamburger only on small screens */
+/* Small screens */
 @media (max-width: 768px) {
   .hamburger {
+    display: block;
+    position: absolute;
+    top: 20px;
+    left: 20px;
+    z-index: 999;
+    color: #fffee1;
+    background: none;
+    border: none;
+    font-size: 24px;
+  }
+
+  .nav-links {
+    display: none;
+    position: absolute;
+    top: 60px;
+    left: 0;
+    background-color: #2dafa1; /* lighter green only */
+    width: 100%;
+    flex-direction: column;
+    align-items: flex-start;
+    padding: 1rem;
+  }
+
+  .nav-links.active {
     display: flex;
   }
 
-  .navbar .nav-buttons {
-    display: none;
+  .nav-links ul,
+  .navbar ul {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    width: 100%;
   }
 
-  .hamburger-menu {
-    display: none; /* stays hidden unless .show is toggled */
+  .nav-links li,
+  .navbar li {
+    padding: 0.75rem 1rem;
+    width: 100%;
+    color: #fffee1;
+    font-family: 'Poppins', sans-serif;
+    font-size: 1.2rem;
+    font-weight: 500;
+    border-bottom: 1px solid rgba(255, 254, 225, 0.2);
+  }
+
+  .nav-links li:last-child {
+    border-bottom: none;
+  }
+
+  .nav-links a {
+    text-decoration: none;
+    color: #fffee1;
+    width: 100%;
+    display: block;
   }
 }
