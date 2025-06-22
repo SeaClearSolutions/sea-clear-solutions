@@ -68,27 +68,28 @@ img {
   display: flex;
 }
 
-/* Hide mobile nav by default */
-.mobile-nav,
+/* Hide mobile stuff by default */
 .nav-mobile-left,
-.nav-mobile-right {
+.nav-mobile-right,
+.mobile-nav {
   display: none;
 }
 
+/* Mobile layout only */
 @media (max-width: 768px) {
-  /* Hide desktop nav on mobile */
-  .desktop-only {
+  /* Hide desktop nav buttons */
+  .navbar ul.left,
+  .navbar ul.right {
     display: none;
   }
 
-  /* Show mobile icons */
+  /* Show hamburger + cart */
   .nav-mobile-left,
   .nav-mobile-right {
     display: block;
     position: absolute;
     top: 50%;
     transform: translateY(-50%);
-    z-index: 1001;
   }
 
   .nav-mobile-left {
@@ -110,8 +111,8 @@ img {
 
   .nav-logo {
     position: static;
-    transform: none;
     margin: 0 auto;
+    transform: none;
   }
 
   .navbar {
@@ -119,15 +120,15 @@ img {
     position: relative;
   }
 
-  /* Mobile dropdown nav */
+  /* Mobile menu list hidden by default */
   .mobile-nav {
     display: none;
     flex-direction: column;
     position: absolute;
     top: 60px;
     left: 0;
-    background-color: #237778;
     width: 100%;
+    background-color: #237778;
     padding: 10px 20px;
     text-align: left;
     z-index: 999;
@@ -145,12 +146,5 @@ img {
     color: #fffee1;
     font-weight: 600;
   }
-
-    @media (max-width: 768px) {
-  .navbar ul.left,
-  .navbar ul.right {
-    display: none;
-  }
 }
 
-}
