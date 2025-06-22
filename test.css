@@ -63,16 +63,3 @@ img {
     height: 40px;
 }
 
-/* Footer */
-footer {
-    text-align: center;
-    background-color: #237778;
-    color: #fffee1;
-    padding: 30px 20px;
-    margin-top: 60px;
-}
-
-.footer-logo {
-    height: 60px;
-    margin-bottom: 15px;
-}
