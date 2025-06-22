@@ -63,3 +63,63 @@ img {
     height: 40px;
 }
 
+/* === Mobile Navbar Styling === */
+@media (max-width: 768px) {
+  /* Hide the full nav links by default */
+  .navbar ul.left,
+  .navbar ul.right {
+    display: none;
+    flex-direction: column;
+    background-color: #237778;
+    position: absolute;
+    top: 60px;
+    left: 0;
+    width: 100%;
+    text-align: center;
+    padding: 10px 0;
+  }
+
+  /* Show nav when toggled */
+  .navbar ul.left.show,
+  .navbar ul.right.show {
+    display: flex;
+  }
+
+  /* Show hamburger and cart icons */
+  .nav-mobile-left,
+  .nav-mobile-right {
+    display: block;
+    z-index: 1001;
+  }
+
+  .nav-mobile-left {
+    position: absolute;
+    left: 20px;
+  }
+
+  .nav-mobile-right {
+    position: absolute;
+    right: 20px;
+  }
+
+  .hamburger,
+  .cart-icon {
+    font-size: 24px;
+    background: none;
+    border: none;
+    color: #fffee1;
+    cursor: pointer;
+  }
+
+  /* Re-center logo (disable absolute positioning on mobile) */
+  .nav-logo {
+    position: static;
+    transform: none;
+    margin: 0 auto;
+  }
+
+  .navbar {
+    justify-content: center;
+    position: relative;
+  }
+}
