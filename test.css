@@ -63,6 +63,12 @@ img {
     height: 40px;
 }
 
+ /* Hide mobile icons by default (desktop) */
+.nav-mobile-left,
+.nav-mobile-right {
+  display: none;
+}
+
 /* === Mobile Navbar Styling === */
 @media (max-width: 768px) {
   /* Hide the full nav links by default */
@@ -122,11 +128,5 @@ img {
     justify-content: center;
     position: relative;
   }
-
-    /* Hide mobile icons by default (desktop) */
-.nav-mobile-left,
-.nav-mobile-right {
-  display: none;
-}
 
 }
