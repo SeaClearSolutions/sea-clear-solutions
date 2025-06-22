@@ -63,50 +63,39 @@ img {
     height: 40px;
 }
 
-/* Hide mobile nav elements on desktop */
+/* Desktop only */
+.desktop-only {
+  display: flex;
+}
+
+/* Hide mobile nav by default */
+.mobile-nav,
 .nav-mobile-left,
-.nav-mobile-right,
-.hamburger,
-.cart-icon {
+.nav-mobile-right {
   display: none;
 }
 
-/* === Mobile Navbar Styling === */
 @media (max-width: 768px) {
-  /* Hide the full nav links by default */
-  .navbar ul.left,
-  .navbar ul.right {
+  /* Hide desktop nav on mobile */
+  .desktop-only {
     display: none;
-    flex-direction: column;
-    background-color: #237778;
-    position: absolute;
-    top: 60px;
-    left: 0;
-    width: 100%;
-    text-align: center;
-    padding: 10px 0;
   }
 
-  /* Show nav when toggled */
-  .navbar ul.left.show,
-  .navbar ul.right.show {
-    display: flex;
-  }
-
-  /* Show hamburger and cart icons */
+  /* Show mobile icons */
   .nav-mobile-left,
   .nav-mobile-right {
     display: block;
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
     z-index: 1001;
   }
 
   .nav-mobile-left {
-    position: absolute;
     left: 20px;
   }
 
   .nav-mobile-right {
-    position: absolute;
     right: 20px;
   }
 
@@ -119,7 +108,6 @@ img {
     cursor: pointer;
   }
 
-  /* Re-center logo (disable absolute positioning on mobile) */
   .nav-logo {
     position: static;
     transform: none;
@@ -131,4 +119,30 @@ img {
     position: relative;
   }
 
+  /* Mobile dropdown nav */
+  .mobile-nav {
+    display: none;
+    flex-direction: column;
+    position: absolute;
+    top: 60px;
+    left: 0;
+    background-color: #237778;
+    width: 100%;
+    padding: 10px 20px;
+    text-align: left;
+    z-index: 999;
+  }
+
+  .mobile-nav.show {
+    display: flex;
+  }
+
+  .mobile-nav li {
+    margin: 10px 0;
+  }
+
+  .mobile-nav a {
+    color: #fffee1;
+    font-weight: 600;
+  }
 }
