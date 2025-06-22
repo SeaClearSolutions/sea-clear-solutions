@@ -220,7 +220,6 @@ nav.scrolled {
     display: none;
   }
 
-  /* Show hamburger + cart */
   .nav-mobile-left,
   .nav-mobile-right {
     display: block;
@@ -229,13 +228,8 @@ nav.scrolled {
     transform: translateY(-50%);
   }
 
-  .nav-mobile-left {
-    left: 20px;
-  }
-
-  .nav-mobile-right {
-    right: 20px;
-  }
+  .nav-mobile-left { left: 20px; }
+  .nav-mobile-right { right: 20px; }
 
   .hamburger,
   .cart-icon {
@@ -257,17 +251,16 @@ nav.scrolled {
     position: relative;
   }
 
-  /* Mobile menu list hidden by default */
+  /* FINAL version of mobile-nav */
   .mobile-nav {
     display: none;
     flex-direction: column;
+    background-color: #237778;
     position: absolute;
-    top: 60px;
+    top: 80px;
     left: 0;
     width: 100%;
-    background-color: #237778;
-    padding: 10px 20px;
-    text-align: left;
+    padding: 10px 0;
     z-index: 999;
   }
 
@@ -276,31 +269,14 @@ nav.scrolled {
   }
 
   .mobile-nav li {
-    margin: 10px 0;
+    margin: 10px 20px;
+    text-align: left;
   }
 
   .mobile-nav a {
     color: #fffee1;
     font-weight: 600;
+    font-size: 16px;
   }
-    
-    /* Always hidden by default */
-.mobile-nav {
-  display: none;
-  flex-direction: column;
-  position: absolute;
-  top: 60px;
-  left: 0;
-  width: 100%;
-  background-color: #237778;
-  padding: 10px 20px;
-  z-index: 999;
-}
-
-/* Show only when toggled */
-.mobile-nav.show {
-  display: flex;
-}
-
 }
 
