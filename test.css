@@ -1,1 +1,340 @@
+ @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap');
+
+.ambassadors {
+    margin-top: 100px;
+    padding-top: 20px;
+    padding-bottom: 50px;
+}
+
+body {
+    font-family: 'Poppins', sans-serif;
+    background-color: #fffee1; /* Light cream background */
+    text-align: center;
+    padding: 100px 20px 20px; /* Add top padding for navbar */
+    color: black;
+}
+
+h1 {
+    color: #146f77; /* Dark teal */
+    font-size: 32px;
+    font-weight: 600;
+}
+
+h2 {
+    color: #237778; /* Deep sea green */
+    font-size: 24px;
+    font-weight: 400;
+    margin-top: 20px;
+}
+
+p, li {
+    font-size: 18px;
+    color: #237778;
+    max-width: 700px;
+    margin: 0 auto;
+    line-height: 1.6;
+}
+
+ul, ol {
+    max-width: 700px;
+    margin: 0 auto;
+}
+
+img.logo {
+    display: block;
+    margin: 0 auto;
+    max-width: 250px;
+}
+
+/* Navigation Bar */
+nav {
+    width: 100%;
+    background-color: #237778;
+    display: flex;
+    justify-content: center; /* Center everything */
+    align-items: center;
+    padding: 10px 20px;
+    position: relative;
+}
+
+/* Navigation List */
+nav ul {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    align-items: center;
+}
+
+/* Left side (Home, Shop, ambassadors Us) */
+nav .left {
+    display: flex;
+    gap: 20px; /* Spacing between Home, Shop, ambassadors Us */
+}
+
+/* Right side (Contact Us) */
+nav .right {
+    margin-left: auto; /* Push to the right */
+    margin-right: 60px; /* Add a margin so it doesn’t touch the edge */
+}
+
+/* Navigation Links */
+nav ul li a {
+    font-family: 'Poppins', sans-serif;
+    color: #fffee1;
+    text-decoration: none;
+    font-size: 16px;
+    font-weight: 600;
+    padding: 4px 12px; /* Smaller padding inside buttons */
+    border: 1.5px solid #fffee1; /* Thinner border */
+    border-radius: 6px; /* Slightly rounded for a sleek look */
+    transition: 0.3s ease-in-out;
+}
+
+/* Hover Effect */
+nav ul li a:hover {
+    background-color: #34b2ae;
+    color: #fffee1;
+}
+
+footer {
+    text-align: center;
+    padding: 20px;
+    margin-top: 40px;
+}
+
+.footer-logo {
+    max-width: 200px; /* Adjust size */
+    display: block;
+    margin: 0 auto;
+}
+
+.home-sections {
+    display: flex;
+    flex-direction: column; /* Stack images vertically */
+    align-items: center;
+    gap: 20px;
+    padding: 40px 0;
+}
+
+.home-item {
+    position: relative;
+    width: 1000px; /* Doubled width */
+    height: 450px; /* Slightly taller */
+    overflow: hidden;
+    border-radius: 10px;
+    box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
+    margin: 20px auto; /* Center align */
+}
+
+.home-item img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 0.3s ease-in-out;
+}
+
+.title {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    font-size: 32px; /* Larger title */
+    font-weight: 600;
+    color: #fffee1;
+    background: rgba(45, 175, 161, 0.8);
+    padding: 15px 30px;
+    border-radius: 10px;
+    text-align: center;
+    width: 90%;
+    transition: opacity 0.3s ease-in-out;
+}
+
+.overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(20, 111, 119, 0.85); /* Dark overlay for contrast */
+    color: #fffee1; /* Cream text */
+    display: flex;
+    flex-direction: column; /* Stack content vertically */
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    opacity: 0;
+    transition: opacity 0.3s ease-in-out;
+    padding: 30px;
+}
+
+.overlay div {
+    display: flex;
+    flex-direction: column; /* Stack each point below the previous one */
+    gap: 15px; /* Space between each point */
+}
+
+.overlay p {
+    font-size: 22px; /* Readable text */
+    font-weight: 400;
+    line-height: 1.6;
+}
+
+.home-item:hover .overlay {
+    opacity: 1;
+}
+.overlay p, 
+.overlay h1, 
+.overlay h2 {
+    color: #fffee1; /* Creamy color */
+}
+.overlay {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+}
+
+.overlay div {
+    width: 100%;
+}
+
+.overlay {
+    display: flex;
+    flex-wrap: wrap;
+}
+
+.overlay {
+    padding: 15px;
+}
+
+.text-container {
+    width: 1000px; /* Ensures it matches the image width */
+    max-width: 100%; /* Prevents overflow on smaller screens */
+    margin: 0 auto;
+    text-align: center;
+    padding: 20px;
+}
+
+p, li, ul, ol {
+    max-width: 1000px; /* Match image width */
+    text-align: center; /* Ensure alignment */
+}
+
+.ambassadors, .shop, .contact-page {
+    max-width: 1000px;
+}
+
+button {
+    background-color: #237778;
+    color: #fffee1;
+    cursor: pointer;
+}
+
+button:hover {
+    background-color: #146f77;
+}
+
+.home-button {
+    display: inline-block;
+    padding: 10px 20px;
+    background-color: #237778;
+    color: #fffee1;
+    text-decoration: none;
+    border-radius: 5px;
+}
+
+.home-button:hover {
+    background-color: #146f77;
+}
+
+/* Center the logo properly */
+.nav-logo, .logo-container {
+    display: flex;
+    justify-content: center; /* Center horizontally */
+    align-items: center; /* Align vertically */
+    width: 100%; /* Ensure full width */
+    margin: 0 auto; /* Center in the available space */
+    position: relative;
+}
+
+/* Ensure logo size is correct */
+img.logo {
+    max-width: 180px; /* Adjust size */
+    height: auto; /* Maintain aspect ratio */
+}
+
+body, html {
+    margin: 0;
+    padding: 0;
+    overflow-x: hidden; /* Prevents horizontal scrolling */
+    width: 100%;
+}
+
+/* Ensure navigation bar sticks to the top */
+nav {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    z-index: 1000;
+    transition: background-color 0.3s ease-in-out;
+}
+
+/* Make navigation bar semi-transparent when scrolling */
+nav.scrolled {
+    background-color: rgba(35, 119, 120, 0.85); /* Semi-transparent dark green */
+}
+
+/* Hide logo when scrolling down */
+.logo-container {
+    transition: opacity 0.3s ease-in-out;
+}
+
+.scrolled .logo-container {
+    opacity: 0;
+    pointer-events: none;
+}
+
+.navbar-links {
+    display: none; /* Hide menu by default */
+}
+
+.navbar-links.active {
+    display: block; /* Show menu when active */
+}
+
+/* Default navbar size */
+.navbar {
+    transition: all 0.3s ease-in-out;
+    height: 80px;  /* Original height */
+    display: flex;
+    justify-content: space-between; /* Keep left and right sections positioned correctly */
+    align-items: center;
+    padding: 10px 20px;
+    pointer-events: auto !important; /* Ensures it's always clickable */
+}
+
+/* Smaller navbar when scrolled */
+.navbar.scrolled {
+    height: 50px;  /* Adjust this value as needed */
+}
+
+.nav-logo {
+    position: absolute;  /* Ensures it stays in the center */
+    left: 49%;
+    transform: translateX(-50%);  /* Truly centers it */
+    pointer-events: none; /* Prevents logo from blocking clicks */
+}
+
+/* Default logo size */
+.nav-logo img {
+    transition: all 0.3s ease-in-out;
+    height: 110px;  /* Original size */
+}
+
+/* Smaller logo when navbar is scrolled */
+.navbar.scrolled .nav-logo img {
+    height: 40px;  /* Adjust size as needed */
+}
 
