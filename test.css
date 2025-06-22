@@ -1,6 +1,6 @@
  @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap');
 
-.ambassadors {
+.test-container {
     margin-top: 100px;
     padding-top: 20px;
     padding-bottom: 50px;
@@ -66,10 +66,10 @@ nav ul {
     align-items: center;
 }
 
-/* Left side (Home, Shop, ambassadors Us) */
+/* Left side (Home, Shop, test-container Us) */
 nav .left {
     display: flex;
-    gap: 20px; /* Spacing between Home, Shop, ambassadors Us */
+    gap: 20px; /* Spacing between Home, Shop, test-container Us */
 }
 
 /* Right side (Contact Us) */
@@ -221,7 +221,7 @@ p, li, ul, ol {
     text-align: center; /* Ensure alignment */
 }
 
-.ambassadors, .shop, .contact-page {
+.test-container, .shop, .contact-page {
     max-width: 1000px;
 }
 
