@@ -1,3 +1,7 @@
+* {
+  box-sizing: border-box;
+}
+
 @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap');
 
 .test {
@@ -214,12 +218,21 @@ nav.scrolled {
 
 /* Mobile layout only */
 @media (max-width: 768px) {
-  /* Hide desktop nav buttons */
+
+  /* Reduce navbar padding so cart isn't cut off */
+  .navbar {
+    padding: 10px;
+    justify-content: center;
+    position: relative;
+  }
+
+  /* Hide desktop navigation */
   .navbar ul.left,
   .navbar ul.right {
     display: none;
   }
 
+  /* Show mobile hamburger and cart icons */
   .nav-mobile-left,
   .nav-mobile-right {
     display: block;
@@ -228,8 +241,13 @@ nav.scrolled {
     transform: translateY(-50%);
   }
 
-  .nav-mobile-left { left: 20px; }
-  .nav-mobile-right { right: 20px; }
+  .nav-mobile-left {
+    left: 20px;
+  }
+
+  .nav-mobile-right {
+    right: 20px;
+  }
 
   .hamburger,
   .cart-icon {
@@ -238,45 +256,4 @@ nav.scrolled {
     border: none;
     color: #fffee1;
     cursor: pointer;
-  }
-
-  .nav-logo {
-    position: static;
-    margin: 0 auto;
-    transform: none;
-  }
-
-  .navbar {
-    justify-content: center;
-    position: relative;
-  }
-
-  /* FINAL version of mobile-nav */
-  .mobile-nav {
-    display: none;
-    flex-direction: column;
-    background-color: #237778;
-    position: absolute;
-    top: 80px;
-    left: 0;
-    width: 100%;
-    padding: 10px 0;
-    z-index: 999;
-  }
-
-  .mobile-nav.show {
-    display: flex;
-  }
-
-  .mobile-nav li {
-    margin: 10px 20px;
-    text-align: left;
-  }
-
-  .mobile-nav a {
-    color: #fffee1;
-    font-weight: 600;
-    font-size: 16px;
-  }
-}
 
