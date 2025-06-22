@@ -1,200 +1,78 @@
- @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap');
-
-.test-container {
-    margin-top: 100px;
-    padding-top: 20px;
-    padding-bottom: 50px;
-}
-
+/* General Styling */
 body {
-    font-family: 'Poppins', sans-serif;
-    background-color: #fffee1; /* Light cream background */
-    text-align: center;
-    padding: 100px 20px 20px; /* Add top padding for navbar */
-    color: black;
-}
-
-h1 {
-    color: #146f77; /* Dark teal */
-    font-size: 32px;
-    font-weight: 600;
-}
-
-h2 {
-    color: #237778; /* Deep sea green */
-    font-size: 24px;
-    font-weight: 400;
-    margin-top: 20px;
-}
-
-p, li {
-    font-size: 18px;
-    color: #237778;
-    max-width: 700px;
-    margin: 0 auto;
-    line-height: 1.6;
-}
-
-ul, ol {
-    max-width: 700px;
-    margin: 0 auto;
-}
-
-img.logo {
-    display: block;
-    margin: 0 auto;
-    max-width: 250px;
-}
-
-/* Navigation Bar */
-nav {
-    width: 100%;
-    background-color: #237778;
-    display: flex;
-    justify-content: center; /* Center everything */
-    align-items: center;
-    padding: 10px 20px;
-    position: relative;
-}
-
-/* Navigation List */
-nav ul {
-    list-style: none;
     margin: 0;
-    padding: 0;
-    display: flex;
-    align-items: center;
-}
-
-/* Left side (Home, Shop, test-container Us) */
-nav .left {
-    display: flex;
-    gap: 20px; /* Spacing between Home, Shop, test-container Us */
-}
-
-/* Right side (Contact Us) */
-nav .right {
-    margin-left: auto; /* Push to the right */
-    margin-right: 60px; /* Add a margin so it doesn’t touch the edge */
-}
-
-/* Navigation Links */
-nav ul li a {
     font-family: 'Poppins', sans-serif;
-    color: #fffee1;
+    background-color: #fffee1;
+    color: #146f77;
+}
+
+a {
     text-decoration: none;
-    font-size: 16px;
-    font-weight: 600;
-    padding: 4px 12px; /* Smaller padding inside buttons */
-    border: 1.5px solid #fffee1; /* Thinner border */
-    border-radius: 6px; /* Slightly rounded for a sleek look */
-    transition: 0.3s ease-in-out;
+    color: inherit;
 }
 
-/* Hover Effect */
-nav ul li a:hover {
-    background-color: #34b2ae;
-    color: #fffee1;
+img {
+    max-width: 100%;
+    height: auto;
 }
 
-footer {
-    text-align: center;
-    padding: 20px;
-    margin-top: 40px;
-}
-
-.footer-logo {
-    max-width: 200px; /* Adjust size */
-    display: block;
-    margin: 0 auto;
-}
-
-/* Center the logo properly */
-.nav-logo, .logo-container {
-    display: flex;
-    justify-content: center; /* Center horizontally */
-    align-items: center; /* Align vertically */
-    width: 100%; /* Ensure full width */
-    margin: 0 auto; /* Center in the available space */
-    position: relative;
-}
-
-/* Ensure logo size is correct */
-img.logo {    max-width: 180px; /* Adjust size */
-    height: auto; /* Maintain aspect ratio */
-}
-
-body, html {
-    margin: 0;
-    padding: 0;
-    overflow-x: hidden; /* Prevents horizontal scrolling */
-    width: 100%;
-}
-
-/* Ensure navigation bar sticks to the top */
-nav {
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 100%;
-    z-index: 1000;
-    transition: background-color 0.3s ease-in-out;
-}
-
-/* Make navigation bar semi-transparent when scrolling */
-nav.scrolled {
-    background-color: rgba(35, 119, 120, 0.85); /* Semi-transparent dark green */
-}
-
-/* Hide logo when scrolling down */
-.logo-container {
-    transition: opacity 0.3s ease-in-out;
-}
-
-.scrolled .logo-container {
-    opacity: 0;
-    pointer-events: none;
-}
-
-.navbar-links {
-    display: none; /* Hide menu by default */
-}
-
-.navbar-links.active {
-    display: block; /* Show menu when active */
-}
-
-/* Default navbar size */
+/* Navbar */
 .navbar {
-    transition: all 0.3s ease-in-out;
-    height: 80px;  /* Original height */
     display: flex;
-    justify-content: space-between; /* Keep left and right sections positioned correctly */
+    justify-content: space-between;
     align-items: center;
+    background-color: #237778;
     padding: 10px 20px;
-    pointer-events: auto !important; /* Ensures it's always clickable */
+    position: sticky;
+    top: 0;
+    z-index: 1000;
 }
 
-/* Smaller navbar when scrolled */
-.navbar.scrolled {
-    height: 50px;  /* Adjust this value as needed */
+.navbar ul {
+    list-style: none;
+    display: flex;
+    padding: 0;
+    margin: 0;
+}
+
+.navbar li {
+    margin: 0 10px;
+}
+
+.navbar a {
+    color: #fffee1;
+    font-weight: 600;
+    padding: 6px 12px;
+    border: 2px solid transparent;
+    border-radius: 2xl;
+    transition: all 0.3s ease;
+}
+
+.navbar a:hover {
+    border-color: #f3ea34;
+    background-color: #34b2ae;
 }
 
 .nav-logo {
-    position: absolute;  /* Ensures it stays in the center */
-    left: 49%;
-    transform: translateX(-50%);  /* Truly centers it */
-    pointer-events: none; /* Prevents logo from blocking clicks */
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
 }
 
-/* Default logo size */
-.nav-logo img {
-    transition: all 0.3s ease-in-out;
-    height: 110px;  /* Original size */
+.logo {
+    height: 40px;
 }
 
-/* Smaller logo when navbar is scrolled */
-.navbar.scrolled .nav-logo img {
-    height: 40px;  /* Adjust size as needed */
+/* Footer */
+footer {
+    text-align: center;
+    background-color: #237778;
+    color: #fffee1;
+    padding: 30px 20px;
+    margin-top: 60px;
 }
 
+.footer-logo {
+    height: 60px;
+    margin-bottom: 15px;
+}
