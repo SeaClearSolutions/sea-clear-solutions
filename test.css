@@ -63,9 +63,11 @@ img {
     height: 40px;
 }
 
- /* Hide mobile icons by default (desktop) */
+/* Hide mobile nav elements on desktop */
 .nav-mobile-left,
-.nav-mobile-right {
+.nav-mobile-right,
+.hamburger,
+.cart-icon {
   display: none;
 }
 
