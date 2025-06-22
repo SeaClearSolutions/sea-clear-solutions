@@ -145,4 +145,12 @@ img {
     color: #fffee1;
     font-weight: 600;
   }
+
+    @media (max-width: 768px) {
+  .navbar ul.left,
+  .navbar ul.right {
+    display: none;
+  }
+}
+
 }
