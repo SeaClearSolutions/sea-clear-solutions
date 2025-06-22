@@ -122,4 +122,11 @@ img {
     justify-content: center;
     position: relative;
   }
+
+    /* Hide mobile icons by default (desktop) */
+.nav-mobile-left,
+.nav-mobile-right {
+  display: none;
+}
+
 }
