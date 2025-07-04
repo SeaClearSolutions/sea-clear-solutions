@@ -253,3 +253,20 @@ nav.scrolled {
     color: #fffee1;
     cursor: pointer;
 
+    /* Hide mobile nav menu by default */
+.mobile-nav {
+  display: none;
+  flex-direction: column;
+  background-color: #237778; /* Match navbar color */
+  position: absolute;
+  top: 80px; /* below navbar */
+  left: 0;
+  width: 100%;
+  padding: 10px 0;
+  z-index: 999;
+}
+
+/* Show mobile menu when toggled */
+.mobile-nav.show {
+  display: flex;
+}
