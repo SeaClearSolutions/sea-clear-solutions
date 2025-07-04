@@ -327,4 +327,8 @@ nav.scrolled {
       padding: 10px 0;
       z-index: 999;
     }
+    
+    .nav-mobile-right {
+      right: 20px;
+    }
 }
