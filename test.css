@@ -315,4 +315,16 @@ nav.scrolled {
       font-size: 16px;
       font-weight: 600;
     }
+    
+    .mobile-nav {
+      display: none;
+      flex-direction: column;
+      background-color: #237778;
+      position: absolute;
+      top: 100px; /* 🔼 increase this to push it below logo */
+      left: 0;
+      width: 100%;
+      padding: 10px 0;
+      z-index: 999;
+    }
 }
