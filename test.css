@@ -296,4 +296,23 @@ nav.scrolled {
       align-items: flex-start; /* Make sure links align left */
     }
 
+    .mobile-nav {
+      align-items: flex-start;
+      text-align: left;
+      padding-left: 20px; /* optional, for spacing */
+    }
+    
+    .mobile-nav li {
+      width: 100%; /* make list item full width */
+    }
+    
+    .mobile-nav li a {
+      display: block;
+      text-align: left;      /* ✅ force text alignment */
+      padding: 10px 0;
+      color: #fffee1;
+      text-decoration: none;
+      font-size: 16px;
+      font-weight: 600;
+    }
 }
