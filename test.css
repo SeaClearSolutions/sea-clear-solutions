@@ -331,4 +331,13 @@ nav.scrolled {
     .nav-mobile-right {
       right: 20px;
     }
+
+    .cart-icon {
+      text-decoration: none; /* ✅ removes underline */
+    }
+    
+    .cart-icon:hover i {
+      color: white;
+      text-decoration: none;
+    }
 }
