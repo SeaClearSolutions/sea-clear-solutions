@@ -360,7 +360,7 @@ body {
   padding-top: 100px; /* try 80-100px depending on your actual navbar height */
 }
 
-button {
+.home-button {
     background-color: #34b2ae;
     color: white;
     border: none;
@@ -371,6 +371,6 @@ button {
     margin-top: 10px;
 }
 
-button:hover {
+.home-button:hover {
     background-color: #146f77;
 }
