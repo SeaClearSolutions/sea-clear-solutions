@@ -361,7 +361,7 @@ body {
 }
 
 .home-button {
-    background-color: #34b2ae;
+    background-color: #237778;
     color: white;
     border: none;
     padding: 10px 20px;
@@ -372,5 +372,5 @@ body {
 }
 
 .home-button:hover {
-    background-color: #146f77;
+    background-color: #34b2ae;
 }
