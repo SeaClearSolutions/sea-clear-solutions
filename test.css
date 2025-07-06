@@ -320,7 +320,7 @@ nav.scrolled {
       display: none;
       flex-direction: column;
       background-color: #237778;
-      position: absolute;
+      position: fixed;
       top: 100px; /* 🔼 increase this to push it below logo */
       left: 0;
       width: 100%;
@@ -348,7 +348,7 @@ nav.scrolled {
     }
 
     /* Ensure navigation bar sticks to the top */
-    nav {
+    mobile-nav {
         position: fixed;
         top: 0;
         left: 0;
@@ -358,7 +358,7 @@ nav.scrolled {
     }
     
     /* Make navigation bar semi-transparent when scrolling */
-    nav.scrolled {
+    mobile-nav.scrolled {
         background-color: rgba(35, 119, 120, 0.85); /* Semi-transparent dark green */
     }
     
