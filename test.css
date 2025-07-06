@@ -343,7 +343,7 @@ nav.scrolled {
 
     /* Navbar shrinks and becomes semi-transparent when scrolled */
     .mobile-nav.scrolled {
-        height: 40px;
+        top: 50px;
         background-color: rgba(35, 119, 120, 0.85);
     }
 
