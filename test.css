@@ -321,7 +321,7 @@ nav.scrolled {
       flex-direction: column;
       background-color: #237778;
       position: fixed;
-      top: 100px; /* 🔼 increase this to push it below logo */
+      top: 60px; /* 🔼 increase this to push it below logo */
       left: 0;
       width: 100%;
       padding: 10px 0;
@@ -342,7 +342,7 @@ nav.scrolled {
     }
 
     /* Navbar shrinks and becomes semi-transparent when scrolled */
-    .navbar.scrolled {
+    .mobile-nav.scrolled {
         height: 40px;
         background-color: rgba(35, 119, 120, 0.85);
     }
