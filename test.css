@@ -392,7 +392,7 @@ nav.scrolled {
     }
     
     /* Smaller navbar when scrolled */
-    .navbar.scrolled ~ .mobile-nav {
+    .navbar.scrolled {
         height: 40px;  /* Adjust this value as needed */
     }
     
@@ -414,10 +414,16 @@ nav.scrolled {
         height: 40px;  /* Adjust size as needed */
     }
 
-    .nav.scrolled ~ .mobile-nav {
+    .nav.scrolled {
         top: 40px;  /* Adjust this value as needed */
         background-color: rgba(35, 119, 120, 0.85);
     }
+
+    .mobile-nav.scrolled {
+      top: 40px;
+      background-color: rgba(35, 119, 120, 0.85);
+    }
+
 }
 
 /* === Cart Sidebar === */
