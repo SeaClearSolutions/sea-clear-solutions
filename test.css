@@ -414,7 +414,7 @@ nav.scrolled {
         height: 40px;  /* Adjust size as needed */
     }
 
-    .mobile-nav.scrolled {
+    .nav.scrolled ~ .mobile-nav{
         top: 40px;  /* Adjust this value as needed */
         background-color: rgba(35, 119, 120, 0.85);
     }
