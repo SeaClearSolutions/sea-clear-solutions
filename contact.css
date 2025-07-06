@@ -187,22 +187,46 @@ body, html {
     width: 100%;
 }
 
-/* Ensure navigation bar sticks to the top */
-nav {
+/* --- NAVBAR FIXED TOP BEHAVIOR --- */
+.navbar {
     position: fixed;
     top: 0;
     left: 0;
     width: 100%;
     z-index: 1000;
-    transition: background-color 0.3s ease-in-out;
+    height: 80px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px 20px;
+    pointer-events: auto !important;
+    transition: all 0.3s ease-in-out; /* includes height and background */
 }
 
-/* Make navigation bar semi-transparent when scrolling */
-nav.scrolled {
-    background-color: rgba(35, 119, 120, 0.85); /* Semi-transparent dark green */
+/* Smaller navbar on scroll */
+.navbar.scrolled {
+    height: 50px;
+    background-color: rgba(35, 119, 120, 0.85);
 }
 
-/* Hide logo when scrolling down */
+/* --- LOGO CENTER & SHRINK ON SCROLL --- */
+.nav-logo {
+    position: absolute;
+    left: 49%;
+    transform: translateX(-50%);
+    pointer-events: none;
+}
+
+.nav-logo img {
+    height: 110px;
+    transition: all 0.3s ease-in-out;
+}
+
+.navbar.scrolled .nav-logo img {
+    height: 40px;
+}
+
+/* --- LOGO VISIBILITY ON SCROLL --- */
 .logo-container {
     transition: opacity 0.3s ease-in-out;
 }
@@ -212,46 +236,13 @@ nav.scrolled {
     pointer-events: none;
 }
 
+/* --- RESPONSIVE NAV LINKS --- */
 .navbar-links {
-    display: none; /* Hide menu by default */
+    display: none;
 }
 
 .navbar-links.active {
-    display: block; /* Show menu when active */
-}
-
-/* Default navbar size */
-.navbar {
-    transition: all 0.3s ease-in-out;
-    height: 80px;  /* Original height */
-    display: flex;
-    justify-content: space-between; /* Keep left and right sections positioned correctly */
-    align-items: center;
-    padding: 10px 20px;
-    pointer-events: auto !important; /* Ensures it's always clickable */
-}
-
-/* Smaller navbar when scrolled */
-.navbar.scrolled {
-    height: 50px;  /* Adjust this value as needed */
-}
-
-.nav-logo {
-    position: absolute;  /* Ensures it stays in the center */
-    left: 49%;
-    transform: translateX(-50%);  /* Truly centers it */
-    pointer-events: none; /* Prevents logo from blocking clicks */
-}
-
-/* Default logo size */
-.nav-logo img {
-    transition: all 0.3s ease-in-out;
-    height: 110px;  /* Original size */
-}
-
-/* Smaller logo when navbar is scrolled */
-.navbar.scrolled .nav-logo img {
-    height: 40px;  /* Adjust size as needed */
+    display: block;
 }
 
 main.contact {
