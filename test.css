@@ -321,7 +321,7 @@ nav.scrolled {
       flex-direction: column;
       background-color: #237778;
       position: fixed;
-      top: 70px; /* 🔼 increase this to push it below logo */
+      top: 90px; /* 🔼 increase this to push it below logo */
       left: 0;
       width: 100%;
       padding: 10px 0;
