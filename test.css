@@ -408,3 +408,8 @@ nav.scrolled {
     cursor: pointer;
     margin-left: 10px;
 }
+
+.home-button:hover {
+    background-color: #34b2ae;
+    color: white;
+}
