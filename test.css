@@ -343,7 +343,7 @@ nav.scrolled {
 
     /* Navbar shrinks and becomes semi-transparent when scrolled */
     .navbar.scrolled {
-        height: 50px;
+        height: 40px;
         background-color: rgba(35, 119, 120, 0.85);
     }
 
@@ -383,7 +383,7 @@ nav.scrolled {
     /* Default navbar size */
     .navbar {
         transition: all 0.3s ease-in-out;
-        height: 80px;  /* Original height */
+        height: 70px;  /* Original height */
         display: flex;
         justify-content: space-between; /* Keep left and right sections positioned correctly */
         align-items: center;
@@ -393,7 +393,7 @@ nav.scrolled {
     
     /* Smaller navbar when scrolled */
     .navbar.scrolled {
-        height: 50px;  /* Adjust this value as needed */
+        height: 40px;  /* Adjust this value as needed */
     }
     
     .nav-logo {
