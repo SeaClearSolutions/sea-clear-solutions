@@ -77,104 +77,57 @@ input::placeholder, textarea::placeholder {
     opacity: 0.8;
 }
 
-/* === FIXED NAVBAR === */
-.navbar {
-    position: fixed;
-    top: 0;
-    left: 0;
+/* Navigation Bar */
+nav {
     width: 100%;
-    height: 80px;
     background-color: #237778;
-    z-index: 1000;
     display: flex;
+    justify-content: center; /* Center everything */
     align-items: center;
-    justify-content: space-between;
-    padding: 0 20px;
-    transition: all 0.3s ease-in-out;
+    padding: 10px 20px;
+    position: relative;
 }
 
-/* Shrink on scroll */
-.navbar.scrolled {
-    height: 50px;
-    background-color: rgba(35, 119, 120, 0.85);
-}
-
-/* === NAV LISTS === */
-.navbar ul {
-    display: flex;
+/* Navigation List */
+nav ul {
     list-style: none;
     margin: 0;
     padding: 0;
-    gap: 20px;
-}
-
-/* Left group */
-.navbar .left {
-    margin-left: 20px;
-}
-
-/* Right group */
-.navbar .right {
-    margin-right: 20px;
-}
-
-/* === CENTERED LOGO === */
-.nav-logo {
-    position: absolute;
-    left: 50%;
-    transform: translateX(-50%);
     display: flex;
     align-items: center;
-    justify-content: center;
-    height: 100%;
-    pointer-events: none; /* So it doesn’t block nav clicks */
 }
 
-.nav-logo img {
-    height: 110px;
-    max-height: 100%;
-    transition: all 0.3s ease-in-out;
+/* Left side (Home, Shop, About Us) */
+nav .left {
+    display: flex;
+    gap: 20px; /* Spacing between Home, Shop, About Us */
 }
 
-.navbar.scrolled .nav-logo img {
-    height: 40px;
+/* Right side (Contact Us) */
+nav .right {
+    margin-left: auto; /* Push to the right */
+    margin-right: 60px; /* Add a margin so it doesn’t touch the edge */
 }
 
-/* Fade logo on scroll */
-.logo-container {
-    transition: opacity 0.3s ease-in-out;
-}
-.scrolled .logo-container {
-    opacity: 0;
-    pointer-events: none;
-}
-
-/* === NAV LINK STYLING === */
-.navbar ul li a {
+/* Navigation Links */
+nav ul li a {
     font-family: 'Poppins', sans-serif;
     color: #fffee1;
     text-decoration: none;
     font-size: 16px;
     font-weight: 600;
-    padding: 4px 12px;
-    border: 1.5px solid #fffee1;
-    border-radius: 6px;
+    padding: 4px 12px; /* Smaller padding inside buttons */
+    border: 1.5px solid #fffee1; /* Thinner border */
+    border-radius: 6px; /* Slightly rounded for a sleek look */
     transition: 0.3s ease-in-out;
-    white-space: nowrap;
 }
 
-.navbar ul li a:hover {
+/* Hover Effect */
+nav ul li a:hover {
     background-color: #34b2ae;
     color: white;
 }
 
-/* === MOBILE DROPDOWN PLACEHOLDER === */
-.navbar-links {
-    display: none;
-}
-.navbar-links.active {
-    display: block;
-}
 
 /* Contact Page Styling */
 .contact-page {
@@ -232,6 +185,73 @@ body, html {
     padding: 0;
     overflow-x: hidden; /* Prevents horizontal scrolling */
     width: 100%;
+}
+
+/* Ensure navigation bar sticks to the top */
+nav {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    z-index: 1000;
+    transition: background-color 0.3s ease-in-out;
+}
+
+/* Make navigation bar semi-transparent when scrolling */
+nav.scrolled {
+    background-color: rgba(35, 119, 120, 0.85); /* Semi-transparent dark green */
+}
+
+/* Hide logo when scrolling down */
+.logo-container {
+    transition: opacity 0.3s ease-in-out;
+}
+
+.scrolled .logo-container {
+    opacity: 0;
+    pointer-events: none;
+}
+
+.navbar-links {
+    display: none; /* Hide menu by default */
+}
+
+.navbar-links.active {
+    display: block; /* Show menu when active */
+}
+
+/* Default navbar size */
+.navbar {
+    transition: all 0.3s ease-in-out;
+    height: 80px;  /* Original height */
+    display: flex;
+    justify-content: space-between; /* Keep left and right sections positioned correctly */
+    align-items: center;
+    padding: 10px 20px;
+    pointer-events: auto !important; /* Ensures it's always clickable */
+}
+
+/* Smaller navbar when scrolled */
+.navbar.scrolled {
+    height: 50px;  /* Adjust this value as needed */
+}
+
+.nav-logo {
+    position: absolute;  /* Ensures it stays in the center */
+    left: 49%;
+    transform: translateX(-50%);  /* Truly centers it */
+    pointer-events: none; /* Prevents logo from blocking clicks */
+}
+
+/* Default logo size */
+.nav-logo img {
+    transition: all 0.3s ease-in-out;
+    height: 110px;  /* Original size */
+}
+
+/* Smaller logo when navbar is scrolled */
+.navbar.scrolled .nav-logo img {
+    height: 40px;  /* Adjust size as needed */
 }
 
 main.contact {
