@@ -223,7 +223,7 @@ nav.scrolled {
   .navbar {
     padding: 10px;
     justify-content: center;
-    position: relative;
+    position: fixed;
   }
 
   /* Hide desktop navigation */
@@ -349,7 +349,7 @@ nav.scrolled {
 
     /* Ensure navigation bar sticks to the top */
     mobile-nav {
-        position: fixed;
+        position: absolute;
         top: 0;
         left: 0;
         width: 100%;
