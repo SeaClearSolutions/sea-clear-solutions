@@ -362,7 +362,7 @@ body {
 
 .home-button {
     background-color: #237778;
-    color: white;
+    color: #fffee1;
     border: none;
     padding: 10px 20px;
     font-size: 16px;
@@ -370,8 +370,15 @@ body {
     border-radius: 5px;
     margin-top: 50px;
     text-decoration: none;
+    display: inline-block;
+    transition: background-color 0.3s ease;
 }
 
 .home-button:hover {
     background-color: #34b2ae;
+}
+
+.thank-you-container {
+  text-align: center;
+  margin-top: 100px;
 }
