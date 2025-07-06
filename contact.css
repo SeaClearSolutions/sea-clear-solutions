@@ -77,51 +77,62 @@ input::placeholder, textarea::placeholder {
     opacity: 0.8;
 }
 
-/* --- FIXED NAVBAR --- */
+/* === FIXED NAVBAR === */
 .navbar {
     position: fixed;
     top: 0;
     left: 0;
     width: 100%;
-    z-index: 1000;
     height: 80px;
     background-color: #237778;
+    z-index: 1000;
     display: flex;
-    justify-content: space-between;
     align-items: center;
-    padding: 10px 20px;
-    pointer-events: auto !important;
+    justify-content: space-between;
+    padding: 0 20px;
     transition: all 0.3s ease-in-out;
 }
 
-/* Navbar shrinks and becomes semi-transparent when scrolled */
+/* Shrink on scroll */
 .navbar.scrolled {
     height: 50px;
     background-color: rgba(35, 119, 120, 0.85);
 }
 
-/* --- LOGO CENTERING AND SIZING --- */
+/* === NAV LISTS === */
+.navbar ul {
+    display: flex;
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    gap: 20px;
+}
+
+/* Left group */
+.navbar .left {
+    margin-left: 20px;
+}
+
+/* Right group */
+.navbar .right {
+    margin-right: 20px;
+}
+
+/* === CENTERED LOGO === */
 .nav-logo {
     position: absolute;
-    left: 49%;
+    left: 50%;
     transform: translateX(-50%);
-    pointer-events: none;
-}
-
-.logo-container,
-.nav-logo {
     display: flex;
-    justify-content: center;
     align-items: center;
-    width: 100%;
-    margin: 0 auto;
-    position: relative;
+    justify-content: center;
+    height: 100%;
+    pointer-events: none; /* So it doesn’t block nav clicks */
 }
 
-.nav-logo img,
-img.logo {
-    max-width: 180px;
-    height: auto;
+.nav-logo img {
+    height: 110px;
+    max-height: 100%;
     transition: all 0.3s ease-in-out;
 }
 
@@ -129,37 +140,17 @@ img.logo {
     height: 40px;
 }
 
-/* Hide logo when scrolling down */
+/* Fade logo on scroll */
 .logo-container {
     transition: opacity 0.3s ease-in-out;
 }
-
 .scrolled .logo-container {
     opacity: 0;
     pointer-events: none;
 }
 
-/* --- NAVIGATION MENU LISTS --- */
-nav ul {
-    list-style: none;
-    margin: 0;
-    padding: 0;
-    display: flex;
-    align-items: center;
-}
-
-nav .left {
-    display: flex;
-    gap: 20px;
-}
-
-nav .right {
-    margin-left: auto;
-    margin-right: 60px;
-}
-
-/* --- NAVIGATION LINKS --- */
-nav ul li a {
+/* === NAV LINK STYLING === */
+.navbar ul li a {
     font-family: 'Poppins', sans-serif;
     color: #fffee1;
     text-decoration: none;
@@ -169,18 +160,18 @@ nav ul li a {
     border: 1.5px solid #fffee1;
     border-radius: 6px;
     transition: 0.3s ease-in-out;
+    white-space: nowrap;
 }
 
-nav ul li a:hover {
+.navbar ul li a:hover {
     background-color: #34b2ae;
     color: white;
 }
 
-/* --- RESPONSIVE DROPDOWN NAV (JS-controlled) --- */
+/* === MOBILE DROPDOWN PLACEHOLDER === */
 .navbar-links {
     display: none;
 }
-
 .navbar-links.active {
     display: block;
 }
