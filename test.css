@@ -340,6 +340,12 @@ nav.scrolled {
       color: white;
       text-decoration: none;
     }
+
+    /* Navbar shrinks and becomes semi-transparent when scrolled */
+    .navbar.scrolled {
+        height: 50px;
+        background-color: rgba(35, 119, 120, 0.85);
+    }
 }
 
 /* === Cart Sidebar === */
