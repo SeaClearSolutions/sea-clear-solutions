@@ -413,6 +413,10 @@ nav.scrolled {
     .navbar.scrolled .nav-logo img {
         height: 40px;  /* Adjust size as needed */
     }
+
+    .mobile-nav.scrolled {
+        top: 40px;  /* Adjust this value as needed */
+    }
 }
 
 /* === Cart Sidebar === */
