@@ -409,7 +409,7 @@ nav.scrolled {
     margin-left: 10px;
 }
 
-.home-button:hover {
+.mobile-nav-button:hover {
     background-color: #34b2ae;
     color: white;
 }
