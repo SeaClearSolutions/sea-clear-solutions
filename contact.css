@@ -77,18 +77,69 @@ input::placeholder, textarea::placeholder {
     opacity: 0.8;
 }
 
-/* Navigation Bar */
-nav {
+/* --- FIXED NAVBAR --- */
+.navbar {
+    position: fixed;
+    top: 0;
+    left: 0;
     width: 100%;
+    z-index: 1000;
+    height: 80px;
     background-color: #237778;
     display: flex;
-    justify-content: center; /* Center everything */
+    justify-content: space-between;
     align-items: center;
     padding: 10px 20px;
+    pointer-events: auto !important;
+    transition: all 0.3s ease-in-out;
+}
+
+/* Navbar shrinks and becomes semi-transparent when scrolled */
+.navbar.scrolled {
+    height: 50px;
+    background-color: rgba(35, 119, 120, 0.85);
+}
+
+/* --- LOGO CENTERING AND SIZING --- */
+.nav-logo {
+    position: absolute;
+    left: 49%;
+    transform: translateX(-50%);
+    pointer-events: none;
+}
+
+.logo-container,
+.nav-logo {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    margin: 0 auto;
     position: relative;
 }
 
-/* Navigation List */
+.nav-logo img,
+img.logo {
+    max-width: 180px;
+    height: auto;
+    transition: all 0.3s ease-in-out;
+}
+
+.navbar.scrolled .nav-logo img {
+    height: 40px;
+}
+
+/* Hide logo when scrolling down */
+.logo-container {
+    transition: opacity 0.3s ease-in-out;
+}
+
+.scrolled .logo-container {
+    opacity: 0;
+    pointer-events: none;
+}
+
+/* --- NAVIGATION MENU LISTS --- */
 nav ul {
     list-style: none;
     margin: 0;
@@ -97,37 +148,42 @@ nav ul {
     align-items: center;
 }
 
-/* Left side (Home, Shop, About Us) */
 nav .left {
     display: flex;
-    gap: 20px; /* Spacing between Home, Shop, About Us */
+    gap: 20px;
 }
 
-/* Right side (Contact Us) */
 nav .right {
-    margin-left: auto; /* Push to the right */
-    margin-right: 60px; /* Add a margin so it doesn’t touch the edge */
+    margin-left: auto;
+    margin-right: 60px;
 }
 
-/* Navigation Links */
+/* --- NAVIGATION LINKS --- */
 nav ul li a {
     font-family: 'Poppins', sans-serif;
     color: #fffee1;
     text-decoration: none;
     font-size: 16px;
     font-weight: 600;
-    padding: 4px 12px; /* Smaller padding inside buttons */
-    border: 1.5px solid #fffee1; /* Thinner border */
-    border-radius: 6px; /* Slightly rounded for a sleek look */
+    padding: 4px 12px;
+    border: 1.5px solid #fffee1;
+    border-radius: 6px;
     transition: 0.3s ease-in-out;
 }
 
-/* Hover Effect */
 nav ul li a:hover {
     background-color: #34b2ae;
     color: white;
 }
 
+/* --- RESPONSIVE DROPDOWN NAV (JS-controlled) --- */
+.navbar-links {
+    display: none;
+}
+
+.navbar-links.active {
+    display: block;
+}
 
 /* Contact Page Styling */
 .contact-page {
@@ -185,64 +241,6 @@ body, html {
     padding: 0;
     overflow-x: hidden; /* Prevents horizontal scrolling */
     width: 100%;
-}
-
-/* --- NAVBAR FIXED TOP BEHAVIOR --- */
-.navbar {
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 100%;
-    z-index: 1000;
-    height: 80px;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    padding: 10px 20px;
-    pointer-events: auto !important;
-    transition: all 0.3s ease-in-out; /* includes height and background */
-}
-
-/* Smaller navbar on scroll */
-.navbar.scrolled {
-    height: 50px;
-    background-color: rgba(35, 119, 120, 0.85);
-}
-
-/* --- LOGO CENTER & SHRINK ON SCROLL --- */
-.nav-logo {
-    position: absolute;
-    left: 49%;
-    transform: translateX(-50%);
-    pointer-events: none;
-}
-
-.nav-logo img {
-    height: 110px;
-    transition: all 0.3s ease-in-out;
-}
-
-.navbar.scrolled .nav-logo img {
-    height: 40px;
-}
-
-/* --- LOGO VISIBILITY ON SCROLL --- */
-.logo-container {
-    transition: opacity 0.3s ease-in-out;
-}
-
-.scrolled .logo-container {
-    opacity: 0;
-    pointer-events: none;
-}
-
-/* --- RESPONSIVE NAV LINKS --- */
-.navbar-links {
-    display: none;
-}
-
-.navbar-links.active {
-    display: block;
 }
 
 main.contact {
