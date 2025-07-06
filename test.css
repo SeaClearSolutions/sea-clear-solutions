@@ -264,7 +264,7 @@ nav.scrolled {
     flex-direction: column;
     background-color: #237778; /* Match navbar color */
     position: absolute;
-    top: 60px; /* below navbar */
+    top: 90px; /* below navbar */
     left: 0;
     width: 100%;
     padding: 10px 0;
