@@ -628,55 +628,16 @@ main.contact {
   transition: background-color 5000s ease-in-out 0s;
 }
 
-/* Base styles – hidden on large screens */
-.hamburger {
-  display: none;
-  flex-direction: column;
-  cursor: pointer;
-  padding: 10px;
-}
-
-.hamburger div {
-  width: 25px;
-  height: 3px;
-  background-color: #78e4e6; /* Lighter green bars */
-  margin: 4px 0;
-  transition: 0.3s;
-}
-
-/* Dropdown menu hidden by default */
-.hamburger-menu {
-  display: none;
-  flex-direction: column;
-  background-color: #fffee1; /* Cream background */
-  position: absolute;
-  top: 60px;
-  left: 0;
-  width: 100%;
-  padding: 20px;
-  box-shadow: 0 4px 6px rgba(0,0,0,0.1);
-  z-index: 1000;
-}
-
-/* Show when active */
-.hamburger-menu.show {
+/* Desktop only */
+.desktop-only {
   display: flex;
 }
 
-/* Menu item styling */
-.hamburger-menu a {
-  text-decoration: none;
-  color: #237778; /* Ocean green text */
-  font-size: 18px;
-  padding: 8px 0;
-  text-align: left;
-  background: none;
-  border: none;
-  font-weight: 500;
-}
-
-.hamburger-menu a:hover {
-  color: #34b2ae; /* Subtle hover color */
+/* Hide mobile stuff by default */
+.nav-mobile-left,
+.nav-mobile-right,
+.mobile-nav {
+  display: none;
 }
 
 /* Mobile layout only */
