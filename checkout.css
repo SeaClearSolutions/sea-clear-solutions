@@ -677,7 +677,7 @@ footer, footer p, footer h1, footer h2, footer h3, footer li, footer a {
     .checkout-container {
       padding: 1rem;
       width: 80%;
-      max-width: 100%;
+      max-width: 80%;
       box-sizing: border-box;
     }
 }
