@@ -585,6 +585,6 @@ footer {
 
     main.contact {
       padding-top: 100px; /* make room for the navbar */
-      margin-top: -50px; /* pull the background image up under the navbar */
+      margin-top: -20px; /* pull the background image up under the navbar */
     }
 }
