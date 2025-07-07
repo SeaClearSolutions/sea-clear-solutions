@@ -1,4 +1,4 @@
- @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap');
 
 .checkout {
     margin-top: 100px;
@@ -676,7 +676,7 @@ footer, footer p, footer h1, footer h2, footer h3, footer li, footer a {
 
     .checkout-container {
       padding: 1rem;
-      width: 100%;
+      width: 80%;
       max-width: 100%;
       box-sizing: border-box;
     }
