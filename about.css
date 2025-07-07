@@ -679,7 +679,8 @@ main.contact {
  
     .hamburger {
      font-size: 24px;
-     padding-top: 10px; /* or padding */
+     top: 50%;
+     transform: translateY(-50%);
      background: none;
      border: none;
      color: #fffee1;
