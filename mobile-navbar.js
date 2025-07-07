@@ -4,8 +4,20 @@ document.addEventListener("DOMContentLoaded", function () {
   const navbar = document.querySelector(".navbar");
 
   // Toggle mobile nav menu when hamburger is clicked
-  hamburger.addEventListener("click", () => {
+  hamburger.addEventListener("click", (e) => {
+    e.stopPropagation(); // Prevents closing immediately
     mobileNav.classList.toggle("show");
+  });
+
+  // Close mobile nav when clicking outside of it
+  document.addEventListener("click", (event) => {
+    if (
+      mobileNav.classList.contains("show") &&
+      !mobileNav.contains(event.target) &&
+      !hamburger.contains(event.target)
+    ) {
+      mobileNav.classList.remove("show");
+    }
   });
 
   // Add .scrolled class on scroll to navbar and mobileNav
