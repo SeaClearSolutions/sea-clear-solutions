@@ -673,4 +673,11 @@ footer, footer p, footer h1, footer h2, footer h3, footer li, footer a {
       padding-top: 100px; /* make room for the navbar */
       margin-top: -1px; /* pull the background image up under the navbar */
     }
+
+    .contact-form-container {
+      padding: 1rem;
+      width: 100%;
+      max-width: 100%;
+      box-sizing: border-box;
+    }
 }
