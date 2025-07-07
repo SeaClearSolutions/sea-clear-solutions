@@ -504,3 +504,225 @@ button:hover {
 .ambassadors-member {
   margin-bottom: 5rem; /* Adjust as needed */
 }
+
+/* Desktop only */
+.desktop-only {
+  display: flex;
+}
+
+/* Hide mobile stuff by default */
+.nav-mobile-left,
+.nav-mobile-right,
+.mobile-nav {
+  display: none;
+}
+
+/* Mobile layout only */
+@media (max-width: 768px) {
+   .mobile-nav li a {
+     border: none !important;
+     border-radius: 0 !important;
+   }
+ 
+   /* Reduce navbar padding so cart isn't cut off */
+   .navbar {
+     padding: 10px;
+     justify-content: center;
+     position: fixed;
+   }
+ 
+   /* Hide desktop navigation */
+   .navbar ul.left,
+   .navbar ul.right {
+     display: none;
+   }
+ 
+   /* Show mobile hamburger and cart icons */
+   .nav-mobile-left,
+   .nav-mobile-right {
+     display: block;
+     position: absolute;
+     top: 50%;
+     transform: translateY(-50%);
+   }
+ 
+   .nav-mobile-left {
+     left: 20px;
+   }
+ 
+   .nav-mobile-right {
+     right: 20px;
+   }
+ 
+    .hamburger {
+     font-size: 24px;
+     background: none;
+     border: none;
+     color: #fffee1;
+     cursor: pointer;
+   }
+ 
+   /* Hide mobile nav menu by default */
+   .mobile-nav {
+     display: none;
+     flex-direction: column;
+     background-color: #237778; /* Match navbar color */
+     position: absolute;
+     top: 100px; /* below navbar */
+     left: 0;
+     width: 100%;
+     padding: 10px 0;
+     z-index: 999;
+   }
+ 
+   /* Show mobile menu when toggled */
+   .mobile-nav.show {
+     display: flex;
+   }
+ 
+     .mobile-nav li {
+   text-align: left;
+   padding: 10px 20px;
+   }
+
+    .mobile-nav li a {
+      display: block;
+      color: #fffee1;
+      text-decoration: none;
+      font-size: 16px;
+      font-weight: 600;
+      padding: 5px 0;
+      border: none;           /* ✅ Remove the frame */
+      border-radius: 0;       /* ✅ No rounded corners */
+    }
+
+    .mobile-nav {
+      align-items: flex-start; /* Make sure links align left */
+    }
+
+    .mobile-nav {
+      align-items: flex-start;
+      text-align: left;
+      padding-left: 20px; /* optional, for spacing */
+    }
+    
+    .mobile-nav li {
+      width: 100%; /* make list item full width */
+    }
+    
+    .mobile-nav li a {
+      display: block;
+      text-align: left;      /* ✅ force text alignment */
+      padding: 10px 0;
+      color: #fffee1;
+      text-decoration: none;
+      font-size: 16px;
+      font-weight: 600;
+    }
+    
+    .mobile-nav {
+      display: none;
+      flex-direction: column;
+      background-color: #237778;
+      position: fixed;
+      top: 90px; /* 🔼 increase this to push it below logo */
+      left: 0;
+      width: 100%;
+      padding: 10px 0;
+      z-index: 999;
+    }
+    
+    .nav-mobile-right {
+      right: 40px;
+    }
+
+    /* Navbar shrinks and becomes semi-transparent when scrolled */
+    .mobile-nav.scrolled {
+        top: 60px;
+        background-color: rgba(35, 119, 120, 0.85);
+    }
+
+    /* Ensure navigation bar sticks to the top */
+    mobile-nav {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        z-index: 1000;
+        transition: background-color 0.3s ease-in-out;
+    }
+    
+    /* Hide logo when scrolling down */
+    .logo-container {
+        transition: opacity 0.3s ease-in-out;
+    }
+    
+    .scrolled .logo-container {
+        opacity: 0;
+        pointer-events: none;
+    }
+    
+    .navbar-links {
+        display: none; /* Hide menu by default */
+    }
+    
+    .navbar-links.active {
+        display: block; /* Show menu when active */
+    }
+    
+    /* Default navbar size */
+    .navbar {
+        transition: all 0.3s ease-in-out;
+        height: 70px;  /* Original height */
+        display: flex;
+        justify-content: space-between; /* Keep left and right sections positioned correctly */
+        align-items: center;
+        padding: 10px 20px;
+        pointer-events: auto !important; /* Ensures it's always clickable */
+    }
+    
+    /* Smaller navbar when scrolled */
+    .navbar.scrolled {
+        height: 40px;  /* Adjust this value as needed */
+    }
+    
+    .nav-logo {
+        position: absolute;  /* Ensures it stays in the center */
+        left: 45%;
+        transform: translateX(-50%);  /* Truly centers it */
+        pointer-events: none; /* Prevents logo from blocking clicks */
+    }
+    
+    /* Default logo size */
+    .nav-logo img {
+        transition: all 0.3s ease-in-out;
+        height: 110px;  /* Original size */
+    }
+    
+    /* Smaller logo when navbar is scrolled */
+    .navbar.scrolled .nav-logo img {
+        height: 40px;  /* Adjust size as needed */
+    }
+
+    .nav.scrolled {
+        top: 40px;  /* Adjust this value as needed */
+        background-color: rgba(35, 119, 120, 0.85);
+    }
+
+    .hamburger.scrolled {
+        background-color: rgba(35, 119, 120, 0.85);
+    }
+
+    .mobile-nav.scrolled {
+      top: 60px;
+      background-color: rgba(35, 119, 120, 0.85);
+    }
+
+    .hamburger {
+       background: none !important;
+    }
+  
+    .hamburger.scrolled {
+       background: none !important;
+    }
+}
