@@ -812,7 +812,7 @@ main.contact {
     
     .nav-logo {
         position: absolute;  /* Ensures it stays in the center */
-        left: 40%;
+        left: 45%;
         transform: translateX(-50%);  /* Truly centers it */
         pointer-events: none; /* Prevents logo from blocking clicks */
     }
