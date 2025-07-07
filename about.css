@@ -840,4 +840,12 @@ main.contact {
       top: 60px;
       background-color: rgba(35, 119, 120, 0.85);
     }
+
+    .hamburger {
+       background: none !important;
+    }
+  
+    .hamburger.scrolled {
+       background: none !important;
+    }
 }
