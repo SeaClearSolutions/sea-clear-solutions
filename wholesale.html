@@ -10,24 +10,43 @@
 </head>
 
 <body>
+  <header>
     <nav class="navbar">
-        <ul class="left">
-            <li><a href="index.html">Home</a></li>
-            <li><a href="shop.html">Shop</a></li>
-            <li><a href="about.html">About Us</a></li>
-            <li><a href="wholesale.html">Wholesale</a></li>
-            <li><a href="ambassadors.html">Ambassadors</a></li>
-        </ul>
+      <!-- Mobile: hamburger + cart -->
+      <div class="nav-mobile-left">
+        <button class="hamburger" aria-label="Menu">&#9776;</button>
+      </div>
 
-        <div class="nav-logo logo-container">
-            <img src="Transparent.png" alt="Sea Clear Logo" class="logo">
-        </div>
+      <!-- Single centered logo for all views -->
+      <div class="nav-logo logo-container">
+        <img src="Transparent.png" alt="Sea Clear Logo" class="logo" />
+      </div>
+      
+      <!-- Desktop nav -->
+      <ul class="left desktop-only">
+        <li><a href="index.html">Home</a></li>
+        <li><a href="shop.html">Shop</a></li>
+        <li><a href="about.html">About Us</a></li>
+        <li><a href="wholesale.html">Wholesale</a></li>
+        <li><a href="ambassadors.html">Ambassadors</a></li>
+      </ul>
 
-        <ul class="right">
-            <li><a href="contact.html">Contact Us</a></li>
-        </ul>
+      <ul class="right desktop-only">
+        <li><a href="contact.html">Contact Us</a></li>
+      </ul>
+
+      <!-- Mobile nav (hidden by default, shown with JS toggle) -->
+      <ul class="mobile-nav">
+        <li><a href="index.html">Home</a></li>
+        <li><a href="shop.html">Shop</a></li>
+        <li><a href="about.html">About Us</a></li>
+        <li><a href="wholesale.html">Wholesale</a></li>
+        <li><a href="ambassadors.html">Ambassadors</a></li>
+        <li><a href="contact.html">Contact Us</a></li>
+      </ul>
     </nav>
-
+  </header>
+    
     <main class="wholesale">
         <div class="wholesale-form-container">
             <h1>Wholesale Inquiries</h1>
