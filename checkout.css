@@ -669,12 +669,12 @@ footer, footer p, footer h1, footer h2, footer h3, footer li, footer a {
        background: none !important;
     }
 
-    main.wholesale {
+    main.checkout {
       padding-top: 100px; /* make room for the navbar */
       margin-top: -1px; /* pull the background image up under the navbar */
     }
 
-    .contact-form-container {
+    .checkout-form-container {
       padding: 1rem;
       width: 100%;
       max-width: 100%;
