@@ -582,4 +582,11 @@ footer {
     .hamburger.scrolled {
        background: none !important;
     }
+
+    main.contact {
+      background-attachment: scroll;
+      background-size: cover;
+      background-position: center top;
+      min-height: 100vh; /* still force full screen height */
+    }
 }
