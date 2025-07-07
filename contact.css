@@ -584,7 +584,7 @@ footer {
     }
 
     main.contact {
-      background-position: center top;
-      min-height: 100vh; /* still force full screen height */
+      padding-top: 100px; /* make room for the navbar */
+      margin-top: -100px; /* pull the background image up under the navbar */
     }
 }
