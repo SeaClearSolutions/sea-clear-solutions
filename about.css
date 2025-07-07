@@ -833,6 +833,10 @@ main.contact {
         background-color: rgba(35, 119, 120, 0.85);
     }
 
+    .hamburger.scrolled {
+        background-color: rgba(35, 119, 120, 0.85);
+    }
+
     .mobile-nav.scrolled {
       top: 60px;
       background-color: rgba(35, 119, 120, 0.85);
