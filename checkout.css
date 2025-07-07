@@ -674,7 +674,7 @@ footer, footer p, footer h1, footer h2, footer h3, footer li, footer a {
       margin-top: -1px; /* pull the background image up under the navbar */
     }
 
-    .checkout-form-container {
+    .checkout-container {
       padding: 1rem;
       width: 100%;
       max-width: 100%;
