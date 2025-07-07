@@ -725,4 +725,12 @@ button:hover {
     .hamburger.scrolled {
        background: none !important;
     }
+
+    img.uniform-size {
+       width: 90vw;     /* 90% of the screen width */
+       height: auto;    /* Maintain aspect ratio */
+       max-width: 100%; /* Prevents overflow */
+       border-radius: 10px;
+       object-fit: cover;
+    }
 }
