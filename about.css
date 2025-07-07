@@ -760,15 +760,6 @@ main.contact {
       right: 40px;
     }
 
-    .cart-icon {
-      text-decoration: none; /* ✅ removes underline */
-    }
-    
-    .cart-icon:hover i {
-      color: white;
-      text-decoration: none;
-    }
-
     /* Navbar shrinks and becomes semi-transparent when scrolled */
     .mobile-nav.scrolled {
         top: 60px;
