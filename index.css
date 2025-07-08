@@ -678,4 +678,14 @@ body {
      padding: 0;
      margin: 5px 0;
    }
+
+    .home-item .overlay {
+      font-size: 12px; /* slightly smaller font */
+      padding: 12px;
+      max-height: 280px; /* increase height */
+    }
+  
+    .home-item {
+      height: 280px; /* match the overlay */
+    }
 }
