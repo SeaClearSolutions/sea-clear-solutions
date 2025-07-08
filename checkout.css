@@ -681,8 +681,15 @@ footer, footer p, footer h1, footer h2, footer h3, footer li, footer a {
       box-sizing: border-box;
     }
 
-    .place-order button {
-      align-self: center; /* keep original width but center it */
-      margin-top: 20px;
+    label.checkbox {
+      display: block;
+      text-align: left;
+      margin-bottom: 20px;
+    }
+
+    #place-order {
+      display: block;
+      width: 100%;
+      margin: 0 auto;
     }
 }
