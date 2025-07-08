@@ -660,6 +660,7 @@ body {
      align-items: center;       /* center vertically */
      text-align: center;
      flex-direction: column;
+     font-size: 12px;
      padding: 10px;
      height: 100%;              /* ensure full height of parent */
      box-sizing: border-box;
@@ -677,13 +678,4 @@ body {
      padding: 0;
      margin: 5px 0;
    }
- 
-   .overlay h2 {
-     font-size: 16px;
-     margin-bottom: 10px;
-   }
-
- .home-item .overlay {
-    font-size: 12px;
-  }
 }
