@@ -563,6 +563,10 @@ nav.scrolled {
   display: none;
 }
 
+.shop > p {
+  margin-bottom: 40px; /* Adjust as needed */
+}
+
 /* Mobile layout only */
 @media (max-width: 768px) {
    .mobile-nav li a {
