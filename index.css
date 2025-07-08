@@ -683,12 +683,7 @@ body {
      margin-bottom: 10px;
    }
 
-  .home-item {
-    overflow: visible;
-  }
-
-  .overlay {
-    max-height: unset;
-    overflow-y: visible;
+ .home-item .overlay {
+    font-size: 12px;
   }
 }
