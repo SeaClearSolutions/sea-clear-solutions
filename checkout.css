@@ -696,6 +696,7 @@ footer, footer p, footer h1, footer h2, footer h3, footer li, footer a {
     footer {
       width: 90%;
       max-width: 90vw;
+      text-align: center;
       overflow-x: hidden;
       box-sizing: border-box;
       padding: 2rem 1rem; /* add side padding to prevent touching screen edges */
