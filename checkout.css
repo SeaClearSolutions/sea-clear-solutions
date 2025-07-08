@@ -680,4 +680,20 @@ footer, footer p, footer h1, footer h2, footer h3, footer li, footer a {
       max-width: 90%;
       box-sizing: border-box;
     }
+
+    .order-summary {
+      display: flex;
+      flex-direction: column;
+      align-items: center; /* center everything horizontally */
+      text-align: center;
+    }
+
+    .order-summary p {
+      margin-bottom: 15px;
+    }
+
+    .order-summary button {
+      align-self: center; /* keep original width but center it */
+      margin-top: 10px;
+    }
 }
