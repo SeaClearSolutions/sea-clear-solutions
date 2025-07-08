@@ -682,4 +682,13 @@ body {
      font-size: 16px;
      margin-bottom: 10px;
    }
+
+  .home-item {
+    overflow: visible;
+  }
+
+  .overlay {
+    max-height: unset;
+    overflow-y: visible;
+  }
 }
