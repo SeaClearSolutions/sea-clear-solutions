@@ -129,62 +129,66 @@ document.addEventListener("DOMContentLoaded", function () {
     const checkoutForm = document.getElementById("checkout-form");
     const discountInput = document.getElementById("discount");
 
-    const discountCodes = {
-        "DDIVERS": 0.50
-    };
+  const discountCodes = {
+    "DDIVERS": "flat50",
+    "AMBASSADORS": "perItem"
+};
 
-    let cart = JSON.parse(localStorage.getItem("cart")) || [];
-    let orderDetailsText = "";
-    let total = 0; // <-- moved here so it's globally accessible
-    let originalTotal = 0;
-
-    if (cart.length === 0) {
-        cartSummaryList.innerHTML = "<p>Your cart is empty.</p>";
-        orderDetailsInput.value = "No items in cart.";
-    } else {
-        cartSummaryList.innerHTML = "";
-        cart.forEach((item) => {
-            let li = document.createElement("li");
-            li.textContent = `${item.name} - ${item.quantity} x ${item.price.toLocaleString()} IDR`;
-            cartSummaryList.appendChild(li);
-
-            orderDetailsText += `${item.name} - ${item.quantity} x ${item.price} IDR\n`;
-            total += item.price * item.quantity;
-        });
-
-        originalTotal = total;
-        cartTotalElement.textContent = `Total: ${total.toLocaleString()} IDR`;
-        orderDetailsText += `Total: ${total.toLocaleString()} IDR`;
-        orderDetailsInput.value = orderDetailsText;
-    }
-
-    // Apply discount
-const applyDiscountButton = document.getElementById("apply-discount");
+const b2bPrices = {
+    "20ml": 30000,
+    "60ml": 90000,
+    "100ml": 140000,
+    "250ml": 340000,
+    "500ml": 625000
+};
 
 applyDiscountButton.addEventListener("click", function () {
     const code = discountInput.value.trim().toUpperCase();
-    const discount = discountCodes[code] || 0;
+    const discountType = discountCodes[code];
 
-    console.log("Entered code:", code, "Discount found:", discount);
-    const discountedTotal = Math.round(originalTotal * (1 - discount));
-    cartTotalElement.textContent = `Total: ${discountedTotal.toLocaleString()} IDR`;
-
-    // Rebuild order summary including discount
-    let newOrderDetails = "";
-    cart.forEach((item) => {
-        newOrderDetails += `${item.name} - ${item.quantity} x ${item.price.toLocaleString()} IDR\n`;
-    });
-
-    if (discount > 0) {
-        newOrderDetails += `Discount Code: ${code}\n`;
-        newOrderDetails += `Discounted Total: ${discountedTotal.toLocaleString()} IDR`;
-    } else {
-        newOrderDetails += `Total: ${originalTotal.toLocaleString()} IDR`;
+    if (!discountType) {
+        alert("Invalid discount code.");
+        return;
     }
 
+    let discountedTotal = 0;
+    let originalTotal = 0;
+    let newOrderDetails = "";
+
+    cartSummaryList.innerHTML = "";
+
+    cart.forEach((item) => {
+        let itemPrice = item.price;
+        const normalizedName = item.name.toLowerCase();
+
+        originalTotal += item.price * item.quantity;
+
+        if (discountType === "perItem" && b2bPrices[normalizedName]) {
+            itemPrice = b2bPrices[normalizedName];
+        } else if (discountType === "flat50") {
+            itemPrice = Math.round(item.price * 0.5);
+        }
+
+        const itemTotal = itemPrice * item.quantity;
+        discountedTotal += itemTotal;
+
+        const li = document.createElement("li");
+        li.textContent = `${item.name} - ${item.quantity} x ${itemPrice.toLocaleString()} IDR`;
+        cartSummaryList.appendChild(li);
+
+        newOrderDetails += `${item.name} - ${item.quantity} x ${itemPrice.toLocaleString()} IDR\n`;
+    });
+
+    const savings = originalTotal - discountedTotal;
+    const savingsPercent = Math.round((savings / originalTotal) * 100);
+
+    newOrderDetails += `Discount Code: ${code}\n`;
+    newOrderDetails += `Discounted Total: ${discountedTotal.toLocaleString()} IDR\n`;
+    newOrderDetails += `You saved ${savings.toLocaleString()} IDR (${savingsPercent}%)`;
+
+    cartTotalElement.textContent = `Total: ${discountedTotal.toLocaleString()} IDR`;
     orderDetailsInput.value = newOrderDetails;
 });
-
 
     checkoutForm.addEventListener("submit", function () {
         orderDetailsInput.value = orderDetailsInput.value;
