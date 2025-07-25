@@ -121,81 +121,60 @@
         
     </main>
 
-    <script>
-document.addEventListener("DOMContentLoaded", function () {
-    const cartSummaryList = document.getElementById("cart-summary-list");
-    const cartTotalElement = document.getElementById("cart-total");
-    const orderDetailsInput = document.getElementById("order-details");
-    const checkoutForm = document.getElementById("checkout-form");
-    const discountInput = document.getElementById("discount");
+   <script>
+  document.addEventListener("DOMContentLoaded", function () {
+    let discountCode = "";
 
-  const discountCodes = {
-    "DDIVERS": "flat50",
-    "AMBASSADORS": "perItem"
-};
-
-const b2bPrices = {
-    "20ml": 30000,
-    "60ml": 90000,
-    "100ml": 140000,
-    "250ml": 340000,
-    "500ml": 625000
-};
-
-applyDiscountButton.addEventListener("click", function () {
-    const code = discountInput.value.trim().toUpperCase();
-    const discountType = discountCodes[code];
-
-    if (!discountType) {
-        alert("Invalid discount code.");
-        return;
+    function getCart() {
+      return JSON.parse(localStorage.getItem("cart")) || [];
     }
 
-    let discountedTotal = 0;
-    let originalTotal = 0;
-    let newOrderDetails = "";
+    function formatIDR(amount) {
+      return amount.toLocaleString("id-ID") + " IDR";
+    }
 
-    // Clear the summary display first
-    cartSummaryList.innerHTML = "";
+    function updateOrderSummary() {
+      const orderSummary = document.getElementById("order-summary");
+      const orderTotal = document.getElementById("order-total");
+      const cart = getCart();
 
-    cart.forEach((item) => {
-        const originalPrice = item.price;
-        let itemPrice = originalPrice;
+      orderSummary.innerHTML = "";
+      let total = 0;
 
-        // Try to extract size like "20ml" from item name
-        const sizeMatch = item.name.match(/\d+ml|\d+L/i);
-        const sizeKey = sizeMatch ? sizeMatch[0].toLowerCase() : null;
+      cart.forEach(item => {
+        const price = item.price;
+        const quantity = item.quantity;
+        const itemTotal = price * quantity;
 
-        if (discountType === "perItem" && sizeKey && b2bPrices[sizeKey]) {
-            itemPrice = b2bPrices[sizeKey];
-        } else if (discountType === "flat50") {
-            itemPrice = Math.round(originalPrice * 0.5);
+        const itemElement = document.createElement("p");
+        itemElement.textContent = `${item.name} (x${quantity}): ${formatIDR(itemTotal)}`;
+        orderSummary.appendChild(itemElement);
+
+        total += itemTotal;
+      });
+
+      // Apply discount if applicable
+      if (discountCode.toLowerCase() === "ambassadors") {
+        total *= 0.7;
+      }
+
+      orderTotal.textContent = formatIDR(total);
+    }
+
+    const applyButton = document.getElementById("apply-discount-btn");
+    if (applyButton) {
+      applyButton.addEventListener("click", function () {
+        const input = document.getElementById("discount-code");
+        if (input) {
+          discountCode = input.value.trim();
+          updateOrderSummary();
         }
+      });
+    }
 
-        const itemTotal = itemPrice * item.quantity;
-        discountedTotal += itemTotal;
-        originalTotal += originalPrice * item.quantity;
+    updateOrderSummary();
+  });
+</script>
 
-        // Add to visual summary
-        const li = document.createElement("li");
-        li.textContent = `${item.name} - ${item.quantity} x ${itemPrice.toLocaleString()} IDR`;
-        cartSummaryList.appendChild(li);
-
-        // Add to hidden form field
-        newOrderDetails += `${item.name} - ${item.quantity} x ${itemPrice.toLocaleString()} IDR\n`;
-    });
-
-    const savings = originalTotal - discountedTotal;
-    const savingsPercent = Math.round((savings / originalTotal) * 100);
-
-    newOrderDetails += `Discount Code: ${code}\n`;
-    newOrderDetails += `Discounted Total: ${discountedTotal.toLocaleString()} IDR\n`;
-    newOrderDetails += `You saved ${savings.toLocaleString()} IDR (${savingsPercent}%)`;
-
-    cartTotalElement.textContent = `Total: ${discountedTotal.toLocaleString()} IDR`;
-    orderDetailsInput.value = newOrderDetails;
-});
-
-    </script>
 </body>
 </html>
