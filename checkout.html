@@ -155,28 +155,33 @@ applyDiscountButton.addEventListener("click", function () {
     let originalTotal = 0;
     let newOrderDetails = "";
 
+    // Clear the summary display first
     cartSummaryList.innerHTML = "";
 
     cart.forEach((item) => {
-        let itemPrice = item.price;
-        let displayPrice = item.price;
-        const normalizedName = item.name.toLowerCase();
+        const originalPrice = item.price;
+        let itemPrice = originalPrice;
 
-        originalTotal += item.price * item.quantity;
+        // Try to extract size like "20ml" from item name
+        const sizeMatch = item.name.match(/\d+ml|\d+L/i);
+        const sizeKey = sizeMatch ? sizeMatch[0].toLowerCase() : null;
 
-        if (discountType === "perItem" && b2bPrices[normalizedName]) {
-            itemPrice = b2bPrices[normalizedName];
+        if (discountType === "perItem" && sizeKey && b2bPrices[sizeKey]) {
+            itemPrice = b2bPrices[sizeKey];
         } else if (discountType === "flat50") {
-            itemPrice = Math.round(item.price * 0.5);
+            itemPrice = Math.round(originalPrice * 0.5);
         }
 
         const itemTotal = itemPrice * item.quantity;
         discountedTotal += itemTotal;
+        originalTotal += originalPrice * item.quantity;
 
+        // Add to visual summary
         const li = document.createElement("li");
         li.textContent = `${item.name} - ${item.quantity} x ${itemPrice.toLocaleString()} IDR`;
         cartSummaryList.appendChild(li);
 
+        // Add to hidden form field
         newOrderDetails += `${item.name} - ${item.quantity} x ${itemPrice.toLocaleString()} IDR\n`;
     });
 
@@ -191,11 +196,6 @@ applyDiscountButton.addEventListener("click", function () {
     orderDetailsInput.value = newOrderDetails;
 });
 
-    checkoutForm.addEventListener("submit", function () {
-        orderDetailsInput.value = orderDetailsInput.value;
-        localStorage.removeItem("cart");
-    });
-});
     </script>
 </body>
 </html>
