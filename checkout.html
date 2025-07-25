@@ -159,6 +159,7 @@ applyDiscountButton.addEventListener("click", function () {
 
     cart.forEach((item) => {
         let itemPrice = item.price;
+        let displayPrice = item.price;
         const normalizedName = item.name.toLowerCase();
 
         originalTotal += item.price * item.quantity;
