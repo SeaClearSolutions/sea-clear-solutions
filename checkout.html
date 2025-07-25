@@ -121,60 +121,70 @@
         
     </main>
 
-   <script>
-  document.addEventListener("DOMContentLoaded", function () {
-    let discountCode = "";
+  <script>
+    document.addEventListener("DOMContentLoaded", function () {
+      const cartSummaryList = document.getElementById("cart-summary-list");
+      const cartTotalElement = document.getElementById("cart-total");
+      const orderDetailsInput = document.getElementById("order-details");
+      const checkoutForm = document.getElementById("checkout-form");
+      const discountInput = document.getElementById("discount");
 
-    function getCart() {
-      return JSON.parse(localStorage.getItem("cart")) || [];
-    }
+      const discountCodes = {
+        "DDIVERS": 0.5,
+        "AMBASSADORS": 0.5
+      };
 
-    function formatIDR(amount) {
-      return amount.toLocaleString("id-ID") + " IDR";
-    }
-
-    function updateOrderSummary() {
-      const orderSummary = document.getElementById("order-summary");
-      const orderTotal = document.getElementById("order-total");
-      const cart = getCart();
-
-      orderSummary.innerHTML = "";
+      let cart = JSON.parse(localStorage.getItem("cart")) || [];
+      let orderDetailsText = "";
       let total = 0;
+      let originalTotal = 0;
 
-      cart.forEach(item => {
-        const price = item.price;
-        const quantity = item.quantity;
-        const itemTotal = price * quantity;
+      if (cart.length === 0) {
+        cartSummaryList.innerHTML = "<p>Your cart is empty.</p>";
+        orderDetailsInput.value = "No items in cart.";
+      } else {
+        cartSummaryList.innerHTML = "";
+        cart.forEach((item) => {
+          let li = document.createElement("li");
+          li.textContent = `${item.name} - ${item.quantity} x ${item.price.toLocaleString()} IDR`;
+          cartSummaryList.appendChild(li);
 
-        const itemElement = document.createElement("p");
-        itemElement.textContent = `${item.name} (x${quantity}): ${formatIDR(itemTotal)}`;
-        orderSummary.appendChild(itemElement);
+          orderDetailsText += `${item.name} - ${item.quantity} x ${item.price} IDR\n`;
+          total += item.price * item.quantity;
+        });
 
-        total += itemTotal;
-      });
-
-      // Apply discount if applicable
-      if (discountCode.toLowerCase() === "ambassadors") {
-        total *= 0.7;
+        originalTotal = total;
+        cartTotalElement.textContent = `Total: ${total.toLocaleString()} IDR`;
+        orderDetailsText += `Total: ${total.toLocaleString()} IDR`;
+        orderDetailsInput.value = orderDetailsText;
       }
 
-      orderTotal.textContent = formatIDR(total);
-    }
+      document.getElementById("apply-discount").addEventListener("click", function () {
+        const code = discountInput.value.trim().toUpperCase();
+        const discount = discountCodes[code] || 0;
 
-    const applyButton = document.getElementById("apply-discount-btn");
-    if (applyButton) {
-      applyButton.addEventListener("click", function () {
-        const input = document.getElementById("discount-code");
-        if (input) {
-          discountCode = input.value.trim();
-          updateOrderSummary();
+        const discountedTotal = Math.round(originalTotal * (1 - discount));
+        cartTotalElement.textContent = `Total: ${discountedTotal.toLocaleString()} IDR`;
+
+        let newOrderDetails = "";
+        cart.forEach((item) => {
+          newOrderDetails += `${item.name} - ${item.quantity} x ${item.price.toLocaleString()} IDR\n`;
+        });
+
+        if (discount > 0) {
+          newOrderDetails += `Discount Code: ${code}\n`;
+          newOrderDetails += `Discounted Total: ${discountedTotal.toLocaleString()} IDR`;
+        } else {
+          newOrderDetails += `Total: ${originalTotal.toLocaleString()} IDR`;
         }
+
+        orderDetailsInput.value = newOrderDetails;
       });
-    }
 
-    updateOrderSummary();
-  });
-</script>
-
+      checkoutForm.addEventListener("submit", function () {
+        localStorage.removeItem("cart");
+      });
+    });
+  </script>
 </body>
 </html>
