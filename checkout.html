@@ -175,10 +175,10 @@
   let newOrderDetails = "";
   let total = 0;
 
-  cart.forEach((item) => {
+ cart.forEach((item) => {
     let discountedPrice = item.price;
 
-    if (code === "AMBASSADORS") {
+    if (code === "AMBASSADORS" || code === "SREPUBLIC") {
       if (item.name.includes("20ml")) {
         discountedPrice = Math.round(item.price * 0.5);
       } else if (item.name.includes("60ml")) {
