@@ -132,89 +132,93 @@
     </main>
 
   <script>
-    document.addEventListener("DOMContentLoaded", function () {
-      const cartSummaryList = document.getElementById("cart-summary-list");
-      const cartTotalElement = document.getElementById("cart-total");
-      const orderDetailsInput = document.getElementById("order-details");
-      const checkoutForm = document.getElementById("checkout-form");
-      const discountInput = document.getElementById("discount");
+  document.addEventListener("DOMContentLoaded", function () {
+    const cartSummaryList = document.getElementById("cart-summary-list");
+    const cartTotalElement = document.getElementById("cart-total");
+    const orderDetailsInput = document.getElementById("order-details");
+    const checkoutForm = document.getElementById("checkout-form");
+    const discountInput = document.getElementById("discount");
 
-      const discountCodes = {
-        "DDIVERS": 0.5,
-        "AMBASSADORS": 0.5
-      };
+    let cart = JSON.parse(localStorage.getItem("cart")) || [];
+    let orderDetailsText = "";
+    let total = 0;
+    let originalTotal = 0;
 
-      let cart = JSON.parse(localStorage.getItem("cart")) || [];
-      let orderDetailsText = "";
-      let total = 0;
-      let originalTotal = 0;
+    if (cart.length === 0) {
+      cartSummaryList.innerHTML = "<p>Your cart is empty.</p>";
+      orderDetailsInput.value = "No items in cart.";
+    } else {
+      cartSummaryList.innerHTML = "";
+      cart.forEach((item) => {
+        let li = document.createElement("li");
+        li.textContent = `${item.name} - ${item.quantity} x ${item.price.toLocaleString()} IDR`;
+        cartSummaryList.appendChild(li);
 
-      if (cart.length === 0) {
-        cartSummaryList.innerHTML = "<p>Your cart is empty.</p>";
-        orderDetailsInput.value = "No items in cart.";
-      } else {
-        cartSummaryList.innerHTML = "";
-        cart.forEach((item) => {
-          let li = document.createElement("li");
-          li.textContent = `${item.name} - ${item.quantity} x ${item.price.toLocaleString()} IDR`;
-          cartSummaryList.appendChild(li);
+        orderDetailsText += `${item.name} - ${item.quantity} x ${item.price} IDR\n`;
+        total += item.price * item.quantity;
+      });
 
-          orderDetailsText += `${item.name} - ${item.quantity} x ${item.price} IDR\n`;
-          total += item.price * item.quantity;
-        });
-
-        originalTotal = total;
-        cartTotalElement.textContent = `Total: ${total.toLocaleString()} IDR`;
-        orderDetailsText += `Total: ${total.toLocaleString()} IDR`;
-        orderDetailsInput.value = orderDetailsText;
-      }
-
-     document.getElementById("apply-discount").addEventListener("click", function () {
-  const code = discountInput.value.trim().toUpperCase();
-
-  let newOrderDetails = "";
-  let total = 0;
-
- cart.forEach((item) => {
-    let discountedPrice = item.price;
-
-    if (code === "AMBASSADORS" || code === "SREPUBLIC") {
-      if (item.name.includes("20ml")) {
-        discountedPrice = Math.round(item.price * 0.5);
-      } else if (item.name.includes("60ml")) {
-        discountedPrice = Math.round(item.price * 0.5);
-      } else if (item.name.includes("100ml")) {
-        discountedPrice = Math.round(item.price * 0.5185);
-      } else if (item.name.includes("250ml")) {
-        discountedPrice = Math.round(item.price * 0.5231);
-      } else if (item.name.includes("500ml")) {
-        discountedPrice = Math.round(item.price * 0.5482);
-      }
-    } else if (code === "DDIVERS") {
-      discountedPrice = Math.round(item.price * 0.5);
+      originalTotal = total;
+      cartTotalElement.textContent = `Total: ${total.toLocaleString()} IDR`;
+      orderDetailsText += `Total: ${total.toLocaleString()} IDR`;
+      orderDetailsInput.value = orderDetailsText;
     }
 
-    const itemTotal = discountedPrice * item.quantity;
-    total += itemTotal;
+    document.getElementById("apply-discount").addEventListener("click", function () {
+      const code = discountInput.value.trim().toUpperCase();
 
-    newOrderDetails += `${item.name} - ${item.quantity} x ${discountedPrice.toLocaleString()} IDR\n`;
-  });
+      let newOrderDetails = "";
+      let total = 0;
+      cartSummaryList.innerHTML = ""; // clear old list
 
- if (code === "AMBASSADORS" || code === "DDIVERS" || code === "SREPUBLIC") {
-    newOrderDetails += `Discount Code: ${code}\n`;
-    newOrderDetails += `Discounted Total: ${total.toLocaleString()} IDR`;
-  } else {
-    total = originalTotal;
-    newOrderDetails += `Total: ${originalTotal.toLocaleString()} IDR`;
-  }
+      cart.forEach((item) => {
+        let discountedPrice = item.price;
 
-  cartTotalElement.textContent = `Total: ${total.toLocaleString()} IDR`;
-  orderDetailsInput.value = newOrderDetails;
-});
-      checkoutForm.addEventListener("submit", function () {
-        localStorage.removeItem("cart");
+        if (code === "AMBASSADORS" || code === "SREPUBLIC") {
+          if (item.name.includes("20ml")) {
+            discountedPrice = Math.round(item.price * 0.5);
+          } else if (item.name.includes("60ml")) {
+            discountedPrice = Math.round(item.price * 0.5);
+          } else if (item.name.includes("100ml")) {
+            discountedPrice = Math.round(item.price * 0.5185);
+          } else if (item.name.includes("250ml")) {
+            discountedPrice = Math.round(item.price * 0.5231);
+          } else if (item.name.includes("500ml")) {
+            discountedPrice = Math.round(item.price * 0.5482);
+          }
+        } else if (code === "DDIVERS") {
+          discountedPrice = Math.round(item.price * 0.5);
+        }
+
+        const itemTotal = discountedPrice * item.quantity;
+        total += itemTotal;
+
+        // ✅ Show discounted price in list
+        let li = document.createElement("li");
+        li.textContent = `${item.name} - ${item.quantity} x ${discountedPrice.toLocaleString()} IDR`;
+        cartSummaryList.appendChild(li);
+
+        newOrderDetails += `${item.name} - ${item.quantity} x ${discountedPrice.toLocaleString()} IDR\n`;
       });
+
+      if (code === "AMBASSADORS" || code === "DDIVERS" || code === "SREPUBLIC") {
+        newOrderDetails += `Discount Code: ${code}\n`;
+        newOrderDetails += `Discounted Total: ${total.toLocaleString()} IDR`;
+      } else {
+        total = originalTotal;
+        newOrderDetails += `Total: ${originalTotal.toLocaleString()} IDR`;
+      }
+
+      cartTotalElement.textContent = `Total: ${total.toLocaleString()} IDR`;
+      orderDetailsInput.value = newOrderDetails;
     });
-  </script>
+
+    // ✅ Restore submit handler
+    checkoutForm.addEventListener("submit", function () {
+      localStorage.removeItem("cart");
+    });
+  });
+</script>
+
 </body>
 </html>
