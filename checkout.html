@@ -200,7 +200,7 @@
     newOrderDetails += `${item.name} - ${item.quantity} x ${discountedPrice.toLocaleString()} IDR\n`;
   });
 
-  if (code === "AMBASSADORS" || code === "DDIVERS") {
+ if (code === "AMBASSADORS" || code === "DDIVERS" || code === "SREPUBLIC") {
     newOrderDetails += `Discount Code: ${code}\n`;
     newOrderDetails += `Discounted Total: ${total.toLocaleString()} IDR`;
   } else {
