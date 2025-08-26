@@ -176,18 +176,18 @@
 
         if (code === "AMBASSADORS" || code === "SREPUBLIC") {
           if (item.name.includes("20ml")) {
-            discountedPrice = Math.round(item.price * 0.5);
+            discountedPrice = Math.round(item.price * 0.5) / 1000) * 1000;
           } else if (item.name.includes("60ml")) {
-            discountedPrice = Math.round(item.price * 0.5);
+            discountedPrice = Math.round(item.price * 0.5) / 1000) * 1000;;
           } else if (item.name.includes("100ml")) {
-            discountedPrice = Math.round(item.price * 0.5185);
+            discountedPrice = Math.round(item.price * 0.5185) / 1000) * 1000;;
           } else if (item.name.includes("250ml")) {
-            discountedPrice = Math.round(item.price * 0.5231);
+            discountedPrice = Math.round(item.price * 0.5231) / 1000) * 1000;;
           } else if (item.name.includes("500ml")) {
-            discountedPrice = Math.round(item.price * 0.5482);
+            discountedPrice = Math.round(item.price * 0.5482) / 1000) * 1000;;
           }
         } else if (code === "DDIVERS") {
-          discountedPrice = Math.round(item.price * 0.5);
+          discountedPrice = Math.round(item.price * 0.5) / 1000) * 1000;;
         }
 
         const itemTotal = discountedPrice * item.quantity;
