@@ -734,3 +734,7 @@ button:hover {
        object-fit: cover;
     }
 }
+
+.ambassador {
+  margin-bottom: 60px; /* adjust the number for more or less space */
+}
