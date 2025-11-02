@@ -175,7 +175,7 @@
         let discountedPrice = item.price;
 
         if (code === "AMBASSADORS" || code === "SREPUBLIC") {
-          if (item.name.includes("20ml")) {
+          if (item.name.includes("30ml")) {
             discountedPrice = Math.round((item.price * 0.5) / 1000) * 1000;
           } else if (item.name.includes("60ml")) {
             discountedPrice = Math.round((item.price * 0.5) / 1000) * 1000;;
