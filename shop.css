@@ -580,32 +580,39 @@ nav.scrolled {
   box-sizing: border-box;
 }
 
-/* WHOLESALE CODE SECTION – SIMPLE, REFINED */
+/* WHOLESALE CODE SECTION – PERFECTLY CENTERED + RESPONSIVE */
 #discount-section {
   text-align: center;
-  margin: 40px auto;
-  max-width: 480px;
-  color: #0e615e; /* matches your brand text color */
+  margin: 60px auto 40px;
+  padding: 0 20px;
+  max-width: 700px;
+  color: #146f77;
+  font-family: 'Poppins', sans-serif;
 }
 
+/* “Wholesale Code:” label text */
 #discount-section label {
   display: block;
   font-weight: 600;
-  margin-bottom: 8px;
   font-size: 1rem;
+  margin-bottom: 10px;
 }
 
-#discount-section input[type="text"] {
-  padding: 8px 12px;
-  border: 1.5px solid #0e615e;
+/* Input field centered with proper sizing */
+#discount-section input[type="text"],
+#discount-section input {
+  display: inline-block;
+  width: 220px;
+  max-width: 60%;
+  padding: 10px 12px;
+  border: 1.5px solid #146f77;
   border-radius: 6px;
-  width: 60%;
-  max-width: 200px;
+  background-color: #fffee1;
+  color: #146f77;
   font-size: 0.95rem;
   text-align: center;
-  color: #0e615e;
-  background-color: #fffee1;
-  transition: border-color 0.2s ease, box-shadow 0.2s ease;
+  vertical-align: middle;
+  transition: border-color 0.25s ease, box-shadow 0.25s ease;
 }
 
 #discount-section input[type="text"]:focus {
@@ -614,40 +621,75 @@ nav.scrolled {
   box-shadow: 0 0 0 2px rgba(52, 178, 174, 0.25);
 }
 
-#discount-section button {
+/* “Apply” button aligned beside input */
+#discount-section button,
+#discount-section input[type="submit"],
+#discount-section input[type="button"] {
+  display: inline-block;
   margin-left: 10px;
-  padding: 8px 18px;
+  padding: 10px 18px;
   border: none;
   border-radius: 6px;
-  background-color: #0e615e;
+  background-color: #237778;
   color: #fffee1;
   font-weight: 600;
+  font-size: 0.95rem;
   cursor: pointer;
+  vertical-align: middle;
   transition: background-color 0.25s ease, transform 0.1s ease;
 }
 
-#discount-section button:hover {
-  background-color: #34b2ae;
+#discount-section button:hover,
+#discount-section input[type="submit"]:hover {
+  background-color: #146f77;
   transform: translateY(-1px);
 }
 
-#discount-message {
+/* Discount message text */
+#discount-message,
+#discount-section p[id*="discount"] {
   margin-top: 15px;
   font-weight: 500;
-  color: #0e615e;
+  color: #146f77;
 }
 
-#discount-section .wholesale-note {
-  margin-top: 10px;
+/* Applied code text like “Discount code applied: BDRESORT” */
+#discount-section p {
+  margin-top: 15px;
+  color: #146f77;
+  font-size: 1rem;
+}
+
+/* Wholesale note (with link below input) */
+#discount-section .wholesale-note,
+#discount-section p.wholesale-note {
+  margin-top: 12px;
   font-size: 0.9rem;
-  color: #0e615e;
+  color: #146f77;
 }
 
-#discount-section .wholesale-note a {
-  color: #0e615e;
+#discount-section .wholesale-note a,
+#discount-section .wholesale-note a:visited {
+  color: #237778;
   text-decoration: underline;
   font-weight: 500;
 }
+
+/* Make the whole section centered and stacked nicely on mobile */
+@media (max-width: 600px) {
+  #discount-section input[type="text"],
+  #discount-section button {
+    display: block;
+    margin: 10px auto;
+    width: 80%;
+    max-width: 300px;
+  }
+
+  #discount-section button {
+    margin-top: 5px;
+  }
+}
+
 
 /* Desktop only */
 .desktop-only {
