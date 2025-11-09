@@ -168,7 +168,7 @@
 
     </div>
 
-    <script>
+   <script>
     document.addEventListener("DOMContentLoaded", function() {
       const discountInput = document.getElementById("discount-code");
       const discountButton = document.getElementById("apply-discount-btn");
@@ -192,7 +192,7 @@
         let validCode = false;
     
         priceElements.forEach(el => {
-          const name = el.dataset.name;  // e.g. data-name="Sea Clear 250ml"
+          const name = el.dataset.name;
           let price = parseInt(el.dataset.originalPrice);
           let discountedPrice = price;
     
@@ -209,26 +209,22 @@
           }
     
           el.textContent = discountedPrice.toLocaleString() + " IDR";
-          el.dataset.currentPrice = discountedPrice; // store for cart use
+          el.dataset.currentPrice = discountedPrice;
         });
     
-       // ✅ Show a confirmation message
+        // ✅ Show a confirmation message
         if (validCode) {
-          // mark wholesale mode for the whole site
           localStorage.setItem("isWholesale", "true");
-        
           discountMessage.textContent = "Discount code applied: " + code;
           discountMessage.style.color = "#146f77";
         } else {
-          // remove wholesale flag
           localStorage.removeItem("isWholesale");
-        
           discountMessage.textContent = "Invalid code — showing regular prices.";
           discountMessage.style.color = "red";
           localStorage.removeItem("discountCode");
         }
-        
-        // --- sync Add-to-Cart buttons with updated displayed prices ---
+    
+        // ✅ Update Add-to-Cart buttons
         const buttons = document.querySelectorAll(".add-to-cart");
         buttons.forEach(btn => {
           const product = btn.dataset.name;
@@ -237,7 +233,8 @@
             btn.dataset.price = priceEl.dataset.currentPrice || priceEl.dataset.originalPrice;
           }
         });
-
+      } // <-- ✅ THIS was missing!
+    });
     </script>
 </section>
 
