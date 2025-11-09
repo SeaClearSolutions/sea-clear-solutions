@@ -565,6 +565,21 @@ nav.scrolled {
   box-sizing: border-box;
 }
 
+.products {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 30px; /* Adjust spacing between items */
+  max-width: 1000px; /* Keeps layout consistent and centered */
+  margin: 0 auto; /* Centers the grid */
+}
+
+.product {
+  flex: 1 1 calc(33.333% - 30px); /* 3 per row */
+  max-width: 300px;
+  box-sizing: border-box;
+}
+
 /* Desktop only */
 .desktop-only {
   display: flex;
