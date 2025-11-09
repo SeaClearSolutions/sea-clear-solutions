@@ -804,4 +804,30 @@ nav.scrolled {
     .hamburger.scrolled {
        background: none !important;
     }
+
+  .product-grid {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .product-item {
+    width: 90% !important;
+    max-width: 400px;
+    margin-bottom: 20px;
+  }
+
+  .product-item img {
+    width: 100%;
+    height: auto;
+  }
+}
+
+/* Optional: tablet layout with 2 per row */
+@media (min-width: 769px) and (max-width: 1024px) {
+  .product-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 20px;
+  }
 }
