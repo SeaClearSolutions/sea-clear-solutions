@@ -14,64 +14,63 @@ document.addEventListener("DOMContentLoaded", function () {
     let isWholesale = localStorage.getItem("isWholesale") === "true";
 
     // Function to update cart UI
-    function updateCart() {
-        cartItemsList.innerHTML = "";
-        let total = 0;
-        cart.forEach((item, index) => {
-            let li = document.createElement("li");
-            li.style.display = "flex";
-            li.style.alignItems = "center";
-            li.style.justifyContent = "space-between";
-            li.style.marginBottom = "5px";
+function updateCart() {
+    cartItemsList.innerHTML = "";
+    let total = 0;
 
-            let itemText = document.createElement("span");
-            let displayedPrice = isWholesale ? getWholesalePrice(item.name, item.price) : item.price;
-            itemText.textContent = `${item.name} - ${displayedPrice.toLocaleString()} IDR`;
+    cart.forEach((item, index) => {
+        let li = document.createElement("li");
+        li.style.display = "flex";
+        li.style.alignItems = "center";
+        li.style.justifyContent = "space-between";
+        li.style.marginBottom = "5px";
 
+        // ✅ Add this line
+        let itemText = document.createElement("span");
+        itemText.textContent = `${item.name} - ${item.price.toLocaleString()} IDR`;
+        total += item.price * item.quantity;
 
-            let controlsDiv = document.createElement("div");
-            controlsDiv.style.display = "flex";
-            controlsDiv.style.alignItems = "center";
-            controlsDiv.style.gap = "8px";
+        let controlsDiv = document.createElement("div");
+        controlsDiv.style.display = "flex";
+        controlsDiv.style.alignItems = "center";
+        controlsDiv.style.gap = "8px";
 
-            let minusSpan = document.createElement("span");
-            minusSpan.textContent = "−";
-            minusSpan.classList.add("minus-item");
-            minusSpan.dataset.index = index;
-            minusSpan.style.color = "#237778";
-            minusSpan.style.fontSize = "22px";
-            minusSpan.style.cursor = "pointer";
+        let minusSpan = document.createElement("span");
+        minusSpan.textContent = "−";
+        minusSpan.classList.add("minus-item");
+        minusSpan.dataset.index = index;
+        minusSpan.style.color = "#237778";
+        minusSpan.style.fontSize = "22px";
+        minusSpan.style.cursor = "pointer";
 
-            let quantitySpan = document.createElement("span");
-            quantitySpan.textContent = `x${item.quantity}`;
-            quantitySpan.style.minWidth = "25px";
-            quantitySpan.style.textAlign = "center";
-            quantitySpan.style.fontSize = "18px";
+        let quantitySpan = document.createElement("span");
+        quantitySpan.textContent = `x${item.quantity}`;
+        quantitySpan.style.minWidth = "25px";
+        quantitySpan.style.textAlign = "center";
+        quantitySpan.style.fontSize = "18px";
 
-            let plusSpan = document.createElement("span");
-            plusSpan.textContent = "+";
-            plusSpan.classList.add("plus-item");
-            plusSpan.dataset.index = index;
-            plusSpan.style.color = "#237778";
-            plusSpan.style.fontSize = "22px";
-            plusSpan.style.cursor = "pointer";
+        let plusSpan = document.createElement("span");
+        plusSpan.textContent = "+";
+        plusSpan.classList.add("plus-item");
+        plusSpan.dataset.index = index;
+        plusSpan.style.color = "#237778";
+        plusSpan.style.fontSize = "22px";
+        plusSpan.style.cursor = "pointer";
 
-            controlsDiv.appendChild(minusSpan);
-            controlsDiv.appendChild(quantitySpan);
-            controlsDiv.appendChild(plusSpan);
+        controlsDiv.appendChild(minusSpan);
+        controlsDiv.appendChild(quantitySpan);
+        controlsDiv.appendChild(plusSpan);
 
-            li.appendChild(itemText);
-            li.appendChild(controlsDiv);
-            cartItemsList.appendChild(li);
+        li.appendChild(itemText);
+        li.appendChild(controlsDiv);
+        cartItemsList.appendChild(li);
+    });
 
-            total += displayedPrice * item.quantity;
-        });
+    totalPriceElement.textContent = `Total: ${total.toLocaleString()} IDR`;
 
-        totalPriceElement.textContent = `Total: ${total.toLocaleString()} IDR`;
-
-        // Save cart to localStorage
-        localStorage.setItem("cart", JSON.stringify(cart));
-    }
+    // Save cart to localStorage
+    localStorage.setItem("cart", JSON.stringify(cart));
+}
 
     // Function to add item to cart
     function addToCart(event) {
@@ -208,36 +207,6 @@ document.addEventListener("DOMContentLoaded", function () {
             }
         });
     }
-
-    function getWholesalePrice(name, originalPrice) {
-    if (name.includes("30ml")) return 55000;
-    if (name.includes("60ml")) return 85000;
-    if (name.includes("100ml")) return 115000;
-    if (name.includes("250ml")) return 235000;
-    if (name.includes("500ml")) return 300000;
-    if (name.includes("1L")) return 600000;
-    if (name.includes("5L")) return 2500000;
-    return originalPrice;
-}
-    
-  function updateShopPrices() {
-  document.querySelectorAll(".add-to-cart").forEach(btn => {
-    const name = btn.dataset.name;
-    // Note: btn.dataset.price may already be changed by shop.html, but parseInt to be safe
-    const originalPrice = parseInt(btn.dataset.price) || parseInt(btn.dataset.originalPrice) || 0;
-    const newPrice = isWholesale ? getWholesalePrice(name, originalPrice) : originalPrice;
-    // Update button dataset so addToCart reads correct price
-    btn.dataset.price = newPrice;
-
-    // Update visible price element in the product card
-    const priceDisplay = btn.closest(".product")?.querySelector(".product-price");
-    if (priceDisplay) {
-      priceDisplay.textContent = `${newPrice.toLocaleString()} IDR`;
-      // keep the data attribute in sync for other code that may read it
-      priceDisplay.dataset.currentPrice = newPrice;
-    }
-  });
-}
     
     document.addEventListener("click", handleOutsideClick);
     cartSidebar.addEventListener("click", toggleCart);
@@ -250,7 +219,6 @@ document.addEventListener("DOMContentLoaded", function () {
         // small timeout to allow shop.html handler to run first
         setTimeout(() => {
           isWholesale = localStorage.getItem("isWholesale") === "true";
-          updateShopPrices();
           updateCart();
         }, 10);
       });
@@ -258,9 +226,5 @@ document.addEventListener("DOMContentLoaded", function () {
 
     // Initialize cart on page load
     updateCart();
-   
-    if (isWholesale) {
-    updateShopPrices();
-    }
 
 });
