@@ -242,24 +242,17 @@ document.addEventListener("DOMContentLoaded", function () {
     document.addEventListener("click", handleOutsideClick);
     cartSidebar.addEventListener("click", toggleCart);
 
-    // --- Wholesale Code Section ---
+    // When shop's discount button is clicked, refresh wholesale state and UI.
+    // (Shop page already validates codes and sets localStorage.isWholesale.)
     const applyDiscountBtn = document.getElementById("apply-discount-btn");
-    const discountCodeInput = document.getElementById("discount-code");
-    const discountMessage = document.getElementById("discount-message");
-    
     if (applyDiscountBtn) {
       applyDiscountBtn.addEventListener("click", function () {
-        const code = discountCodeInput.value.trim().toLowerCase();
-    
-        if (code === "seaclearwholesale") {  // your real code
-          isWholesale = true;
-          localStorage.setItem("isWholesale", "true");
-          discountMessage.textContent = "✅ Wholesale prices activated!";
+        // small timeout to allow shop.html handler to run first
+        setTimeout(() => {
+          isWholesale = localStorage.getItem("isWholesale") === "true";
           updateShopPrices();
           updateCart();
-        } else {
-          discountMessage.textContent = "❌ Invalid code.";
-        }
+        }, 10);
       });
     }
 
