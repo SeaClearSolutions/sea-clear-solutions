@@ -174,11 +174,23 @@
       const discountButton = document.getElementById("apply-discount-btn");
       const discountMessage = document.getElementById("discount-message");
     
-      // ✅ Remember applied code in localStorage
-      let appliedCode = localStorage.getItem("discountCode") || "";
-      if (appliedCode) {
-        discountInput.value = appliedCode;
-        applyDiscount(appliedCode);
+      // helper used by both scripts: exact wholesale mapping
+      function getWholesalePrice(name, originalPrice) {
+        // exact prices you provided earlier (adjust if you want different)
+        if (name.includes("30ml")) return 45000;
+        if (name.includes("60ml")) return 80000;
+        if (name.includes("100ml")) return 125000;
+        if (name.includes("250ml")) return 300000;
+        if (name.includes("500ml")) return 600000;
+        // fallback: keep original
+        return originalPrice;
+      }
+    
+      // load saved code (if any) and apply it on page load
+      let savedCode = localStorage.getItem("discountCode") || "";
+      if (savedCode) {
+        discountInput.value = savedCode;
+        applyDiscount(savedCode);
       }
     
       discountButton.addEventListener("click", function() {
@@ -193,29 +205,26 @@
     
         priceElements.forEach(el => {
           const name = el.dataset.name;
-          let price = parseInt(el.dataset.originalPrice);
-          let discountedPrice = price;
+          const original = parseInt(el.dataset.originalPrice, 10) || 0;
+          let discounted = original;
     
-          // ✅ Wholesale codes
-          if (code === "AMBASSADORS" || code === "SREPUBLIC" || code === "BDRESORT") {
+          // === codes and mapping ===
+          const wholesaleCodes = ["AMBASSADORS","SREPUBLIC","BDRESORT"];
+          if (wholesaleCodes.includes(code)) {
             validCode = true;
-            if (name.includes("30ml")) discountedPrice = 45000;
-            else if (name.includes("60ml")) discountedPrice = 80000;
-            else if (name.includes("100ml")) discountedPrice = 125000;
-            else if (name.includes("250ml")) discountedPrice = 300000;
-            else if (name.includes("500ml")) discountedPrice = 600000;
-          } 
-          // ✅ DDIVERS code
-          else if (code === "DDIVERS") {
+            discounted = getWholesalePrice(name, original);
+          } else if (code === "DDIVERS") {
             validCode = true;
-            discountedPrice = Math.round(price * 0.5 / 1000) * 1000;
+            discounted = Math.round(original * 0.5 / 1000) * 1000;
           }
     
-          el.textContent = discountedPrice.toLocaleString() + " IDR";
-          el.dataset.currentPrice = discountedPrice;
+          // set visible and stored values
+          el.textContent = discounted.toLocaleString() + " IDR";
+          el.dataset.currentPrice = discounted;
+          // also keep original price stored (just in case)
+          el.dataset.originalPrice = original;
         });
     
-        // ✅ Show confirmation or error
         if (validCode) {
           localStorage.setItem("isWholesale", "true");
           discountMessage.textContent = "Discount code applied: " + code;
@@ -227,16 +236,21 @@
           localStorage.removeItem("discountCode");
         }
     
-        // ✅ Update Add-to-Cart buttons
-        const buttons = document.querySelectorAll(".add-to-cart");
-        buttons.forEach(btn => {
+        // Sync Add-to-Cart buttons to use the updated price
+        document.querySelectorAll(".add-to-cart").forEach(btn => {
           const product = btn.dataset.name;
           const priceEl = document.querySelector(`.product-price[data-name="${product}"]`);
           if (priceEl) {
-            btn.dataset.price = priceEl.dataset.currentPrice || priceEl.dataset.originalPrice;
+            btn.dataset.price = priceEl.dataset.currentPrice || priceEl.dataset.originalPrice || btn.dataset.price;
           }
         });
-      } // ✅ closing bracket restored
+    
+        // Debug: show what was set (open console to inspect)
+        console.log("applyDiscount:", { code, isWholesale: localStorage.getItem("isWholesale"), discountCode: localStorage.getItem("discountCode") });
+        document.querySelectorAll(".product-price").forEach(el => {
+          console.log(el.dataset.name, "orig:", el.dataset.originalPrice, "current:", el.dataset.currentPrice);
+        });
+      }
     });
     </script>
 </section>
