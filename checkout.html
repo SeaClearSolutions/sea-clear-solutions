@@ -174,7 +174,7 @@
       cart.forEach((item) => {
         let discountedPrice = item.price;
 
-        if (code === "AMBASSADORS" || code === "SREPUBLIC") {
+        if (code === "AMBASSADORS" || code === "SREPUBLIC" || code === "BDRESORT") {
           if (item.name.includes("30ml")) {
             discountedPrice = Math.round((item.price * 0.5) / 1000) * 1000;
           } else if (item.name.includes("60ml")) {
