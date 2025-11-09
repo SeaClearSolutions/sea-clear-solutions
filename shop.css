@@ -580,123 +580,111 @@ nav.scrolled {
   box-sizing: border-box;
 }
 
-/* WHOLESALE CODE SECTION — PERFECTLY CENTERED & BALANCED */
+/* === WHOLESALE / DISCOUNT (REPLACE THIS WHOLE BLOCK) === */
 #discount-section {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  text-align: center;
-  margin: 50px auto;
-  max-width: 700px;
+  max-width: 720px;
+  margin: 48px auto;
+  padding: 0 16px;
+  text-align: center;        /* center children inline elements */
   color: #146f77;
   font-family: 'Poppins', sans-serif;
+  box-sizing: border-box;
 }
 
-/* Label */
+/* label sits above the controls */
 #discount-section label {
   display: block;
   font-weight: 600;
-  font-size: 1rem;
-  margin-bottom: 10px;
+  margin-bottom: 8px;
   color: #146f77;
+  font-size: 1rem;
 }
 
-/* Center input + button horizontally */
-#discount-section form {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  gap: 10px; /* spacing between input and button */
-  flex-wrap: wrap; /* stack nicely on mobile */
-  width: 100%;
-}
-
-/* Input */
+/* force the input/button inside this specific section to be inline (overrides generic rules) */
 #discount-section input[type="text"],
-#discount-section input {
+#discount-section button,
+#discount-section input[type="button"],
+#discount-section input[type="submit"] {
+  display: inline-block !important;   /* explicit override of your generic "display: block" */
+  vertical-align: middle;
+  box-sizing: border-box;
+}
+
+/* input styling (centered look) */
+#discount-section input[type="text"] {
   width: 220px;
-  padding: 10px 12px;
+  max-width: 60%;
+  padding: 9px 12px;
   border: 1.5px solid #146f77;
   border-radius: 6px;
   background-color: #fffee1;
   color: #146f77;
-  font-size: 0.95rem;
   text-align: center;
-  transition: border-color 0.25s ease, box-shadow 0.25s ease;
+  font-size: 0.95rem;
+  margin: 0;                /* remove block margins that pushed it left previously */
+  transition: border-color .18s ease, box-shadow .18s ease;
 }
 
+/* small visual cue on focus */
 #discount-section input[type="text"]:focus {
   outline: none;
   border-color: #34b2ae;
-  box-shadow: 0 0 0 2px rgba(52, 178, 174, 0.25);
+  box-shadow: 0 0 0 3px rgba(52,178,174,0.12);
 }
 
-/* Apply button */
-#discount-section button,
-#discount-section input[type="submit"],
-#discount-section input[type="button"] {
-  padding: 10px 20px;
-  border: none;
+/* apply button aligned beside the input */
+#discount-section button#apply-discount-btn,
+#discount-section button {
+  margin-left: 10px;
+  padding: 9px 16px;
   border-radius: 6px;
+  border: none;
   background-color: #237778;
   color: #fffee1;
   font-weight: 600;
   cursor: pointer;
-  transition: background-color 0.25s ease, transform 0.1s ease;
+  font-size: 0.95rem;
+  transition: background-color .18s ease, transform .08s ease;
 }
 
+/* ensure hover matches site */
 #discount-section button:hover {
   background-color: #146f77;
   transform: translateY(-1px);
 }
 
-/* Discount message */
-#discount-section p,
+/* message and note styling */
 #discount-message {
-  margin-top: 15px;
+  margin-top: 14px;
   color: #146f77;
   font-weight: 500;
 }
 
-/* Wholesale note below */
 #discount-section .wholesale-note {
   margin-top: 10px;
-  font-size: 0.9rem;
+  font-size: 0.95rem;
+  color: #146f77;
 }
 
-#discount-section .wholesale-note a {
-  color: #146f77;
+#discount-section .wholesale-note a,
+#discount-section .wholesale-note a:visited {
+  color: #237778;
   text-decoration: underline;
   font-weight: 500;
 }
 
-/* Mobile */
-@media (max-width: 600px) {
-  #discount-section form {
-    flex-direction: column;
-  }
-
-  #discount-section input[type="text"],
-  #discount-section button {
-    width: 80%;
-    max-width: 300px;
-  }
-}
-
-/* Make the whole section centered and stacked nicely on mobile */
+/* Mobile: stack input and button and make them wide */
 @media (max-width: 600px) {
   #discount-section input[type="text"],
   #discount-section button {
-    display: block;
-    margin: 10px auto;
-    width: 80%;
-    max-width: 300px;
+    display: block !important;   /* stack vertically on phones */
+    width: 86%;
+    max-width: 420px;
+    margin: 8px auto;            /* center when block */
   }
 
   #discount-section button {
-    margin-top: 5px;
-  }
+    margin-left: 0
 }
 
 
