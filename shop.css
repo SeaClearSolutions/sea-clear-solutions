@@ -551,6 +551,20 @@ nav.scrolled {
   transition: background-color 0.3s ease;
 }
 
+.products {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center; /* Center the last row nicely */
+  gap: 20px;
+}
+
+/* Each product box */
+.product {
+  flex: 1 1 280px; /* allows flexible width but keeps layout nice */
+  max-width: 300px; /* prevents them from growing too wide */
+  box-sizing: border-box;
+}
+
 /* Desktop only */
 .desktop-only {
   display: flex;
