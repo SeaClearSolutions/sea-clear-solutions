@@ -253,17 +253,36 @@
           el.dataset.originalPrice = original;
         });
     
-        if (validCode) {
-          localStorage.setItem("isWholesale", "true");
-          discountMessage.textContent = "Discount code applied: " + code;
-          discountMessage.style.color = "#146f77";
-        } else {
-          localStorage.removeItem("isWholesale");
-          discountMessage.textContent = "Invalid code — showing regular prices.";
-          discountMessage.style.color = "red";
-          localStorage.removeItem("discountCode");
-        }
+     if (validCode) {
+      localStorage.setItem("isWholesale", "true");
+      discountMessage.textContent = "Discount code applied: " + code;
+      discountMessage.style.color = "#146f77";
     
+      // ✅ Show wholesale-only products when valid wholesale code is applied
+      document.querySelectorAll(".wholesale-only").forEach(el => {
+        el.style.display = "block";
+        const priceEl = el.querySelector(".product-price");
+        const name = priceEl.dataset.name;
+        const wholesalePrice = getWholesalePrice(name, 0);
+        if (wholesalePrice > 0) {
+          priceEl.textContent = wholesalePrice.toLocaleString() + " IDR";
+          priceEl.dataset.currentPrice = wholesalePrice;
+          el.querySelector(".add-to-cart").dataset.price = wholesalePrice;
+        }
+      });
+    
+    } else {
+      localStorage.removeItem("isWholesale");
+      discountMessage.textContent = "Invalid code — showing regular prices.";
+      discountMessage.style.color = "red";
+      localStorage.removeItem("discountCode");
+    
+      // ✅ Hide wholesale-only products again if code is invalid
+      document.querySelectorAll(".wholesale-only").forEach(el => {
+        el.style.display = "none";
+      });
+    }
+          
         // Sync Add-to-Cart buttons to use the updated price
         document.querySelectorAll(".add-to-cart").forEach(btn => {
           const product = btn.dataset.name;
