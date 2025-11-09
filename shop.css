@@ -580,6 +580,57 @@ nav.scrolled {
   box-sizing: border-box;
 }
 
+/* WHOLESALE / DISCOUNT SECTION */
+#discount-section {
+  background-color: #237778;
+  color: #fffee1;
+  padding: 25px;
+  border-radius: 12px;
+  text-align: center;
+  max-width: 600px;
+  margin: 30px auto;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+}
+
+#discount-section input[type="text"] {
+  padding: 8px 12px;
+  border: 1px solid #146f77;
+  border-radius: 6px;
+  margin: 0 10px;
+  width: 200px;
+}
+
+#discount-section button {
+  background-color: #146f77;
+  color: #fffee1;
+  border: none;
+  border-radius: 6px;
+  padding: 8px 16px;
+  cursor: pointer;
+  font-weight: 500;
+  transition: background-color 0.2s ease;
+}
+
+#discount-section button:hover {
+  background-color: #2dafa1;
+}
+
+#discount-message {
+  color: #f3ea34;
+  margin-top: 10px;
+  font-weight: 500;
+}
+
+#discount-section .wholesale-note {
+  margin-top: 15px;
+  font-size: 0.95em;
+}
+
+#discount-section .wholesale-note a {
+  color: #f3ea34;
+  text-decoration: underline;
+}
+
 /* Desktop only */
 .desktop-only {
   display: flex;
