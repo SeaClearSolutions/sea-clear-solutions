@@ -587,10 +587,17 @@ nav.scrolled {
   align-items: center;
   justify-content: center;
   text-align: center;
-  margin: 50px auto;
-  max-width: 700px;
-  color: #146f77;
-  font-family: 'Poppins', sans-serif;
+  width: 100%;
+}
+
+#discount-section form {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  flex-wrap: wrap;
+  width: 100%;
+  text-align: center;
 }
 
 /* Label */
@@ -601,16 +608,6 @@ nav.scrolled {
   margin-bottom: 10px;
   color: #146f77;
   text-align: center; /* ✅ Add this line */
-}
-
-/* Center input + button horizontally */
-#discount-section form {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  gap: 10px; /* spacing between input and button */
-  flex-wrap: wrap; /* stack nicely on mobile */
-  width: 100%;
 }
 
 /* Input */
