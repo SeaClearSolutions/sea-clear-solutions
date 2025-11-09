@@ -11,6 +11,7 @@ document.addEventListener("DOMContentLoaded", function () {
 
     let cart = JSON.parse(localStorage.getItem("cart")) || [];
     let orderDetailsText = "";
+    let isWholesale = localStorage.getItem("isWholesale") === "true";
 
     // Function to update cart UI
     function updateCart() {
@@ -24,7 +25,9 @@ document.addEventListener("DOMContentLoaded", function () {
             li.style.marginBottom = "5px";
 
             let itemText = document.createElement("span");
-            itemText.textContent = `${item.name} - ${item.price.toLocaleString()} IDR`;
+            let displayedPrice = isWholesale ? getWholesalePrice(item.name, item.price) : item.price;
+            itemText.textContent = `${item.name} - ${displayedPrice.toLocaleString()} IDR`;
+
 
             let controlsDiv = document.createElement("div");
             controlsDiv.style.display = "flex";
@@ -61,7 +64,7 @@ document.addEventListener("DOMContentLoaded", function () {
             li.appendChild(controlsDiv);
             cartItemsList.appendChild(li);
 
-            total += item.price * item.quantity;
+            total += displayedPrice * item.quantity;
         });
 
         totalPriceElement.textContent = `Total: ${total.toLocaleString()} IDR`;
@@ -206,9 +209,58 @@ document.addEventListener("DOMContentLoaded", function () {
         });
     }
 
+    function getWholesalePrice(name, originalPrice) {
+    if (name.includes("30ml")) return 55000;
+    if (name.includes("60ml")) return 85000;
+    if (name.includes("100ml")) return 115000;
+    if (name.includes("250ml")) return 235000;
+    if (name.includes("500ml")) return 300000;
+    if (name.includes("1L")) return 600000;
+    if (name.includes("5L")) return 2500000;
+    return originalPrice;
+}
+    
+    function updateShopPrices() {
+    document.querySelectorAll(".add-to-cart").forEach(btn => {
+    const name = btn.dataset.name;
+    const originalPrice = parseInt(btn.dataset.price);
+    const newPrice = isWholesale ? getWholesalePrice(name, originalPrice) : originalPrice;
+    btn.dataset.price = newPrice;
+
+    const priceDisplay = btn.closest(".product")?.querySelector(".price");
+    if (priceDisplay) priceDisplay.textContent = `${newPrice.toLocaleString()} IDR`;
+  });
+}
+
     document.addEventListener("click", handleOutsideClick);
     cartSidebar.addEventListener("click", toggleCart);
 
+    // --- Wholesale Code Section ---
+    const applyDiscountBtn = document.getElementById("apply-discount-btn");
+    const discountCodeInput = document.getElementById("discount-code");
+    const discountMessage = document.getElementById("discount-message");
+    
+    if (applyDiscountBtn) {
+      applyDiscountBtn.addEventListener("click", function () {
+        const code = discountCodeInput.value.trim().toLowerCase();
+    
+        if (code === "seaclearwholesale") {  // your real code
+          isWholesale = true;
+          localStorage.setItem("isWholesale", "true");
+          discountMessage.textContent = "✅ Wholesale prices activated!";
+          updateShopPrices();
+          updateCart();
+        } else {
+          discountMessage.textContent = "❌ Invalid code.";
+        }
+      });
+    }
+
     // Initialize cart on page load
     updateCart();
+   
+    if (isWholesale) {
+    updateShopPrices();
+    }
+
 });
