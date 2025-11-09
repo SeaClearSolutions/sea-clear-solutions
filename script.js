@@ -220,18 +220,25 @@ document.addEventListener("DOMContentLoaded", function () {
     return originalPrice;
 }
     
-    function updateShopPrices() {
-    document.querySelectorAll(".add-to-cart").forEach(btn => {
+  function updateShopPrices() {
+  document.querySelectorAll(".add-to-cart").forEach(btn => {
     const name = btn.dataset.name;
-    const originalPrice = parseInt(btn.dataset.price);
+    // Note: btn.dataset.price may already be changed by shop.html, but parseInt to be safe
+    const originalPrice = parseInt(btn.dataset.price) || parseInt(btn.dataset.originalPrice) || 0;
     const newPrice = isWholesale ? getWholesalePrice(name, originalPrice) : originalPrice;
+    // Update button dataset so addToCart reads correct price
     btn.dataset.price = newPrice;
 
-    const priceDisplay = btn.closest(".product")?.querySelector(".price");
-    if (priceDisplay) priceDisplay.textContent = `${newPrice.toLocaleString()} IDR`;
+    // Update visible price element in the product card
+    const priceDisplay = btn.closest(".product")?.querySelector(".product-price");
+    if (priceDisplay) {
+      priceDisplay.textContent = `${newPrice.toLocaleString()} IDR`;
+      // keep the data attribute in sync for other code that may read it
+      priceDisplay.dataset.currentPrice = newPrice;
+    }
   });
 }
-
+    
     document.addEventListener("click", handleOutsideClick);
     cartSidebar.addEventListener("click", toggleCart);
 
