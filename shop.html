@@ -168,7 +168,7 @@
 
     </div>
 
-   <script>
+  <script>
     document.addEventListener("DOMContentLoaded", function() {
       const discountInput = document.getElementById("discount-code");
       const discountButton = document.getElementById("apply-discount-btn");
@@ -196,14 +196,17 @@
           let price = parseInt(el.dataset.originalPrice);
           let discountedPrice = price;
     
+          // ✅ Wholesale codes
           if (code === "AMBASSADORS" || code === "SREPUBLIC" || code === "BDRESORT") {
             validCode = true;
-            if (name.includes("30ml")) discountedPrice = Math.round(price * 0.5 / 1000) * 1000;
-            else if (name.includes("60ml")) discountedPrice = Math.round(price * 0.5333 / 1000) * 1000;
-            else if (name.includes("100ml")) discountedPrice = Math.round(price * 0.5435 / 1000) * 1000;
-            else if (name.includes("250ml")) discountedPrice = Math.round(price * 0.5454 / 1000) * 1000;
-            else if (name.includes("500ml")) discountedPrice = Math.round(price * 0.6 / 1000) * 1000;
-          } else if (code === "DDIVERS") {
+            if (name.includes("30ml")) discountedPrice = 45000;
+            else if (name.includes("60ml")) discountedPrice = 80000;
+            else if (name.includes("100ml")) discountedPrice = 125000;
+            else if (name.includes("250ml")) discountedPrice = 300000;
+            else if (name.includes("500ml")) discountedPrice = 600000;
+          } 
+          // ✅ DDIVERS code
+          else if (code === "DDIVERS") {
             validCode = true;
             discountedPrice = Math.round(price * 0.5 / 1000) * 1000;
           }
@@ -212,7 +215,7 @@
           el.dataset.currentPrice = discountedPrice;
         });
     
-        // ✅ Show a confirmation message
+        // ✅ Show confirmation or error
         if (validCode) {
           localStorage.setItem("isWholesale", "true");
           discountMessage.textContent = "Discount code applied: " + code;
@@ -233,7 +236,7 @@
             btn.dataset.price = priceEl.dataset.currentPrice || priceEl.dataset.originalPrice;
           }
         });
-      } // <-- ✅ THIS was missing!
+      } // ✅ closing bracket restored
     });
     </script>
 </section>
