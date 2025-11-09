@@ -212,17 +212,32 @@
           el.dataset.currentPrice = discountedPrice; // store for cart use
         });
     
-        // ✅ Show a confirmation message
+       // ✅ Show a confirmation message
         if (validCode) {
+          // mark wholesale mode for the whole site
+          localStorage.setItem("isWholesale", "true");
+        
           discountMessage.textContent = "Discount code applied: " + code;
           discountMessage.style.color = "#146f77";
         } else {
+          // remove wholesale flag
+          localStorage.removeItem("isWholesale");
+        
           discountMessage.textContent = "Invalid code — showing regular prices.";
           discountMessage.style.color = "red";
           localStorage.removeItem("discountCode");
         }
-      }
-    });
+        
+        // --- sync Add-to-Cart buttons with updated displayed prices ---
+        const buttons = document.querySelectorAll(".add-to-cart");
+        buttons.forEach(btn => {
+          const product = btn.dataset.name;
+          const priceEl = document.querySelector(`.product-price[data-name="${product}"]`);
+          if (priceEl) {
+            btn.dataset.price = priceEl.dataset.currentPrice || priceEl.dataset.originalPrice;
+          }
+        });
+
     </script>
 </section>
 
