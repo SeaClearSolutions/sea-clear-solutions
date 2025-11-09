@@ -202,16 +202,17 @@
       const discountMessage = document.getElementById("discount-message");
     
       // helper used by both scripts: exact wholesale mapping
-      function getWholesalePrice(name, originalPrice) {
-        // exact prices you provided earlier (adjust if you want different)
-        if (name.includes("30ml")) return 45000;
-        if (name.includes("60ml")) return 80000;
-        if (name.includes("100ml")) return 125000;
-        if (name.includes("250ml")) return 300000;
-        if (name.includes("500ml")) return 600000;
-        // fallback: keep original
-        return originalPrice;
-      }
+     function getWholesalePrice(name, originalPrice) {
+      if (name.includes("30ml")) return 45000;
+      if (name.includes("60ml")) return 80000;
+      if (name.includes("100ml")) return 125000;
+      if (name.includes("250ml")) return 300000;
+      if (name.includes("500ml")) return 600000;
+      if (name.includes("1L")) return 1100000;   // ✅ your wholesale 1L price
+      if (name.includes("5L")) return 5000000;   // ✅ your wholesale 5L price
+      return originalPrice;
+    }
+
     
       // load saved code (if any) and apply it on page load
       let savedCode = localStorage.getItem("discountCode") || "";
