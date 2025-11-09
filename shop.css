@@ -580,30 +580,42 @@ nav.scrolled {
   box-sizing: border-box;
 }
 
-/* WHOLESALE CODE SECTION – PERFECTLY CENTERED + RESPONSIVE */
+/* WHOLESALE CODE SECTION — PERFECTLY CENTERED & BALANCED */
 #discount-section {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
   text-align: center;
-  margin: 60px auto 40px;
-  padding: 0 20px;
+  margin: 50px auto;
   max-width: 700px;
   color: #146f77;
   font-family: 'Poppins', sans-serif;
 }
 
-/* “Wholesale Code:” label text */
+/* Label */
 #discount-section label {
   display: block;
   font-weight: 600;
   font-size: 1rem;
   margin-bottom: 10px;
+  color: #146f77;
 }
 
-/* Input field centered with proper sizing */
+/* Center input + button horizontally */
+#discount-section form {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px; /* spacing between input and button */
+  flex-wrap: wrap; /* stack nicely on mobile */
+  width: 100%;
+}
+
+/* Input */
 #discount-section input[type="text"],
 #discount-section input {
-  display: inline-block;
   width: 220px;
-  max-width: 60%;
   padding: 10px 12px;
   border: 1.5px solid #146f77;
   border-radius: 6px;
@@ -611,7 +623,6 @@ nav.scrolled {
   color: #146f77;
   font-size: 0.95rem;
   text-align: center;
-  vertical-align: middle;
   transition: border-color 0.25s ease, box-shadow 0.25s ease;
 }
 
@@ -621,58 +632,56 @@ nav.scrolled {
   box-shadow: 0 0 0 2px rgba(52, 178, 174, 0.25);
 }
 
-/* “Apply” button aligned beside input */
+/* Apply button */
 #discount-section button,
 #discount-section input[type="submit"],
 #discount-section input[type="button"] {
-  display: inline-block;
-  margin-left: 10px;
-  padding: 10px 18px;
+  padding: 10px 20px;
   border: none;
   border-radius: 6px;
   background-color: #237778;
   color: #fffee1;
   font-weight: 600;
-  font-size: 0.95rem;
   cursor: pointer;
-  vertical-align: middle;
   transition: background-color 0.25s ease, transform 0.1s ease;
 }
 
-#discount-section button:hover,
-#discount-section input[type="submit"]:hover {
+#discount-section button:hover {
   background-color: #146f77;
   transform: translateY(-1px);
 }
 
-/* Discount message text */
-#discount-message,
-#discount-section p[id*="discount"] {
+/* Discount message */
+#discount-section p,
+#discount-message {
   margin-top: 15px;
+  color: #146f77;
   font-weight: 500;
-  color: #146f77;
 }
 
-/* Applied code text like “Discount code applied: BDRESORT” */
-#discount-section p {
-  margin-top: 15px;
-  color: #146f77;
-  font-size: 1rem;
-}
-
-/* Wholesale note (with link below input) */
-#discount-section .wholesale-note,
-#discount-section p.wholesale-note {
-  margin-top: 12px;
+/* Wholesale note below */
+#discount-section .wholesale-note {
+  margin-top: 10px;
   font-size: 0.9rem;
-  color: #146f77;
 }
 
-#discount-section .wholesale-note a,
-#discount-section .wholesale-note a:visited {
-  color: #237778;
+#discount-section .wholesale-note a {
+  color: #146f77;
   text-decoration: underline;
   font-weight: 500;
+}
+
+/* Mobile */
+@media (max-width: 600px) {
+  #discount-section form {
+    flex-direction: column;
+  }
+
+  #discount-section input[type="text"],
+  #discount-section button {
+    width: 80%;
+    max-width: 300px;
+  }
 }
 
 /* Make the whole section centered and stacked nicely on mobile */
